@@ -1,7 +1,6 @@
 package kardex.modelo;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,17 +9,37 @@ import java.sql.SQLException;
 public class Conexion
 {
     private Connection con;
-    private String direccion;
+    private String host;
     private String database;
     private String user;
     private String password;
 
-    public Conexion(String direccion, String database, String user, String password)
+    public Conexion(String host, String database, String user, String password)
     {
-        this.direccion = direccion;
+        this.host = host;
         this.database = database;
         this.user = user;
         this.password = password;
+    }
+
+    public Connection getCon()
+    {
+        return con;
+    }
+
+    public void setCon(Connection con)
+    {
+        this.con = con;
+    }
+
+    public String getHost()
+    {
+        return host;
+    }
+
+    public void setHost(String host)
+    {
+        this.host = host;
     }
 
     public String getDatabase()
@@ -58,26 +77,30 @@ public class Conexion
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://" + direccion + ":3306/" + database, user, password);
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://" + host + ":3306/" + database, user, password);
         }
         catch (ClassNotFoundException | SQLException ex)
         {
             System.out.println("Access denied for User: " + user + ", Password: " + password + ". Configure DB connection.");
         }
     }
-    
-    public ResultSet receive(String consulta) throws SQLException
+   
+    public ResultSet ejecutar(String comando, String [] data)
     {
-        ResultSet resultado = null;
-        Statement stat = (Statement) con.createStatement();
-        resultado = stat.executeQuery(consulta);
-        return resultado;
-    }
-    
-    public void send(String consulta) throws SQLException
-    {
-        PreparedStatement preparedStmt = con.prepareStatement(consulta);
-        preparedStmt.execute();
+        ResultSet rs = null;
+        try
+        {
+            PreparedStatement preparedStmt = con.prepareStatement(comando);
+            for(int i = 0; i < data.length; i++)
+                preparedStmt.setString(i + 1, data[i]);
+            rs = preparedStmt.executeQuery();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return rs;
     }
     
     public void desconectar()

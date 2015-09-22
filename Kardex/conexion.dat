@@ -1,0 +1,6 @@
+host=localhost
+bd=bd_kardex
+usuario=root
+password=123456
+
+No editar este archivo.
