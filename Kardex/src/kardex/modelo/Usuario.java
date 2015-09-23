@@ -108,7 +108,7 @@ public class Usuario
 
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = md5(?) AND UsrEstReg = 1", data, true);
+            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = MD5(?) AND UsrEstReg = 1", data, true);
             rs.next();
             if(rs.isLast())
             {
@@ -161,7 +161,8 @@ public class Usuario
         try
         {
             this.setUsrEstReg("3");
-            Kardex.con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE AlmCod = ?", new String[] {codigo}, false);
+            System.out.println("eliminar");
+            Kardex.con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {codigo}, false);
         }
         catch (SQLException ex)
         {

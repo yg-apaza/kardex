@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import kardex.controlador.CKardex;
+import kardex.modelo.Almacen;
 import kardex.modelo.Usuario;
 import kardex.vista.UIUsuario;
 
@@ -51,6 +52,7 @@ public class CUsuario implements IUsuario
         }
     }
     
+    @Override
     public void modificar(JTable tblRegistros)
     {
         int i = tblRegistros.getSelectedRow();
@@ -68,5 +70,23 @@ public class CUsuario implements IUsuario
         }
         else
             JOptionPane.showMessageDialog(null, "Seleccione un registro a modificar", "ERROR", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    @Override
+    public void eliminar(JTable tblRegistros)
+    {
+        int i = tblRegistros.getSelectedRow();
+        if(i != -1)
+        {
+            if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            {
+                DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+                Usuario u = usuarios.get(i);
+                u.eliminar(u.getUsrCod());
+                model.setValueAt("*", i, 6);
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
 }

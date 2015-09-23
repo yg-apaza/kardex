@@ -8,4 +8,5 @@ public interface IUsuario
     public void registrar();
     public void cargar(JTable tblRegistros);
     public void modificar(JTable tblRegistros);
+    public void eliminar(JTable tblRegistros);
 }

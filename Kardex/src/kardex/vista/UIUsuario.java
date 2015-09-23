@@ -270,7 +270,7 @@ public class UIUsuario extends javax.swing.JFrame
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarActionPerformed
     {//GEN-HEADEREND:event_btnEliminarActionPerformed
-        //interfaz.eliminar(tblRegistros, chActivar);
+        interfaz.eliminar(tblRegistros);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
