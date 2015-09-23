@@ -3,7 +3,7 @@ package kardex.controlador;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import kardex.vista.UIKardex;
-import kardex.Kardex;
+import static kardex.Kardex.user;
 import kardex.controlador.almacen.CAlmacen;
 import kardex.controlador.unidad.CUnidad;
 import kardex.controlador.usuario.CUsuario;
@@ -26,10 +26,10 @@ public class CKardex implements IKardex
     @Override
     public void cargar(JTextField txtNombre, JTextField txtDni, JButton btnUsuario, JButton btnExistencia, JButton btnEntrada, JButton btnSalida)
     {
-        txtNombre.setText(Kardex.user.getUsrNom() + " " + Kardex.user.getUsrApe());
-        txtDni.setText("DNI Nº " + Kardex.user.getUsrDni());
+        txtNombre.setText(user.getUsrNom() + " " + user.getUsrApe());
+        txtDni.setText("DNI Nº " + user.getUsrDni());
         
-        if(Kardex.user.getUsrPer().equals("0"))
+        if(user.getUsrPer().equals("0"))
         {
             btnUsuario.setEnabled(false);
             btnExistencia.setEnabled(false);

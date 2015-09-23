@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import kardex.controlador.CKardex;
-import kardex.modelo.Almacen;
 import kardex.modelo.Usuario;
 import kardex.vista.UIUsuario;
 

@@ -1,6 +1,5 @@
 package kardex.controlador.usuario;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;

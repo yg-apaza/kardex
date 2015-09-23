@@ -3,7 +3,8 @@ package kardex.controlador;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import kardex.Kardex;
+import static kardex.Kardex.user;
+import static kardex.Kardex.con;
 import kardex.modelo.Usuario;
 import kardex.vista.UILogin;
 
@@ -22,7 +23,7 @@ public class CLogin implements ILogin
         Usuario u = Usuario.validar(txtUsuario.getText(), String.valueOf(txtPass.getPassword()));
         if(u != null)
         {
-            Kardex.user = u;
+            user = u;
             CKardex k = new CKardex();
             ventana.dispose();
         }
@@ -34,6 +35,6 @@ public class CLogin implements ILogin
     public void salir()
     {
         ventana.dispose();
-        Kardex.con.desconectar();
+        con.desconectar();
     }
 }
