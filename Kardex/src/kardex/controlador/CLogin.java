@@ -30,6 +30,7 @@ public class CLogin implements ILogin
             JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE, null);
     }
     
+    @Override
     public void salir()
     {
         ventana.dispose();

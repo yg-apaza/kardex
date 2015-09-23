@@ -5,6 +5,7 @@ import javax.swing.JTextField;
 import kardex.vista.UIKardex;
 import kardex.Kardex;
 import kardex.controlador.almacen.CAlmacen;
+import kardex.controlador.unidad.CUnidad;
 import kardex.controlador.usuario.CUsuario;
 
 public class CKardex implements IKardex
@@ -16,11 +17,13 @@ public class CKardex implements IKardex
         ventana = new UIKardex(this);
     }
     
+    @Override
     public void almacen()
     {
         CAlmacen almacen = new CAlmacen();
         ventana.dispose();
     }
+    @Override
     public void cargar(JTextField txtNombre, JTextField txtDni, JButton btnUsuario, JButton btnExistencia, JButton btnEntrada, JButton btnSalida)
     {
         txtNombre.setText(Kardex.user.getUsrNom() + " " + Kardex.user.getUsrApe());
@@ -35,15 +38,24 @@ public class CKardex implements IKardex
         }
     }
     
+    @Override
     public void cerrarSesion()
     {
         CLogin login = new CLogin();
         ventana.dispose();
     }
     
+    @Override
     public void usuario()
     {
         CUsuario usuario = new CUsuario();
+        ventana.dispose();
+    }
+    
+    @Override
+    public void unidad()
+    {
+        CUnidad unidad = new CUnidad();
         ventana.dispose();
     }
 }

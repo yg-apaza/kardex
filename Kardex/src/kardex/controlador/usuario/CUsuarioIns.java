@@ -18,17 +18,20 @@ public class CUsuarioIns implements IUsuarioIns
         ventana = new UIUsuarioIns(this);
     }
     
+    @Override
     public void cancelar()
     {
         CUsuario usuario = new CUsuario();
         ventana.dispose();
     }
     
+    @Override
     public void cargar(JTextField txtUsrCod)
     {
         txtUsrCod.setText(Usuario.sgteCodigo());
     }
     
+    @Override
     public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin)
     {
         Usuario u = new Usuario(txtUsrCod.getText(),

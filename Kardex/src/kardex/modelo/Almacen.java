@@ -3,7 +3,7 @@ package kardex.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import kardex.Kardex;
+import static kardex.Kardex.con;
 
 public class Almacen
 {
@@ -67,30 +67,28 @@ public class Almacen
     
     public String insertar()
     {
-        String err = "";
         try
         {
-            Kardex.con.ejecutar("INSERT INTO ALMACEN VALUES(DEFAULT, ?, ?, ?)", new String[] {AlmNom, AlmUbi, AlmEstReg}, false);
+            con.ejecutar("INSERT INTO ALMACEN VALUES(DEFAULT, ?, ?, ?)", new String[] {AlmNom, AlmUbi, AlmEstReg}, false);
         }
         catch (SQLException ex)
         {
-            err = ex.getMessage();
+            return ex.getMessage();
         }
-        return err;
+        return "";
     }
     
     public String modificar(String codigo)
     {
-        String err = "";
         try
         {
-            Kardex.con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {AlmNom, AlmUbi, codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {AlmNom, AlmUbi, codigo}, false);
         }
         catch (SQLException ex)
         {
-            err = ex.getMessage();
+            return ex.getMessage();
         }
-        return err;
+        return "";
     }
     
     public String eliminar(String codigo)
@@ -98,7 +96,7 @@ public class Almacen
         try
         {
             this.setAlmEstReg("3");
-            Kardex.con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {codigo}, false);
         }
         catch (SQLException ex)
         {
@@ -112,15 +110,13 @@ public class Almacen
         ArrayList<Almacen> almacenes = new ArrayList<> ();
         try
         {
-            ResultSet resultado = Kardex.con.ejecutar("SELECT * FROM ALMACEN ORDER BY AlmEstReg ASC, AlmCod ASC", null, true);
-            
-            while(resultado.next())
+            ResultSet rs = con.ejecutar("SELECT * FROM ALMACEN ORDER BY AlmEstReg ASC, AlmCod ASC", null, true);
+            while(rs.next())
             {
-                String codigo = resultado.getString("AlmCod");
-                String nombre = resultado.getString("AlmNom");
-                String ubicacion = resultado.getString("AlmUbi");
-                String estado = resultado.getString("AlmEstReg");
-                
+                String codigo = rs.getString("AlmCod");
+                String nombre = rs.getString("AlmNom");
+                String ubicacion = rs.getString("AlmUbi");
+                String estado = rs.getString("AlmEstReg");
                 Almacen almacen = new Almacen(codigo, nombre, ubicacion, estado);
                 almacenes.add(almacen);
             }
@@ -138,7 +134,7 @@ public class Almacen
         try
         {
             this.setAlmEstReg("1");
-            Kardex.con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {codigo}, false);
         }
         catch (SQLException ex)
         {
@@ -152,7 +148,7 @@ public class Almacen
         try
         {
             this.setAlmEstReg("2");
-            Kardex.con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {codigo}, false);
         }
         catch (SQLException ex)
         {
@@ -166,13 +162,13 @@ public class Almacen
         Almacen a = null;
         try
         {
-            ResultSet resultado = Kardex.con.ejecutar("SELECT * FROM ALMACEN WHERE AlmCod = ?", new String[] {codigo}, true);
-            resultado.next();
+            ResultSet rs = con.ejecutar("SELECT * FROM ALMACEN WHERE AlmCod = ?", new String[] {codigo}, true);
+            rs.next();
             a = new Almacen();
-            a.setAlmCod(resultado.getString("AlmCod"));
-            a.setAlmNom(resultado.getString("AlmNom"));
-            a.setAlmUbi(resultado.getString("AlmUbi"));
-            a.setAlmEstReg(resultado.getString("AlmEstReg"));
+            a.setAlmCod(rs.getString("AlmCod"));
+            a.setAlmNom(rs.getString("AlmNom"));
+            a.setAlmUbi(rs.getString("AlmUbi"));
+            a.setAlmEstReg(rs.getString("AlmEstReg"));
         }
         catch (SQLException ex)
         {
@@ -186,12 +182,12 @@ public class Almacen
         ArrayList<ArrayList<String>> almacenes = new ArrayList<>();
         try
         {
-            ResultSet resultado = Kardex.con.ejecutar("SELECT AlmCod, AlmNom FROM ALMACEN WHERE AlmEstReg = 1", null, true);
+            ResultSet rs = con.ejecutar("SELECT AlmCod, AlmNom FROM ALMACEN WHERE AlmEstReg = 1", null, true);
             ArrayList<String> data = new ArrayList<>();
-            while(resultado.next())
+            while(rs.next())
             {
-                String codigo = resultado.getString("AlmCod");
-                String nombre = resultado.getString("AlmNom");
+                String codigo = rs.getString("AlmCod");
+                String nombre = rs.getString("AlmNom");
                 data.add(codigo);
                 data.add(nombre);
                 almacenes.add(data);
@@ -208,18 +204,17 @@ public class Almacen
     
     public static String sgteCodigo()
     {
-        String c = "000000";
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM ALMACEN), 6, '0') AS nextCod", null, true);
+            ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM ALMACEN), 6, '0') AS nextCod", null, true);
             rs.next();
-            c = rs.getString("nextCod");
+            return rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             ex.printStackTrace();
         }
-        return c;
+        return "000000";
     }
     
     /*

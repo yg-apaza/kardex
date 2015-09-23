@@ -3,7 +3,7 @@ package kardex.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import kardex.Kardex;
+import static kardex.Kardex.con;
 
 public class Usuario
 {
@@ -101,14 +101,12 @@ public class Usuario
         this.UsrEstReg = UsrEstReg;
     }
     
-    public static Usuario validar(String usr, String con)
+    public static Usuario validar(String usr, String pass)
     {
         Usuario user = null;
-        String[] data = {usr, con};
-
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = MD5(?) AND UsrEstReg = 1", data, true);
+            ResultSet rs = con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = MD5(?) AND UsrEstReg = 1", new String[] {usr, pass}, true);
             rs.next();
             if(rs.isLast())
             {
@@ -130,30 +128,28 @@ public class Usuario
     
     public String insertar(String pass)
     {
-        String err = "";
         try
         {
-            Kardex.con.ejecutar("INSERT INTO USUARIO VALUES(DEFAULT, ?, MD5(?), ?, ?, ?, ?, ?)", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrEstReg}, false);
+            con.ejecutar("INSERT INTO USUARIO VALUES(DEFAULT, ?, MD5(?), ?, ?, ?, ?, ?)", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrEstReg}, false);
         }
         catch (SQLException ex)
         {
-            err = ex.getMessage();
+            return ex.getMessage();
         }
-        return err;
+        return "";
     }
     
     public String modificar(String codigo, String pass)
     {
-        String err = "";
         try
         {
-            Kardex.con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
         }
         catch (SQLException ex)
         {
-            err = ex.getMessage();
+            return ex.getMessage();
         }
-        return err;
+        return "";
     }
     
     public String eliminar(String codigo)
@@ -161,8 +157,7 @@ public class Usuario
         try
         {
             this.setUsrEstReg("3");
-            System.out.println("eliminar");
-            Kardex.con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {codigo}, false);
         }
         catch (SQLException ex)
         {
@@ -176,7 +171,7 @@ public class Usuario
         ArrayList<Usuario> usuarios = new ArrayList<> ();
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO ORDER BY UsrEstReg ASC, UsrCod ASC", null, true);
+            ResultSet rs = con.ejecutar("SELECT * FROM USUARIO ORDER BY UsrEstReg ASC, UsrCod ASC", null, true);
             
             while(rs.next())
             {
@@ -205,7 +200,7 @@ public class Usuario
         Usuario u = null;
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrCod = ?", new String[] {codigo}, true);
+            ResultSet rs = con.ejecutar("SELECT * FROM USUARIO WHERE UsrCod = ?", new String[] {codigo}, true);
             rs.next();
             u = new Usuario();
             u.setUsrCod(rs.getString("UsrCod"));
@@ -225,18 +220,16 @@ public class Usuario
     
     public static String sgteCodigo()
     {
-        String c = "000000";
         try
         {
-            ResultSet rs = Kardex.con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM USUARIO), 6, '0') AS nextCod", null, true);
+            ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM USUARIO), 6, '0') AS nextCod", null, true);
             rs.next();
-            c = rs.getString("nextCod");
+            return rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             ex.printStackTrace();
         }
-        return c;
+        return "000000";
     }
-    
 }

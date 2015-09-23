@@ -9,4 +9,5 @@ public interface IKardex
     public void cerrarSesion();
     public void almacen();
     public void usuario();
+    public void unidad();
 }
