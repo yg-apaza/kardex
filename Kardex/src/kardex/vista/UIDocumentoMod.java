@@ -169,7 +169,7 @@ public class UIDocumentoMod extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtDocCod, this.txtDocNom);
+        interfaz.aceptar(this.txtDocNom);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

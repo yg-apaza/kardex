@@ -9,9 +9,11 @@ public class CDocumentoMod implements IDocumentoMod
 {
     private UIDocumentoMod ventana;
     private String codigo;
+    private Documento d;
     
     public CDocumentoMod(String codigo)
     {
+        d = Documento.buscar(codigo);
         this.codigo = codigo;
         ventana = new UIDocumentoMod(this);
     }
@@ -19,7 +21,6 @@ public class CDocumentoMod implements IDocumentoMod
     @Override
     public void cargar(JTextField txtDocCod, JTextField txtDocNom)
     {
-        Documento d = Documento.buscar(codigo);
         txtDocCod.setText(d.getDocCod());
         txtDocNom.setText(d.getDocNom());
     }
@@ -32,10 +33,10 @@ public class CDocumentoMod implements IDocumentoMod
     }
     
     @Override
-    public void aceptar(JTextField txtDocCod, JTextField txtDocNom)
+    public void aceptar(JTextField txtDocNom)
     {
-        Documento d = new Documento(txtDocCod.getText(), txtDocNom.getText(), "1");
-        String err = d.modificar(this.codigo);
+        d.setDocNom(txtDocNom.getText());
+        String err = d.modificar();
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);

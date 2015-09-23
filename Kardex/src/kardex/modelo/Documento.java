@@ -66,11 +66,11 @@ public class Documento
         return "";
     }
     
-    public String modificar(String codigo)
+    public String modificar()
     {
         try
         {
-            con.ejecutar("UPDATE DOCUMENTO SET DocNom = ? WHERE DocCod = ?", new String[] {DocNom, codigo}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocNom = ? WHERE DocCod = ?", new String[] {DocNom, DocCod}, false);
         }
         catch (SQLException ex)
         {
@@ -79,12 +79,12 @@ public class Documento
         return "";
     }
     
-    public String eliminar(String codigo)
+    public String eliminar()
     {
         try
         {
             this.setDocEstReg("3");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 3 WHERE DocCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 3 WHERE DocCod = ?", new String[] {DocCod}, false);
         }
         catch (SQLException ex)
         {
@@ -115,12 +115,12 @@ public class Documento
         return documentos;
     }   
 
-    public String activar(String codigo)
+    public String activar()
     {
         try
         {
             this.setDocEstReg("1");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 1 WHERE DocCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 1 WHERE DocCod = ?", new String[] {DocCod}, false);
         }
         catch (SQLException ex)
         {
@@ -129,12 +129,12 @@ public class Documento
         return "";
     }
     
-    public String desactivar(String codigo)
+    public String desactivar()
     {
         try
         {
             this.setDocEstReg("2");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 2 WHERE DocCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 2 WHERE DocCod = ?", new String[] {DocCod}, false);
         }
         catch (SQLException ex)
         {

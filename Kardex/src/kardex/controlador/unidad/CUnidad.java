@@ -83,6 +83,18 @@ public class CUnidad implements IUnidad
     @Override
     public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar)
     {
-        
+        int i = tblRegistros.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+        Unidad u = unidades.get(i);
+        if(chActivar.isSelected())
+        {
+            u.activar();
+            model.setValueAt("A", i, 2);
+        }
+        else
+        {
+            u.desactivar();
+            model.setValueAt("I", i, 2);
+        }
     }
 }

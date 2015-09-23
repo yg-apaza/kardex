@@ -66,11 +66,11 @@ public class Unidad
         return "";
     }
     
-    public String modificar(String codigo)
+    public String modificar()
     {
         try
         {
-            con.ejecutar("UPDATE UNIDAD SET UniDes = ? WHERE UniCod = ?", new String[] {UniDes, codigo}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniDes = ? WHERE UniCod = ?", new String[] {UniDes, UniCod}, false);
         }
         catch (SQLException ex)
         {
@@ -79,12 +79,12 @@ public class Unidad
         return "";
     }
     
-    public String eliminar(String codigo)
+    public String eliminar()
     {
         try
         {
             this.setUniEstReg("3");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 3 WHERE UniCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 3 WHERE UniCod = ?", new String[] {UniCod}, false);
         }
         catch (SQLException ex)
         {
@@ -115,12 +115,12 @@ public class Unidad
         return unidades;
     }
     
-    public String activar(String codigo)
+    public String activar()
     {
         try
         {
             this.setUniEstReg("1");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 1 WHERE UniCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 1 WHERE UniCod = ?", new String[] {UniCod}, false);
         }
         catch (SQLException ex)
         {
@@ -129,12 +129,12 @@ public class Unidad
         return "";
     }
     
-    public String desactivar(String codigo)
+    public String desactivar()
     {
         try
         {
             this.setUniEstReg("2");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 2 WHERE UniCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 2 WHERE UniCod = ?", new String[] {UniCod}, false);
         }
         catch (SQLException ex)
         {

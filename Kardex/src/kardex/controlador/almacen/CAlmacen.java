@@ -115,14 +115,20 @@ public class CAlmacen implements IAlmacen
         int i = tblRegistros.getSelectedRow();
         if(i != -1)
         {
-            if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            Almacen a = almacenes.get(i);
+            if(!a.getAlmEstReg().equals("3"))
             {
-                DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
-                Almacen a = almacenes.get(i);
-                a.eliminar();
-                model.setValueAt("*", i, 3);
-                est.setEnabled(false);
+                if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                {
+                    DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+
+                    a.eliminar();
+                    model.setValueAt("*", i, 3);
+                    est.setEnabled(false);
+                }
             }
+            else
+                JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         else
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);

@@ -77,13 +77,19 @@ public class CUsuario implements IUsuario
         int i = tblRegistros.getSelectedRow();
         if(i != -1)
         {
-            if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            Usuario u = usuarios.get(i);
+            if(!u.getUsrEstReg().equals("3"))
             {
-                DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
-                Usuario u = usuarios.get(i);
-                u.eliminar();
-                model.setValueAt("*", i, 6);
+                if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                {
+                    DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+
+                    u.eliminar();
+                    model.setValueAt("*", i, 6);
+                }
             }
+            else
+                JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         else
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);

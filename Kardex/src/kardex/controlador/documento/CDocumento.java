@@ -98,14 +98,19 @@ public class CDocumento implements IDocumento
         int i = tblRegistros.getSelectedRow();
         if(i != -1)
         {
-            if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            Documento d = documentos.get(i);
+            if(!d.getDocEstReg().equals("3"))
             {
-                DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
-                Documento d = documentos.get(i);
-                d.eliminar(d.getDocCod());
-                model.setValueAt("*", i, 2);
-                chActivar.setEnabled(false);
+                if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                {
+                    DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+                    d.eliminar();
+                    model.setValueAt("*", i, 2);
+                    chActivar.setEnabled(false);
+                }
             }
+            else
+                JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         else
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -119,13 +124,13 @@ public class CDocumento implements IDocumento
         Documento d = documentos.get(i);
         if(chActivar.isSelected())
         {
-            d.activar(d.getDocCod());
-            model.setValueAt("A", i, 3);
+            d.activar();
+            model.setValueAt("A", i, 2);
         }
         else
         {
-            d.desactivar(d.getDocCod());
-            model.setValueAt("I", i, 3);
+            d.desactivar();
+            model.setValueAt("I", i, 2);
         }
     }
 }
