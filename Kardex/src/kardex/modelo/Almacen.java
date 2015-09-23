@@ -3,6 +3,8 @@ package kardex.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kardex.Kardex;
 
 public class Almacen
@@ -107,7 +109,7 @@ public class Almacen
         return "";
     }
     
-    public ArrayList<Almacen> getLista()
+    public static ArrayList<Almacen> getLista()
     {
         ArrayList<Almacen> almacenes = new ArrayList<> ();
         try
@@ -161,24 +163,27 @@ public class Almacen
         return "";
     }
     
-    public void buscar(String codigo)
+    public static Almacen buscar(String codigo)
     {
+        Almacen a = null;
         try
         {
             ResultSet resultado = Kardex.con.ejecutar("SELECT * FROM ALMACEN WHERE AlmCod = ?", new String[] {codigo}, true);
             resultado.next();
-            this.setAlmCod(resultado.getString("AlmCod"));
-            this.setAlmNom(resultado.getString("AlmNom"));
-            this.setAlmUbi(resultado.getString("AlmUbi"));
-            this.setAlmEstReg(resultado.getString("AlmEstReg"));
+            a = new Almacen();
+            a.setAlmCod(resultado.getString("AlmCod"));
+            a.setAlmNom(resultado.getString("AlmNom"));
+            a.setAlmUbi(resultado.getString("AlmUbi"));
+            a.setAlmEstReg(resultado.getString("AlmEstReg"));
         }
         catch (SQLException ex)
         {
             ex.printStackTrace();
         }
+        return a;
     }
     
-    public ArrayList<ArrayList<String>> getActivos()
+    public static ArrayList<ArrayList<String>> getActivos()
     {
         ArrayList<ArrayList<String>> almacenes = new ArrayList<>();
         try
@@ -201,6 +206,22 @@ public class Almacen
         }
         
         return almacenes;
+    }
+    
+    public static String sgteCodigo()
+    {
+        String c = "0";
+        try
+        {
+            ResultSet rs = Kardex.con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM ALMACEN), 6, '0') AS nextCod", null, true);
+            rs.next();
+            c = rs.getString("nextCod");
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return c;
     }
     
     /*

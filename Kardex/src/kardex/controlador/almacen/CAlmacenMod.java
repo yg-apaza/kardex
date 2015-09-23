@@ -3,29 +3,34 @@ package kardex.controlador.almacen;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import kardex.modelo.Almacen;
-import kardex.vista.UIAlmacenIns;
+import kardex.vista.UIAlmacenMod;
 
-public class CAlmacenIns implements IAlmacenIns
+public class CAlmacenMod implements IAlmacenMod
 {
-    private UIAlmacenIns ventana;
+    private UIAlmacenMod ventana;
+    private String codigo;
     
-    public CAlmacenIns()
+    public CAlmacenMod(String codigo)
     {
-        ventana = new UIAlmacenIns(this);
+        this.codigo = codigo;
+        ventana = new UIAlmacenMod(this);
     }
     
-    public void cargar(JTextField txtAlmCod)
+    public void cargar(JTextField txtAlmCod, JTextField txtAlmNom, JTextField txtAlmUbi)
     {
-        txtAlmCod.setText(Almacen.sgteCodigo());
+        Almacen a = Almacen.buscar(codigo);
+        txtAlmCod.setText(a.getAlmCod());
+        txtAlmNom.setText(a.getAlmNom());
+        txtAlmUbi.setText(a.getAlmUbi());
     }
     
     public void aceptar(JTextField txtAlmCod, JTextField txtAlmNom, JTextField txtAlmUbi)
     {
         Almacen a = new Almacen(txtAlmCod.getText(), txtAlmNom.getText(), txtAlmUbi.getText(), "1");
-        String err = a.insertar();
+        String err = a.actualizar(this.codigo);
         if(err.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
             CAlmacen inicio = new CAlmacen();
             ventana.dispose();
         }

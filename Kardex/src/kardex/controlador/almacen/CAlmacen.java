@@ -2,6 +2,7 @@ package kardex.controlador.almacen;
 
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import kardex.controlador.CKardex;
@@ -15,7 +16,7 @@ public class CAlmacen implements IAlmacen
     
     public CAlmacen()
     {
-        almacenes = (new Almacen()).getLista();
+        almacenes = Almacen.getLista();
         ventana = new UIAlmacen(this);
     }
     
@@ -68,6 +69,20 @@ public class CAlmacen implements IAlmacen
 
     public void modificar(JTable tblRegistros)
     {
-        
+        int i = tblRegistros.getSelectedRow();
+        if(i != -1)
+        {
+            Almacen a = almacenes.get(i);
+            CAlmacenMod modificar;
+            if(a.getAlmEstReg().equals("1"))
+            {
+                modificar = new CAlmacenMod(a.getAlmCod());
+                ventana.dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Solo se permite modificar registros activos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a modificar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
 }
