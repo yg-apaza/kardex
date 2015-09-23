@@ -14,6 +14,13 @@ public class UIUsuarioMod extends javax.swing.JFrame
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
+        interfaz.cargar(this.txtUsrCod,
+                        this.txtUsrIde,
+                        this.txtDNI,
+                        this.txtUsrNom,
+                        this.txtUsrApe,
+                        this.rbAdmin,
+                        this.rbUsuario);
     }
 
     @SuppressWarnings("unchecked")
@@ -298,7 +305,7 @@ public class UIUsuarioMod extends javax.swing.JFrame
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAceptarActionPerformed
     {//GEN-HEADEREND:event_btnAceptarActionPerformed
-        //interfaz.aceptar(this.txtUsrCod, this.txtUsrIde, this.txtAlmUbi);
+        interfaz.aceptar(this.txtUsrCod, this.txtUsrIde, this.txtCon, this.txtRepCon, this.txtDNI, this.txtUsrNom, this.txtUsrApe, this.rbAdmin);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCancelarActionPerformed

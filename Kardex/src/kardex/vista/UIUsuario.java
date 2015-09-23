@@ -265,7 +265,7 @@ public class UIUsuario extends javax.swing.JFrame
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnModificarActionPerformed
     {//GEN-HEADEREND:event_btnModificarActionPerformed
-        //interfaz.modificar(tblRegistros);
+        interfaz.modificar(tblRegistros);
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarActionPerformed

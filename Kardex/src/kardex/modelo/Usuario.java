@@ -147,7 +147,7 @@ public class Usuario
         String err = "";
         try
         {
-            Kardex.con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE AlmCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
+            Kardex.con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
         }
         catch (SQLException ex)
         {
@@ -197,6 +197,29 @@ public class Usuario
         }
         
         return usuarios;
+    }
+    
+    public static Usuario buscar(String codigo)
+    {
+        Usuario u = null;
+        try
+        {
+            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrCod = ?", new String[] {codigo}, true);
+            rs.next();
+            u = new Usuario();
+            u.setUsrCod(rs.getString("UsrCod"));
+            u.setUsrIde(rs.getString("UsrIde"));
+            u.setUsrDni(rs.getString("UsrDni"));
+            u.setUsrNom(rs.getString("UsrNom"));
+            u.setUsrApe(rs.getString("UsrApe"));
+            u.setUsrPer(rs.getString("UsrPer"));
+            u.setUsrEstReg(rs.getString("UsrEstReg"));
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return u;
     }
     
     public static String sgteCodigo()

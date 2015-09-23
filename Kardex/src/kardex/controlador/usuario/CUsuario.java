@@ -1,6 +1,7 @@
 package kardex.controlador.usuario;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import kardex.controlador.CKardex;
@@ -48,5 +49,24 @@ public class CUsuario implements IUsuario
                                         usuarios.get(i).getUsrPer().equals("1")?"Administrador":"Usuario",
                                         usuarios.get(i).getUsrEstReg().equals("1")?"A":(usuarios.get(i).getUsrEstReg().equals("2")?"I":"*")});
         }
+    }
+    
+    public void modificar(JTable tblRegistros)
+    {
+        int i = tblRegistros.getSelectedRow();
+        if(i != -1)
+        {
+            Usuario u = usuarios.get(i);
+            CUsuarioMod modificar;
+            if(u.getUsrEstReg().equals("1"))
+            {
+                modificar = new CUsuarioMod(u.getUsrCod());
+                ventana.dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Solo se permite modificar registros activos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a modificar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
 }

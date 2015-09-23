@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import kardex.controlador.almacen.CAlmacen;
 import kardex.modelo.Usuario;
 import kardex.vista.UIUsuarioIns;
 
@@ -30,15 +29,15 @@ public class CUsuarioIns implements IUsuarioIns
         txtUsrCod.setText(Usuario.sgteCodigo());
     }
     
-    public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, ButtonGroup grpPermisos, JRadioButton rbAdmin)
+    public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin)
     {
         Usuario u = new Usuario(txtUsrCod.getText(),
                                 txtUsrIde.getText(),
                                 txtDNI.getText(),
                                 txtUsrNom.getText(),
                                 txtUsrApe.getText(),
-                                grpPermisos.isSelected(rbAdmin.getModel())?"1":"0",
-                                "1" );
+                                rbAdmin.isSelected()?"1":"0",
+                                "1");
         
         if(String.valueOf(txtRepCon.getPassword()).equals(String.valueOf(txtCon.getPassword())))
         {
