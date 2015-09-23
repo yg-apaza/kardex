@@ -56,6 +56,7 @@ public class UIUsuario extends javax.swing.JFrame
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
             public void windowClosing(java.awt.event.WindowEvent evt)
@@ -95,7 +96,7 @@ public class UIUsuario extends javax.swing.JFrame
             },
             new String []
             {
-                "Codigo", "Nombre de usuario", "DNI", "Nombres", "Apellidos", "Permisos", "Estado"
+                "Codigo", "Identificador", "DNI", "Nombres", "Apellidos", "Permisos", "Estado"
             }
         )
         {
@@ -122,15 +123,15 @@ public class UIUsuario extends javax.swing.JFrame
         jScrollPane1.setViewportView(tblRegistros);
         if (tblRegistros.getColumnModel().getColumnCount() > 0)
         {
-            tblRegistros.getColumnModel().getColumn(0).setMinWidth(70);
-            tblRegistros.getColumnModel().getColumn(0).setPreferredWidth(70);
-            tblRegistros.getColumnModel().getColumn(0).setMaxWidth(70);
-            tblRegistros.getColumnModel().getColumn(2).setMinWidth(70);
-            tblRegistros.getColumnModel().getColumn(2).setPreferredWidth(70);
-            tblRegistros.getColumnModel().getColumn(2).setMaxWidth(70);
-            tblRegistros.getColumnModel().getColumn(5).setMinWidth(70);
-            tblRegistros.getColumnModel().getColumn(5).setPreferredWidth(70);
-            tblRegistros.getColumnModel().getColumn(5).setMaxWidth(70);
+            tblRegistros.getColumnModel().getColumn(0).setMinWidth(50);
+            tblRegistros.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tblRegistros.getColumnModel().getColumn(0).setMaxWidth(50);
+            tblRegistros.getColumnModel().getColumn(2).setMinWidth(60);
+            tblRegistros.getColumnModel().getColumn(2).setPreferredWidth(60);
+            tblRegistros.getColumnModel().getColumn(2).setMaxWidth(60);
+            tblRegistros.getColumnModel().getColumn(5).setMinWidth(80);
+            tblRegistros.getColumnModel().getColumn(5).setPreferredWidth(80);
+            tblRegistros.getColumnModel().getColumn(5).setMaxWidth(80);
             tblRegistros.getColumnModel().getColumn(6).setMinWidth(50);
             tblRegistros.getColumnModel().getColumn(6).setPreferredWidth(50);
             tblRegistros.getColumnModel().getColumn(6).setMaxWidth(50);

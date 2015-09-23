@@ -32,9 +32,7 @@ public class CAlmacenIns implements IAlmacenIns
             ventana.dispose();
         }
         else
-        {
             JOptionPane.showMessageDialog(null, err, "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
     }
     
     @Override

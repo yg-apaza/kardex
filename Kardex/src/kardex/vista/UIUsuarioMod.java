@@ -1,20 +1,19 @@
 package kardex.vista;
 
-import kardex.controlador.usuario.IUsuarioIns;
+import kardex.controlador.usuario.IUsuarioMod;
 
-public class UIUsuarioIns extends javax.swing.JFrame
+public class UIUsuarioMod extends javax.swing.JFrame
 {
-    private IUsuarioIns interfaz;
+    private IUsuarioMod interfaz;
     
-    public UIUsuarioIns(IUsuarioIns interfaz)
+    public UIUsuarioMod(IUsuarioMod interfaz)
     {
         initComponents();
         this.setVisible(true);
-        this.setTitle("Registrar Usuario");
+        this.setTitle("Modificar Usuario");
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
-        interfaz.cargar(this.txtUsrCod);
     }
 
     @SuppressWarnings("unchecked")
@@ -106,7 +105,7 @@ public class UIUsuarioIns extends javax.swing.JFrame
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo2.setText("INSERTAR");
+        lblTitulo2.setText("MODIFICAR");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -299,7 +298,7 @@ public class UIUsuarioIns extends javax.swing.JFrame
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAceptarActionPerformed
     {//GEN-HEADEREND:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtUsrCod, this.txtUsrIde, this.txtCon, this.txtRepCon, this.txtDNI, this.txtUsrNom, this.txtUsrApe, this.grpPermisos, this.rbAdmin);
+        //interfaz.aceptar(this.txtUsrCod, this.txtUsrIde, this.txtAlmUbi);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCancelarActionPerformed
