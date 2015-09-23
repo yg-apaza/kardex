@@ -32,9 +32,23 @@ public class UILogin extends javax.swing.JFrame
         btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        itmConfig = new javax.swing.JMenuItem();
+        itmSalir = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        itmManual = new javax.swing.JMenuItem();
+        itmAcerca = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,6 +108,13 @@ public class UILogin extends javax.swing.JFrame
 
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,6 +153,37 @@ public class UILogin extends javax.swing.JFrame
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jMenu1.setText("Archivo");
+
+        itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
+        itmConfig.setText("Configuración");
+        jMenu1.add(itmConfig);
+
+        itmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/salir.png"))); // NOI18N
+        itmSalir.setText("Salir");
+        itmSalir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                itmSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itmSalir);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Ayuda");
+
+        itmManual.setText("Ver manual");
+        jMenu2.add(itmManual);
+
+        itmAcerca.setText("Acerca de");
+        jMenu2.add(itmAcerca);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,13 +219,35 @@ public class UILogin extends javax.swing.JFrame
         interfaz.validar(this.txtUsuario, this.txtPass);
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirActionPerformed
+    {//GEN-HEADEREND:event_btnSalirActionPerformed
+        interfaz.salir();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        interfaz.salir();
+    }//GEN-LAST:event_formWindowClosing
+
+    private void itmSalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmSalirActionPerformed
+    {//GEN-HEADEREND:event_itmSalirActionPerformed
+        interfaz.salir();
+    }//GEN-LAST:event_itmSalirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JMenuItem itmAcerca;
+    private javax.swing.JMenuItem itmConfig;
+    private javax.swing.JMenuItem itmManual;
+    private javax.swing.JMenuItem itmSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -2,8 +2,6 @@ package kardex.modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import kardex.Kardex;
 
 public class Usuario
@@ -106,10 +104,10 @@ public class Usuario
     {
         Usuario user = null;
         String[] data = {usr, con};
-        ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = md5(?) AND UsrEstReg = 1", data);
 
         try
         {
+            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = md5(?) AND UsrEstReg = 1", data, true);
             rs.next();
             if(rs.isLast())
             {

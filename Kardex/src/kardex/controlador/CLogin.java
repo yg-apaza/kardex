@@ -24,8 +24,15 @@ public class CLogin implements ILogin
         {
             Kardex.user = u;
             CKardex k = new CKardex();
+            ventana.dispose();
         }
         else
             JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE, null);
+    }
+    
+    public void salir()
+    {
+        ventana.dispose();
+        Kardex.con.desconectar();
     }
 }

@@ -85,21 +85,17 @@ public class Conexion
         }
     }
    
-    public ResultSet ejecutar(String comando, String [] data)
+    public ResultSet ejecutar(String comando, String [] data,  boolean receive) throws SQLException
     {
         ResultSet rs = null;
-        try
-        {
-            PreparedStatement preparedStmt = con.prepareStatement(comando);
+        PreparedStatement preparedStmt = con.prepareStatement(comando);
+        if(data != null)
             for(int i = 0; i < data.length; i++)
                 preparedStmt.setString(i + 1, data[i]);
+        if(receive)
             rs = preparedStmt.executeQuery();
-        }
-        catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }
-        
+        else
+            preparedStmt.execute();
         return rs;
     }
     
