@@ -9,9 +9,11 @@ public class CAlmacenMod implements IAlmacenMod
 {
     private UIAlmacenMod ventana;
     private String codigo;
+    private Almacen a;
     
     public CAlmacenMod(String codigo)
     {
+        a = Almacen.buscar(codigo);
         this.codigo = codigo;
         ventana = new UIAlmacenMod(this);
     }
@@ -19,17 +21,18 @@ public class CAlmacenMod implements IAlmacenMod
     @Override
     public void cargar(JTextField txtAlmCod, JTextField txtAlmNom, JTextField txtAlmUbi)
     {
-        Almacen a = Almacen.buscar(codigo);
         txtAlmCod.setText(a.getAlmCod());
         txtAlmNom.setText(a.getAlmNom());
         txtAlmUbi.setText(a.getAlmUbi());
     }
     
     @Override
-    public void aceptar(JTextField txtAlmCod, JTextField txtAlmNom, JTextField txtAlmUbi)
+    public void aceptar(JTextField txtAlmNom, JTextField txtAlmUbi)
     {
-        Almacen a = new Almacen(txtAlmCod.getText(), txtAlmNom.getText(), txtAlmUbi.getText(), "1");
-        String err = a.modificar(this.codigo);
+        a.setAlmNom(txtAlmNom.getText());
+        a.setAlmUbi(txtAlmUbi.getText());
+        String err = a.modificar();
+        
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);

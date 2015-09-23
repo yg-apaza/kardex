@@ -139,11 +139,11 @@ public class Usuario
         return "";
     }
     
-    public String modificar(String codigo, String pass)
+    public String modificar(String pass)
     {
         try
         {
-            con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrCod}, false);
         }
         catch (SQLException ex)
         {
@@ -152,12 +152,12 @@ public class Usuario
         return "";
     }
     
-    public String eliminar(String codigo)
+    public String eliminar()
     {
         try
         {
             this.setUsrEstReg("3");
-            con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {UsrCod}, false);
         }
         catch (SQLException ex)
         {

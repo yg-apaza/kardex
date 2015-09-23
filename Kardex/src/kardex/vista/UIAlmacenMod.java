@@ -183,7 +183,7 @@ public class UIAlmacenMod extends javax.swing.JFrame
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAceptarActionPerformed
     {//GEN-HEADEREND:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtAlmCod, this.txtAlmNom, this.txtAlmUbi);
+        interfaz.aceptar(this.txtAlmNom, this.txtAlmUbi);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCancelarActionPerformed

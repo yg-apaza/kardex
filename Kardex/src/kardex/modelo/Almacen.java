@@ -78,11 +78,11 @@ public class Almacen
         return "";
     }
     
-    public String modificar(String codigo)
+    public String modificar()
     {
         try
         {
-            con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {AlmNom, AlmUbi, codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {AlmNom, AlmUbi, AlmCod}, false);
         }
         catch (SQLException ex)
         {
@@ -91,12 +91,12 @@ public class Almacen
         return "";
     }
     
-    public String eliminar(String codigo)
+    public String eliminar()
     {
         try
         {
             this.setAlmEstReg("3");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {AlmCod}, false);
         }
         catch (SQLException ex)
         {
@@ -129,12 +129,12 @@ public class Almacen
         return almacenes;
     }
 
-    public String activar(String codigo)
+    public String activar()
     {
         try
         {
             this.setAlmEstReg("1");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {AlmCod}, false);
         }
         catch (SQLException ex)
         {
@@ -143,12 +143,12 @@ public class Almacen
         return "";
     }
     
-    public String desactivar(String codigo)
+    public String desactivar()
     {
         try
         {
             this.setAlmEstReg("2");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {codigo}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {AlmCod}, false);
         }
         catch (SQLException ex)
         {

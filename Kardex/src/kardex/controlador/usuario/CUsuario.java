@@ -81,7 +81,7 @@ public class CUsuario implements IUsuario
             {
                 DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
                 Usuario u = usuarios.get(i);
-                u.eliminar(u.getUsrCod());
+                u.eliminar();
                 model.setValueAt("*", i, 6);
             }
         }

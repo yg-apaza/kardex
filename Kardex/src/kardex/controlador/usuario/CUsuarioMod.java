@@ -12,9 +12,11 @@ public class CUsuarioMod implements IUsuarioMod
 {
     private UIUsuarioMod ventana;
     private String codigo;
+    private Usuario u;
     
     public CUsuarioMod(String codigo)
     {
+        u = Usuario.buscar(codigo);
         this.codigo = codigo;
         ventana = new UIUsuarioMod(this);
     }
@@ -30,7 +32,6 @@ public class CUsuarioMod implements IUsuarioMod
     public void cargar( JTextField txtUsrCod, JTextField txtUsrIde, JFormattedTextField txtDNI,
                         JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin, JRadioButton rbUsuario)
     {
-        Usuario u = Usuario.buscar(codigo);
         txtUsrCod.setText(u.getUsrCod());
         txtUsrIde.setText(u.getUsrIde());
         txtDNI.setText(u.getUsrDni());
@@ -51,19 +52,17 @@ public class CUsuarioMod implements IUsuarioMod
     @Override
     public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin)
     {
-        Usuario u = new Usuario(txtUsrCod.getText(),
-                                txtUsrIde.getText(),
-                                txtDNI.getText(),
-                                txtUsrNom.getText(),
-                                txtUsrApe.getText(),
-                                rbAdmin.isSelected()?"1":"0",
-                                "1");
+        u.setUsrIde(txtUsrIde.getText());
+        u.setUsrDni(txtDNI.getText());
+        u.setUsrNom(txtUsrNom.getText());
+        u.setUsrApe(txtUsrApe.getText());
+        u.setUsrPer(rbAdmin.isSelected()?"1":"0");
         
         if(String.valueOf(txtRepCon.getPassword()).equals(String.valueOf(txtCon.getPassword())))
         {
             if(String.valueOf(txtCon.getPassword()).length() >= 5 && String.valueOf(txtCon.getPassword()).length() <= 16)
             {
-                String err = u.modificar(codigo, String.valueOf(txtRepCon.getPassword()));
+                String err = u.modificar(String.valueOf(txtRepCon.getPassword()));
                 if(err.equals(""))
                 {
                     JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);

@@ -99,13 +99,12 @@ public class CAlmacen implements IAlmacen
         Almacen a = almacenes.get(i);
         if(chEst.isSelected())
         {
-            a.activar(a.getAlmCod());
+            a.activar();
             model.setValueAt("A", i, 3);
         }
         else
         {
-            a.desactivar(a.getAlmCod());
-            a.setAlmEstReg("2");
+            a.desactivar();
             model.setValueAt("I", i, 3);
         }
     }
@@ -120,7 +119,7 @@ public class CAlmacen implements IAlmacen
             {
                 DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
                 Almacen a = almacenes.get(i);
-                a.eliminar(a.getAlmCod());
+                a.eliminar();
                 model.setValueAt("*", i, 3);
                 est.setEnabled(false);
             }
