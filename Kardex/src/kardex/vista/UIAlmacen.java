@@ -71,7 +71,7 @@ public class UIAlmacen extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -231,15 +231,15 @@ public class UIAlmacen extends javax.swing.JFrame
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre", "Ubicación" }));
 
-        jButton1.setBackground(new java.awt.Color(0, 128, 213));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Generar Reporte");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        btnReporte.setBackground(new java.awt.Color(0, 128, 213));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
+        btnReporte.setText("Generar Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton1ActionPerformed(evt);
+                btnReporteActionPerformed(evt);
             }
         });
 
@@ -267,7 +267,7 @@ public class UIAlmacen extends javax.swing.JFrame
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(btnReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -283,7 +283,7 @@ public class UIAlmacen extends javax.swing.JFrame
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(btnMenu))
                     .addGroup(layout.createSequentialGroup()
@@ -314,18 +314,18 @@ public class UIAlmacen extends javax.swing.JFrame
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarActionPerformed
     {//GEN-HEADEREND:event_btnEliminarActionPerformed
-        //interfaz.eliminar(tblRegistros);
+        interfaz.eliminar(tblRegistros, chActivar);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void chActivarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chActivarActionPerformed
     {//GEN-HEADEREND:event_chActivarActionPerformed
-        //interfaz.activar(tblRegistros, chActivar);
+        interfaz.activar_desactivar(tblRegistros, chActivar);
     }//GEN-LAST:event_chActivarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnReporteActionPerformed
+    {//GEN-HEADEREND:event_btnReporteActionPerformed
         //interfaz.generarReporte();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
@@ -342,8 +342,8 @@ public class UIAlmacen extends javax.swing.JFrame
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JCheckBox chActivar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
