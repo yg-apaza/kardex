@@ -1,9 +1,9 @@
-package kardex.controlador.unidad;
+package kardex.controlador.documento;
 
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 
-public interface IUnidad
+public interface IDocumento
 {
     public void cargar(JTable tblRegistros);
     public void actualizarEst(JTable tblRegistros, JCheckBox chActivar);

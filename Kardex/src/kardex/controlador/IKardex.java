@@ -10,4 +10,5 @@ public interface IKardex
     public void almacen();
     public void usuario();
     public void unidad();
+    public void documento();
 }

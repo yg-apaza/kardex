@@ -47,7 +47,7 @@ public class CUsuario implements IUsuario
                                         usuarios.get(i).getUsrNom(),
                                         usuarios.get(i).getUsrApe(),
                                         usuarios.get(i).getUsrPer().equals("1")?"Administrador":"Usuario",
-                                        usuarios.get(i).getUsrEstReg().equals("1")?"A":(usuarios.get(i).getUsrEstReg().equals("2")?"I":"*")});
+                                        usuarios.get(i).getUsrEstReg().equals("1")?"A":"*"});
         }
     }
     

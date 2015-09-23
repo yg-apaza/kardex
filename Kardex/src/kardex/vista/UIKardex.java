@@ -329,7 +329,7 @@ public class UIKardex extends javax.swing.JFrame
     }//GEN-LAST:event_btnKardexActionPerformed
 
     private void btnDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocumentoActionPerformed
-        //interfaz.documento();
+        interfaz.documento();
     }//GEN-LAST:event_btnDocumentoActionPerformed
 
     private void btnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductoActionPerformed

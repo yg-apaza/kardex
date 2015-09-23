@@ -6,19 +6,18 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
-import kardex.controlador.almacen.IAlmacen;
-import kardex.controlador.unidad.IUnidad;
+import kardex.controlador.documento.IDocumento;
 
-public class UIUnidad extends javax.swing.JFrame
+public class UIDocumento extends javax.swing.JFrame
 {
-    private IUnidad interfaz;
+    private IDocumento interfaz;
     private ListSelectionModel cellSelectionModel;
     
-    public UIUnidad(IUnidad interfaz)
+    public UIDocumento(IDocumento interfaz)
     {
         initComponents();
         this.setVisible(true);
-        this.setTitle("MANTENIMIENTO DE UNIDAD");
+        this.setTitle("MANTENIMIENTO DE DOCUMENTO");
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
@@ -83,7 +82,7 @@ public class UIUnidad extends javax.swing.JFrame
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("MANTENIMIENTO - UNIDAD");
+        lblTitulo.setText("MANTENIMIENTO - DOCUMENTO");
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -95,7 +94,7 @@ public class UIUnidad extends javax.swing.JFrame
             },
             new String []
             {
-                "Codigo", "Descripción", "Estado"
+                "Codigo", "Nombre", "Estado"
             }
         )
         {

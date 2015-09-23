@@ -37,9 +37,7 @@ public class CAlmacenMod implements IAlmacenMod
             ventana.dispose();
         }
         else
-        {
             JOptionPane.showMessageDialog(null, err, "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
     }
     
     @Override

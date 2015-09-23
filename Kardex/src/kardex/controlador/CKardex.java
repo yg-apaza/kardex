@@ -3,10 +3,11 @@ package kardex.controlador;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import kardex.vista.UIKardex;
-import static kardex.Kardex.user;
 import kardex.controlador.almacen.CAlmacen;
+import kardex.controlador.documento.CDocumento;
 import kardex.controlador.unidad.CUnidad;
 import kardex.controlador.usuario.CUsuario;
+import static kardex.Kardex.user;
 
 public class CKardex implements IKardex
 {
@@ -56,6 +57,13 @@ public class CKardex implements IKardex
     public void unidad()
     {
         CUnidad unidad = new CUnidad();
+        ventana.dispose();
+    }
+    
+    @Override
+    public void documento()
+    {
+        CDocumento documento = new CDocumento();
         ventana.dispose();
     }
 }
