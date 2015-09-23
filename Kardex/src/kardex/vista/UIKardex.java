@@ -94,6 +94,13 @@ public class UIKardex extends javax.swing.JFrame
         btnUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/usuario.png"))); // NOI18N
         btnUsuario.setText("USUARIO");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
 
         btnDocumento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/documento.png"))); // NOI18N
@@ -358,6 +365,11 @@ public class UIKardex extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosing
         interfaz.cerrarSesion();
     }//GEN-LAST:event_formWindowClosing
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnUsuarioActionPerformed
+    {//GEN-HEADEREND:event_btnUsuarioActionPerformed
+        interfaz.usuario();
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlmacen;

@@ -14,11 +14,13 @@ public class CAlmacenIns implements IAlmacenIns
         ventana = new UIAlmacenIns(this);
     }
     
+    @Override
     public void cargar(JTextField txtAlmCod)
     {
         txtAlmCod.setText(Almacen.sgteCodigo());
     }
     
+    @Override
     public void aceptar(JTextField txtAlmCod, JTextField txtAlmNom, JTextField txtAlmUbi)
     {
         Almacen a = new Almacen(txtAlmCod.getText(), txtAlmNom.getText(), txtAlmUbi.getText(), "1");
@@ -35,6 +37,7 @@ public class CAlmacenIns implements IAlmacenIns
         }
     }
     
+    @Override
     public void cancelar()
     {
         CAlmacen almacen = new CAlmacen();

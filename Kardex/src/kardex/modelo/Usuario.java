@@ -2,6 +2,7 @@ package kardex.modelo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import kardex.Kardex;
 
 public class Usuario
@@ -126,4 +127,92 @@ public class Usuario
         
         return user;
     }
+    
+    public String insertar(String pass)
+    {
+        String err = "";
+        try
+        {
+            Kardex.con.ejecutar("INSERT INTO USUARIO VALUES(DEFAULT, ?, MD5(?), ?, ?, ?, ?, ?)", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrEstReg}, false);
+        }
+        catch (SQLException ex)
+        {
+            err = ex.getMessage();
+        }
+        return err;
+    }
+    
+    public String modificar(String codigo, String pass)
+    {
+        String err = "";
+        try
+        {
+            Kardex.con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE AlmCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, codigo}, false);
+        }
+        catch (SQLException ex)
+        {
+            err = ex.getMessage();
+        }
+        return err;
+    }
+    
+    public String eliminar(String codigo)
+    {
+        try
+        {
+            this.setUsrEstReg("3");
+            Kardex.con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE AlmCod = ?", new String[] {codigo}, false);
+        }
+        catch (SQLException ex)
+        {
+            return ex.getMessage();
+        }
+        return "";
+    }
+    
+    public static ArrayList<Usuario> getLista()
+    {
+        ArrayList<Usuario> usuarios = new ArrayList<> ();
+        try
+        {
+            ResultSet rs = Kardex.con.ejecutar("SELECT * FROM USUARIO ORDER BY UsrEstReg ASC, UsrCod ASC", null, true);
+            
+            while(rs.next())
+            {
+                String codigo = rs.getString("UsrCod");
+                String ident = rs.getString("UsrIde");
+                String dni = rs.getString("UsrDni");
+                String nombre = rs.getString("UsrNom");
+                String apellido = rs.getString("UsrApe");
+                String permiso = rs.getString("UsrPer");
+                String estado = rs.getString("UsrEstReg");
+                
+                Usuario u = new Usuario(codigo, ident, dni, nombre, apellido, permiso, estado);
+                usuarios.add(u);
+            }
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return usuarios;
+    }
+    
+    public static String sgteCodigo()
+    {
+        String c = "000000";
+        try
+        {
+            ResultSet rs = Kardex.con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM USUARIO), 6, '0') AS nextCod", null, true);
+            rs.next();
+            c = rs.getString("nextCod");
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return c;
+    }
+    
 }

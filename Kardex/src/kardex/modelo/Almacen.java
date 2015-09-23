@@ -3,8 +3,6 @@ package kardex.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import kardex.Kardex;
 
 public class Almacen
@@ -81,7 +79,7 @@ public class Almacen
         return err;
     }
     
-    public String actualizar(String codigo)
+    public String modificar(String codigo)
     {
         String err = "";
         try
@@ -210,7 +208,7 @@ public class Almacen
     
     public static String sgteCodigo()
     {
-        String c = "0";
+        String c = "000000";
         try
         {
             ResultSet rs = Kardex.con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM ALMACEN), 6, '0') AS nextCod", null, true);

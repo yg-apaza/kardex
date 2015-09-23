@@ -54,8 +54,6 @@ public class UIAlmacenMod extends javax.swing.JFrame
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo2.setText("MODIFICAR");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAceptar.setText("ACEPTAR");
         btnAceptar.addActionListener(new java.awt.event.ActionListener()

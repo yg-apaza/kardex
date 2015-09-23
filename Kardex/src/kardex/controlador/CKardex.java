@@ -5,6 +5,7 @@ import javax.swing.JTextField;
 import kardex.vista.UIKardex;
 import kardex.Kardex;
 import kardex.controlador.almacen.CAlmacen;
+import kardex.controlador.usuario.CUsuario;
 
 public class CKardex implements IKardex
 {
@@ -37,6 +38,12 @@ public class CKardex implements IKardex
     public void cerrarSesion()
     {
         CLogin login = new CLogin();
+        ventana.dispose();
+    }
+    
+    public void usuario()
+    {
+        CUsuario usuario = new CUsuario();
         ventana.dispose();
     }
 }
