@@ -83,7 +83,6 @@ public class CUsuario implements IUsuario
                 if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
-
                     u.eliminar();
                     model.setValueAt("*", i, 6);
                 }
