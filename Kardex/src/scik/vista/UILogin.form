@@ -12,7 +12,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itmConfig">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/kardex/recursos/configure.png"/>
+                  <Image iconType="3" name="/scik/recursos/configure.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n"/>
               </Properties>
@@ -23,7 +23,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="itmSalir">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/kardex/recursos/salir.png"/>
+                  <Image iconType="3" name="/scik/recursos/salir.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
@@ -59,7 +59,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/kardex/recursos/icono_login.png&quot;)).getImage()" type="code"/>
+      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/scik/recursos/icono_login.png&quot;)).getImage()" type="code"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
@@ -276,7 +276,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/kardex/recursos/login.png"/>
+              <Image iconType="3" name="/scik/recursos/login.png"/>
             </Property>
           </Properties>
         </Component>

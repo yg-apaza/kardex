@@ -72,7 +72,7 @@ public class UIUnidad extends javax.swing.JFrame
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -135,7 +135,7 @@ public class UIUnidad extends javax.swing.JFrame
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnInsertar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/insertar.png"))); // NOI18N
+        btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertar.setText("INSERTAR");
         btnInsertar.addActionListener(new java.awt.event.ActionListener()
         {
@@ -146,7 +146,7 @@ public class UIUnidad extends javax.swing.JFrame
         });
 
         btnModificar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/modificar.png"))); // NOI18N
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/modificar.png"))); // NOI18N
         btnModificar.setText("MODIFICAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener()
         {
@@ -157,7 +157,7 @@ public class UIUnidad extends javax.swing.JFrame
         });
 
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/eliminar.png"))); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener()
         {
@@ -210,7 +210,7 @@ public class UIUnidad extends javax.swing.JFrame
         );
 
         btnMenu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/menu.png"))); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/menu.png"))); // NOI18N
         btnMenu.setText("Volver al Menu");
         btnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMenu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

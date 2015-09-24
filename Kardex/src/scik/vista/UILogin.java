@@ -43,7 +43,7 @@ public class UILogin extends javax.swing.JFrame
         itmAcerca = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono_login.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono_login.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -141,7 +141,7 @@ public class UILogin extends javax.swing.JFrame
         );
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/login.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/login.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -158,7 +158,7 @@ public class UILogin extends javax.swing.JFrame
 
         jMenu1.setText("Archivo");
 
-        itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
+        itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/configure.png"))); // NOI18N
         itmConfig.setText("Configuración");
         itmConfig.addActionListener(new java.awt.event.ActionListener()
         {
@@ -169,7 +169,7 @@ public class UILogin extends javax.swing.JFrame
         });
         jMenu1.add(itmConfig);
 
-        itmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/salir.png"))); // NOI18N
+        itmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/salir.png"))); // NOI18N
         itmSalir.setText("Salir");
         itmSalir.addActionListener(new java.awt.event.ActionListener()
         {
@@ -253,7 +253,7 @@ public class UILogin extends javax.swing.JFrame
 
     private void itmAcercaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmAcercaActionPerformed
     {//GEN-HEADEREND:event_itmAcercaActionPerformed
-        ImageIcon icon = new ImageIcon(getClass().getResource("/kardex/recursos/icono.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/scik/recursos/icono.png"));
         JOptionPane.showMessageDialog(null, "Sistema de Control de Inventarios\nKARDEX - 2015\nPANALUX S.A.", "Acerca de", JOptionPane.INFORMATION_MESSAGE, icon);
     }//GEN-LAST:event_itmAcercaActionPerformed
 

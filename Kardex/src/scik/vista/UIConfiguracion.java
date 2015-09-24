@@ -92,7 +92,7 @@ public class UIConfiguracion extends javax.swing.JFrame
 
         lblTitulo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
+        lblTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/configure.png"))); // NOI18N
         lblTitulo1.setText("CONFIGURACIÓN");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -111,7 +111,7 @@ public class UIConfiguracion extends javax.swing.JFrame
         jLabel2.setText("Host:");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/conexion.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/conexion.png"))); // NOI18N
         jButton1.setText("Comprobar conexión");
         jButton1.addActionListener(new java.awt.event.ActionListener()
         {

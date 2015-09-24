@@ -96,6 +96,7 @@ public class UIKardex extends javax.swing.JFrame
         btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 23)); // NOI18N
@@ -153,7 +154,7 @@ public class UIKardex extends javax.swing.JFrame
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnInsertarKC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInsertarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/insertar.png"))); // NOI18N
+        btnInsertarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertarKC.setText("INSERTAR");
         btnInsertarKC.addActionListener(new java.awt.event.ActionListener()
         {
@@ -164,7 +165,7 @@ public class UIKardex extends javax.swing.JFrame
         });
 
         btnEliminarKC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEliminarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/eliminar.png"))); // NOI18N
+        btnEliminarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminarKC.setText("ELIMINAR");
         btnEliminarKC.addActionListener(new java.awt.event.ActionListener()
         {
@@ -306,7 +307,7 @@ public class UIKardex extends javax.swing.JFrame
         }
 
         btnInsertarKD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInsertarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/insertar.png"))); // NOI18N
+        btnInsertarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertarKD.setText("INSERTAR");
         btnInsertarKD.addActionListener(new java.awt.event.ActionListener()
         {
@@ -317,7 +318,7 @@ public class UIKardex extends javax.swing.JFrame
         });
 
         btnModificarKD.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        btnModificarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/modificar.png"))); // NOI18N
+        btnModificarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/modificar.png"))); // NOI18N
         btnModificarKD.setText("MODIFICAR ÚLTIMO REGISTRO");
         btnModificarKD.addActionListener(new java.awt.event.ActionListener()
         {
@@ -328,7 +329,7 @@ public class UIKardex extends javax.swing.JFrame
         });
 
         btnEliminarKD.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        btnEliminarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/eliminar.png"))); // NOI18N
+        btnEliminarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminarKD.setText("ELIMINAR ÚLTIMO REGISTRO");
         btnEliminarKD.addActionListener(new java.awt.event.ActionListener()
         {
@@ -339,7 +340,7 @@ public class UIKardex extends javax.swing.JFrame
         });
 
         btnMenu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/menu.png"))); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/menu.png"))); // NOI18N
         btnMenu.setText("Volver al Menu");
         btnMenu.addActionListener(new java.awt.event.ActionListener()
         {

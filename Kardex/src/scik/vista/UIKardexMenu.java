@@ -58,7 +58,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         itmAcerca = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setIconImage(new ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -71,7 +71,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnAlmacen.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/almacen.png"))); // NOI18N
+        btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/almacen.png"))); // NOI18N
         btnAlmacen.setText("ALMACEN");
         btnAlmacen.addActionListener(new java.awt.event.ActionListener()
         {
@@ -82,7 +82,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
 
         btnUnidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/unidad.png"))); // NOI18N
+        btnUnidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/unidad.png"))); // NOI18N
         btnUnidad.setText("UNIDAD");
         btnUnidad.addActionListener(new java.awt.event.ActionListener()
         {
@@ -93,7 +93,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
 
         btnUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/usuario.png"))); // NOI18N
+        btnUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/usuario.png"))); // NOI18N
         btnUsuario.setText("USUARIO");
         btnUsuario.addActionListener(new java.awt.event.ActionListener()
         {
@@ -104,7 +104,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
 
         btnDocumento.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/documento.png"))); // NOI18N
+        btnDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/documento.png"))); // NOI18N
         btnDocumento.setText("DOCUMENTO");
         btnDocumento.addActionListener(new java.awt.event.ActionListener()
         {
@@ -115,7 +115,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
 
         btnProducto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/producto.png"))); // NOI18N
+        btnProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/producto.png"))); // NOI18N
         btnProducto.setText("PRODUCTO");
         btnProducto.addActionListener(new java.awt.event.ActionListener()
         {
@@ -126,7 +126,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
 
         btnKardex.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/kardex.png"))); // NOI18N
+        btnKardex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/kardex.png"))); // NOI18N
         btnKardex.setText("KARDEX");
         btnKardex.addActionListener(new java.awt.event.ActionListener()
         {
@@ -273,11 +273,11 @@ public class UIKardexMenu extends javax.swing.JFrame
         );
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/logo.png"))); // NOI18N
 
         jMenu1.setText("Archivo");
 
-        itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
+        itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/configure.png"))); // NOI18N
         itmConfig.setText("Configuración");
         itmConfig.addActionListener(new java.awt.event.ActionListener()
         {
@@ -288,7 +288,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         });
         jMenu1.add(itmConfig);
 
-        itmCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/exchange.png"))); // NOI18N
+        itmCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/exchange.png"))); // NOI18N
         itmCerrar.setText("Cerrar Sesión");
         itmCerrar.addActionListener(new java.awt.event.ActionListener()
         {
@@ -408,7 +408,7 @@ public class UIKardexMenu extends javax.swing.JFrame
 
     private void itmAcercaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmAcercaActionPerformed
     {//GEN-HEADEREND:event_itmAcercaActionPerformed
-        ImageIcon icon = new ImageIcon(getClass().getResource("/kardex/recursos/icono.png"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/scik/recursos/icono.png"));
         JOptionPane.showMessageDialog(null, "Sistema de Control de Inventarios\nKARDEX - 2015\nPANALUX S.A.", "Acerca de", JOptionPane.INFORMATION_MESSAGE, icon);
     }//GEN-LAST:event_itmAcercaActionPerformed
 
