@@ -360,7 +360,7 @@ public class UIKardexMenu extends javax.swing.JFrame
     }//GEN-LAST:event_btnAlmacenActionPerformed
 
     private void btnKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKardexActionPerformed
-        //interfaz.kardex();
+        interfaz.kardex();
     }//GEN-LAST:event_btnKardexActionPerformed
 
     private void btnDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocumentoActionPerformed

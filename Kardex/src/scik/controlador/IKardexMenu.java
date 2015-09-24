@@ -13,6 +13,6 @@ public interface IKardexMenu
     public void unidad();
     public void documento();
     public void producto();
-
     public void configuracion();
+    public void kardex();
 }

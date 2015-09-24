@@ -2,6 +2,7 @@ package scik.controlador.kardex;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import scik.controlador.CKardexMenu;
 import scik.vista.UIKardex;
 
 public class CKardex implements IKardex
@@ -28,6 +29,14 @@ public class CKardex implements IKardex
     @Override
     public void menu()
     {
-        
+        CKardexMenu menu = new CKardexMenu();
+        ventana.dispose();
+    }
+    
+    @Override
+    public void insertarKC()
+    {
+        CKardexCabIns insertar = new CKardexCabIns();
+        ventana.dispose();
     }
 }

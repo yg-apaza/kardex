@@ -9,6 +9,7 @@ import scik.controlador.documento.CDocumento;
 import scik.controlador.unidad.CUnidad;
 import scik.controlador.usuario.CUsuario;
 import static scik.KardexIni.user;
+import scik.controlador.kardex.CKardex;
 import scik.controlador.producto.CProducto;
 
 public class CKardexMenu implements IKardexMenu
@@ -80,6 +81,13 @@ public class CKardexMenu implements IKardexMenu
     public void configuracion()
     {
         CConfiguracion config = new CConfiguracion(false);
+        ventana.dispose();
+    }
+    
+    @Override
+    public void kardex()
+    {
+        CKardex kardex = new CKardex();
         ventana.dispose();
     }
 }

@@ -8,4 +8,5 @@ public interface IKardex
     public void cargar(JTable tblRegistrosKC);
     public void actualizar(JTable tblRegistrosKC, JTable tblRegistrosKD, JTextField txtCan, JTextField txtPreUni);
     public void menu();
+    public void insertarKC();
 }

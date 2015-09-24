@@ -157,21 +157,20 @@ public class Producto
         return "";
     }
     
-    public ArrayList<ArrayList<String>> getActivos()
+    public static ArrayList<ArrayList<String>> getActivos()
     {
         ArrayList<ArrayList<String>> productos =  new ArrayList<>();
         try
         {        
             ResultSet resultado = con.ejecutar("SELECT ProCod, ProNom FROM PRODUCTO WHERE ProEstReg = 1 ", null, true);
-            ArrayList<String> data = new ArrayList<>();
             while(resultado.next())
             {
+                ArrayList<String> data = new ArrayList<>();
                 String codigo = resultado.getString("ProCod");
                 String nombre = resultado.getString("ProNom");
                 data.add(codigo);
                 data.add(nombre);
                 productos.add(data);
-                data.clear();
             }
         }
         catch (SQLException ex)
