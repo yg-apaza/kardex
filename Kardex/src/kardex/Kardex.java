@@ -20,7 +20,7 @@ public class Kardex
         {
             UIManager.setLookAndFeel("com.jtattoo.plaf.graphite.GraphiteLookAndFeel");
             
-            String [] conexion_data = new String[4];
+            String [] conexion_data = new String[3];
             FileReader fr = new FileReader("conexion.dat");
             BufferedReader br = new BufferedReader(fr);
             String linea = "";
@@ -30,11 +30,11 @@ public class Kardex
             {
                 conexion_data[number] = linea.substring(linea.indexOf("=") + 1, linea.length());
                 number++;
-                if(number > 3)
+                if(number > 2)
                     break;
             }
                 
-            con = new Conexion(conexion_data[0], conexion_data[1], conexion_data[2], conexion_data[3]);
+            con = new Conexion(conexion_data[0], "BD_KARDEX", conexion_data[1], conexion_data[2]);
             con.conectar();
             
             user = new Usuario();

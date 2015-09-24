@@ -37,6 +37,7 @@ public class UIAlmacenMod extends javax.swing.JFrame
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {

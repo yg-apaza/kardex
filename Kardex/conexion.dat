@@ -1,5 +1,4 @@
 host=localhost
-bd=bd_kardex
 usuario=root
 password=123456
 

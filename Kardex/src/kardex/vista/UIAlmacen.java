@@ -73,6 +73,7 @@ public class UIAlmacen extends javax.swing.JFrame
         btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {

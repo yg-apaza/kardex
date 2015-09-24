@@ -41,6 +41,7 @@ public class UILogin extends javax.swing.JFrame
         itmAcerca = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono_login.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
