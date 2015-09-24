@@ -127,7 +127,6 @@ public class CKardex implements IKardex
             txtObs.setText("");
             txtEst.setText("");
         }
-        
     }
     
     @Override
@@ -173,7 +172,6 @@ public class CKardex implements IKardex
             }
             else
                 JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
-                
         }
         else
              JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
