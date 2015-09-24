@@ -13,8 +13,8 @@ public class CUnidadMod implements IUnidadMod
     
     public CUnidadMod(String codigo)
     {
-        u = Unidad.buscar(codigo);
         this.codigo = codigo;
+        u = Unidad.buscar(codigo);
         ventana = new UIUnidadMod(this);
     }
     

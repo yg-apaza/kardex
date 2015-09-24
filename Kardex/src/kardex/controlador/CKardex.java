@@ -8,6 +8,7 @@ import kardex.controlador.documento.CDocumento;
 import kardex.controlador.unidad.CUnidad;
 import kardex.controlador.usuario.CUsuario;
 import static kardex.Kardex.user;
+import kardex.controlador.producto.CProducto;
 
 public class CKardex implements IKardex
 {
@@ -64,6 +65,13 @@ public class CKardex implements IKardex
     public void documento()
     {
         CDocumento documento = new CDocumento();
+        ventana.dispose();
+    }
+    
+    @Override
+    public void producto()
+    {
+        CProducto producto = new CProducto();
         ventana.dispose();
     }
 }

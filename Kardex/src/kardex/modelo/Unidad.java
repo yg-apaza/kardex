@@ -149,15 +149,14 @@ public class Unidad
         try
         {        
             ResultSet rs = con.ejecutar("SELECT UniCod, UniDes FROM UNIDAD WHERE UniEstReg = 1", null, true);
-            ArrayList<String> data = new ArrayList<>();
             while(rs.next())
             {
+                ArrayList<String> data = new ArrayList<>();
                 String codigo = rs.getString("UniCod");
                 String nombre = rs.getString("UniDes");
                 data.add(codigo);
                 data.add(nombre);
                 unidades.add(data);
-                data.clear();
             }
         }
         catch (SQLException ex)

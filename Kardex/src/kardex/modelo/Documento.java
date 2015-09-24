@@ -168,15 +168,14 @@ public class Documento
         try
         {        
             ResultSet rs = con.ejecutar("SELECT DocCod, DocNom FROM DOCUMENTO WHERE DocEstReg = 1", null, true);
-            ArrayList<String> data = new ArrayList<>();
             while(rs.next())
             {
+                ArrayList<String> data = new ArrayList<>();
                 String codigo = rs.getString("DocCod");
                 String nombre = rs.getString("DocNom");
                 data.add(codigo);
                 data.add(nombre);
                 documentos.add(data);
-                data.clear();
             }
         }
         catch (SQLException ex)

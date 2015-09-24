@@ -13,8 +13,8 @@ public class CDocumentoMod implements IDocumentoMod
     
     public CDocumentoMod(String codigo)
     {
-        d = Documento.buscar(codigo);
         this.codigo = codigo;
+        d = Documento.buscar(codigo);
         ventana = new UIDocumentoMod(this);
     }
     

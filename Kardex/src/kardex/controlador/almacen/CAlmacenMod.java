@@ -13,8 +13,8 @@ public class CAlmacenMod implements IAlmacenMod
     
     public CAlmacenMod(String codigo)
     {
-        a = Almacen.buscar(codigo);
         this.codigo = codigo;
+        a = Almacen.buscar(codigo);
         ventana = new UIAlmacenMod(this);
     }
     

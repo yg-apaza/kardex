@@ -121,7 +121,6 @@ public class CAlmacen implements IAlmacen
                 if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                 {
                     DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
-
                     a.eliminar();
                     model.setValueAt("*", i, 3);
                     est.setEnabled(false);

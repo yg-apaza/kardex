@@ -183,15 +183,15 @@ public class Almacen
         try
         {
             ResultSet rs = con.ejecutar("SELECT AlmCod, AlmNom FROM ALMACEN WHERE AlmEstReg = 1", null, true);
-            ArrayList<String> data = new ArrayList<>();
+            
             while(rs.next())
             {
+                ArrayList<String> data = new ArrayList<>();
                 String codigo = rs.getString("AlmCod");
                 String nombre = rs.getString("AlmNom");
                 data.add(codigo);
                 data.add(nombre);
                 almacenes.add(data);
-                data.clear();
             }
         }
         catch (SQLException ex)

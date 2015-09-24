@@ -16,8 +16,8 @@ public class CUsuarioMod implements IUsuarioMod
     
     public CUsuarioMod(String codigo)
     {
-        u = Usuario.buscar(codigo);
         this.codigo = codigo;
+        u = Usuario.buscar(codigo);
         ventana = new UIUsuarioMod(this);
     }
     
