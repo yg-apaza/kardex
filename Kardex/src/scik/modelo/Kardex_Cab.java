@@ -59,12 +59,12 @@ public class Kardex_Cab
         this.KarCabCan = KarCabCan;
     }
 
-    public String getKarCabPreUni()
+    public String getKarCabValUni()
     {
         return KarCabValUni;
     }
 
-    public void setKarCabPreUni(String KarCabValUni)
+    public void setKarCabValUni(String KarCabValUni)
     {
         this.KarCabValUni = KarCabValUni;
     }
@@ -94,7 +94,6 @@ public class Kardex_Cab
         try
         {
             con.ejecutar("INSERT INTO KARDEX VALUES(?, ?, ?, ?, ?, ?)", new String[] {ProCod, AlmCod, KarCabCan, KarCabValUni, KarCabValTot, KarCabEstReg}, false);
-            con.desconectar();
         }
         catch (SQLException ex)
         {
@@ -109,12 +108,14 @@ public class Kardex_Cab
         {
             this.setKarCabEstReg("3");
             con.ejecutar("UPDATE KARDEX SET KarEstReg = 3 WHERE ProCod = ? AND AlmCod = ?", new String[] {ProCod, AlmCod}, false);
+            /*
             ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE (ProCod = ? AND AlmCod = ?)", new String[] {ProCod, AlmCod}, true);
             while(rs.next())
             {
                 String codigo = rs.getString("KarDetCod");
                 (new Kardex_Det()).eliminar(codigo, ProCod, AlmCod);
             }
+            */
         }
         catch (SQLException ex)
         {
@@ -161,7 +162,7 @@ public class Kardex_Cab
             k.setProCod(rs.getString("ProCod"));
             k.setAlmCod(rs.getString("AlmCod"));
             k.setKarCabCan(rs.getString("KarCan"));
-            k.setKarCabPreUni(rs.getString("KarValUni"));
+            k.setKarCabValUni(rs.getString("KarValUni"));
             k.setKarCabValTot(rs.getString("KarValTot"));
             k.setKarCabEstReg(rs.getString("KarEstReg"));
         }
@@ -215,7 +216,7 @@ public class Kardex_Cab
         ArrayList<Kardex_Det> detalles = new ArrayList <>();
         try
         {
-            ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE (ProCod = ? AND AlmCod = ? AND KarDetEstReg = 1", new String[] {p, a}, true);
+            ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE ProCod = ? AND AlmCod = ? AND KarDetEstReg = 1", new String[] {p, a}, true);
             while(rs.next())
             {
                 String codigo = rs.getString("KarDetCod");

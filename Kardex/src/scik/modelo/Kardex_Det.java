@@ -237,7 +237,7 @@ public class Kardex_Det
     {
         try
         {
-            con.ejecutar(   "INSERT INTO KARDEX_DET VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?",
+            con.ejecutar(   "INSERT INTO KARDEX_DET VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                             new String[] {
                                 ProCod,
                                 AlmCod,
@@ -403,6 +403,21 @@ public class Kardex_Det
             ex.printStackTrace();
         }
         return detalle;
+    }
+    
+    public static String sgteCodigo()
+    {
+        try
+        {
+            ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM KARDEX_DET), 6, '0') AS nextCod", null, true);
+            rs.next();
+            return rs.getString("nextCod");
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return "000000";
     }
     
     /*

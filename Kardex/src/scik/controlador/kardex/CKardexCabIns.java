@@ -2,8 +2,10 @@ package scik.controlador.kardex;
 
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import scik.modelo.Almacen;
+import scik.modelo.Kardex_Cab;
 import scik.modelo.Producto;
 import scik.vista.UIKardexCabIns;
 
@@ -42,7 +44,17 @@ public class CKardexCabIns implements IKardexCabIns
     @Override
     public void aceptar(JTextField txtProCod, JTextField txtAlmCod)
     {
+        Kardex_Cab kc = new Kardex_Cab(txtProCod.getText(), txtAlmCod.getText(), "0", "0", "0", "1");
+        String err = kc.insertar();
         
+        if(err.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
+            CKardex inicio = new CKardex();
+            ventana.dispose();
+        }
+        else
+            JOptionPane.showMessageDialog(null, err, "ERROR", JOptionPane.ERROR_MESSAGE);
     }
     
     @Override
