@@ -2,9 +2,12 @@ package kardex.controlador.unidad;
 
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import kardex.controlador.CKardex;
+import kardex.controlador.documento.CDocumentoMod;
+import kardex.modelo.Documento;
 import kardex.modelo.Unidad;
 import kardex.vista.UIUnidad;
 
@@ -65,19 +68,52 @@ public class CUnidad implements IUnidad
     @Override
     public void insertar()
     {
-        
+        CUnidadIns insertar = new CUnidadIns();
+        ventana.dispose();
     }
     
     @Override
     public void modificar(JTable tblRegistros)
     {
-        
+        int i = tblRegistros.getSelectedRow();
+        if(i != -1)
+        {
+            Unidad u = unidades.get(i);
+            CUnidadMod modificar;
+            if(u.getUniEstReg().equals("1"))
+            {
+                modificar = new CUnidadMod(u.getUniCod());
+                ventana.dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Solo se permite modificar registros activos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a modificar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
     
     @Override
     public void eliminar(JTable tblRegistros, JCheckBox chActivar)
     {
-        
+        int i = tblRegistros.getSelectedRow();
+        if(i != -1)
+        {
+            Unidad u = unidades.get(i);
+            if(!u.getUniEstReg().equals("3"))
+            {
+                if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                {
+                    DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
+                    u.eliminar();
+                    model.setValueAt("*", i, 2);
+                    chActivar.setEnabled(false);
+                }
+            }
+            else
+                JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
     
     @Override
