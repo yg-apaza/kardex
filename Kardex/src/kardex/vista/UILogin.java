@@ -1,5 +1,7 @@
 package kardex.vista;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import kardex.controlador.ILogin;
 
 public class UILogin extends javax.swing.JFrame
@@ -158,6 +160,13 @@ public class UILogin extends javax.swing.JFrame
 
         itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
         itmConfig.setText("Configuración");
+        itmConfig.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                itmConfigActionPerformed(evt);
+            }
+        });
         jMenu1.add(itmConfig);
 
         itmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/salir.png"))); // NOI18N
@@ -179,6 +188,13 @@ public class UILogin extends javax.swing.JFrame
         jMenu2.add(itmManual);
 
         itmAcerca.setText("Acerca de");
+        itmAcerca.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                itmAcercaActionPerformed(evt);
+            }
+        });
         jMenu2.add(itmAcerca);
 
         jMenuBar1.add(jMenu2);
@@ -234,6 +250,17 @@ public class UILogin extends javax.swing.JFrame
     {//GEN-HEADEREND:event_itmSalirActionPerformed
         interfaz.salir();
     }//GEN-LAST:event_itmSalirActionPerformed
+
+    private void itmAcercaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmAcercaActionPerformed
+    {//GEN-HEADEREND:event_itmAcercaActionPerformed
+        ImageIcon icon = new ImageIcon(getClass().getResource("/kardex/recursos/icono.png"));
+        JOptionPane.showMessageDialog(null, "Sistema de Control de Inventarios\nKARDEX - 2015\nPANALUX S.A.", "Acerca de", JOptionPane.INFORMATION_MESSAGE, icon);
+    }//GEN-LAST:event_itmAcercaActionPerformed
+
+    private void itmConfigActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmConfigActionPerformed
+    {//GEN-HEADEREND:event_itmConfigActionPerformed
+        interfaz.configuracion();
+    }//GEN-LAST:event_itmConfigActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;

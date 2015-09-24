@@ -3,8 +3,8 @@ package kardex.controlador;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import static kardex.Kardex.user;
-import static kardex.Kardex.con;
+import static kardex.KardexMain.user;
+import static kardex.KardexMain.con;
 import kardex.modelo.Usuario;
 import kardex.vista.UILogin;
 
@@ -29,6 +29,13 @@ public class CLogin implements ILogin
         }
         else
             JOptionPane.showMessageDialog(null, "Nombre de usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE, null);
+    }
+    
+    @Override
+    public void configuracion()
+    {
+        CConfiguracion config = new CConfiguracion(true);
+        ventana.dispose();
     }
     
     @Override

@@ -3,7 +3,8 @@ package kardex.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import static kardex.Kardex.con;
+import javax.swing.JOptionPane;
+import static kardex.KardexMain.con;
 
 public class Usuario
 {
@@ -120,9 +121,10 @@ public class Usuario
                 user.setUsrEstReg(rs.getString("UsrEstReg"));
             }
         }
-        catch (SQLException ex)
-        {}
-        
+        catch (SQLException | NullPointerException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         return user;
     }
     
@@ -189,7 +191,7 @@ public class Usuario
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
         return usuarios;
@@ -213,7 +215,7 @@ public class Usuario
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return u;
     }
@@ -228,7 +230,7 @@ public class Usuario
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return "000000";
     }

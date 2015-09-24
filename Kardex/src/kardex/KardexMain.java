@@ -9,12 +9,12 @@ import kardex.controlador.CLogin;
 import kardex.modelo.Conexion;
 import kardex.modelo.Usuario;
 
-public class Kardex
+public class KardexMain
 {
     public static Conexion con;
     public static Usuario user;
     
-    public Kardex()
+    public KardexMain()
     {
         try
         {
@@ -35,8 +35,7 @@ public class Kardex
             }
                 
             con = new Conexion(conexion_data[0], "BD_KARDEX", conexion_data[1], conexion_data[2]);
-            con.conectar();
-            
+            con.conectar(false);
             user = new Usuario();
             
             CLogin login = new CLogin();
@@ -53,6 +52,6 @@ public class Kardex
     
     public static void main(String[] args)
     {
-        Kardex k = new Kardex();
+        KardexMain k = new KardexMain();
     }
 }

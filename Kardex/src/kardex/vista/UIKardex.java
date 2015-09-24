@@ -1,5 +1,7 @@
 package kardex.vista;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import kardex.controlador.IKardex;
 
 public class UIKardex extends javax.swing.JFrame
@@ -17,6 +19,7 @@ public class UIKardex extends javax.swing.JFrame
         interfaz.cargar(
                         this.txtNombre,
                         this.txtDni,
+                        this.lblPermisos,
                         this.btnUsuario,
                         this.btnExistencia,
                         this.btnEntrada,
@@ -55,7 +58,7 @@ public class UIKardex extends javax.swing.JFrame
         itmAcerca = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/kardex/recursos/icono.png")).getImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -276,6 +279,13 @@ public class UIKardex extends javax.swing.JFrame
 
         itmConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/configure.png"))); // NOI18N
         itmConfig.setText("Configuración");
+        itmConfig.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                itmConfigActionPerformed(evt);
+            }
+        });
         jMenu1.add(itmConfig);
 
         itmCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/exchange.png"))); // NOI18N
@@ -331,14 +341,15 @@ public class UIKardex extends javax.swing.JFrame
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -397,8 +408,14 @@ public class UIKardex extends javax.swing.JFrame
 
     private void itmAcercaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmAcercaActionPerformed
     {//GEN-HEADEREND:event_itmAcercaActionPerformed
-        // TODO add your handling code here:
+        ImageIcon icon = new ImageIcon(getClass().getResource("/kardex/recursos/icono.png"));
+        JOptionPane.showMessageDialog(null, "Sistema de Control de Inventarios\nKARDEX - 2015\nPANALUX S.A.", "Acerca de", JOptionPane.INFORMATION_MESSAGE, icon);
     }//GEN-LAST:event_itmAcercaActionPerformed
+
+    private void itmConfigActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmConfigActionPerformed
+    {//GEN-HEADEREND:event_itmConfigActionPerformed
+        interfaz.configuracion();
+    }//GEN-LAST:event_itmConfigActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlmacen;

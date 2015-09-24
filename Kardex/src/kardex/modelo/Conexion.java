@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Conexion
 {
@@ -72,7 +73,7 @@ public class Conexion
         this.password = password;
     }
 
-    public void conectar()
+    public boolean conectar(boolean verificar)
     {
         try
         {
@@ -81,21 +82,27 @@ public class Conexion
         }
         catch (ClassNotFoundException | SQLException ex)
         {
-            System.out.println("Access denied for User: " + user + ", Password: " + password + ". Configure DB connection.");
+            if(!verificar)
+                JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
+        return true;
     }
-   
+    
     public ResultSet ejecutar(String comando, String [] data,  boolean receive) throws SQLException
     {
         ResultSet rs = null;
-        PreparedStatement preparedStmt = con.prepareStatement(comando);
-        if(data != null)
-            for(int i = 0; i < data.length; i++)
-                preparedStmt.setString(i + 1, data[i]);
-        if(receive)
-            rs = preparedStmt.executeQuery();
-        else
-            preparedStmt.execute();
+        if(con != null)
+        {
+            PreparedStatement preparedStmt = con.prepareStatement(comando);
+            if(data != null)
+                for(int i = 0; i < data.length; i++)
+                    preparedStmt.setString(i + 1, data[i]);
+            if(receive)
+                rs = preparedStmt.executeQuery();
+            else
+                preparedStmt.execute();
+        }
         return rs;
     }
     

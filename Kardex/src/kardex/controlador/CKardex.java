@@ -1,13 +1,14 @@
 package kardex.controlador;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 import kardex.vista.UIKardex;
 import kardex.controlador.almacen.CAlmacen;
 import kardex.controlador.documento.CDocumento;
 import kardex.controlador.unidad.CUnidad;
 import kardex.controlador.usuario.CUsuario;
-import static kardex.Kardex.user;
+import static kardex.KardexMain.user;
 import kardex.controlador.producto.CProducto;
 
 public class CKardex implements IKardex
@@ -26,11 +27,11 @@ public class CKardex implements IKardex
         ventana.dispose();
     }
     @Override
-    public void cargar(JTextField txtNombre, JTextField txtDni, JButton btnUsuario, JButton btnExistencia, JButton btnEntrada, JButton btnSalida)
+    public void cargar(JTextField txtNombre, JTextField txtDni, JLabel lblPermisos, JButton btnUsuario, JButton btnExistencia, JButton btnEntrada, JButton btnSalida)
     {
         txtNombre.setText(user.getUsrNom() + " " + user.getUsrApe());
         txtDni.setText("DNI Nº " + user.getUsrDni());
-        
+        lblPermisos.setText(user.getUsrPer().equals("1")?"Administrador":"Usuario");
         if(user.getUsrPer().equals("0"))
         {
             btnUsuario.setEnabled(false);
@@ -72,6 +73,13 @@ public class CKardex implements IKardex
     public void producto()
     {
         CProducto producto = new CProducto();
+        ventana.dispose();
+    }
+    
+    @Override
+    public void configuracion()
+    {
+        CConfiguracion config = new CConfiguracion(false);
         ventana.dispose();
     }
 }
