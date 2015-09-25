@@ -1,6 +1,6 @@
 ﻿/*
 Created: 02/06/2015
-Modified: 22/09/2015
+Modified: 24/09/2015
 Model: MySQL 5.5
 Database: MySQL 5.5
 */
@@ -114,7 +114,7 @@ CREATE TABLE USUARIO
   UsrDni Char(8) NOT NULL,
   UsrNom Char(40) NOT NULL,
   UsrApe Char(40) NOT NULL,
-  UsrPer Bool NOT NULL,
+  UsrPer Bool NOT NULL DEFAULT 0,
   UsrEstReg Tinyint(1) NOT NULL,
  PRIMARY KEY (UsrCod)
 )

@@ -1,5 +1,41 @@
 /* TRIGGERS DE VALIDACION DE DATOS */
 
+/* USUARIO UsrIde, UsrDni, UsrNom, UsrApe */
+
+DELIMITER $$
+CREATE TRIGGER TR_UsrInsDatInv
+	BEFORE INSERT ON USUARIO FOR EACH ROW
+	BEGIN
+		IF LENGTH(NEW.UsrIde) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para identificador';
+		ELSEIF LENGTH(NEW.UsrDni) <> 8 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para número de DNI';
+		ELSEIF LENGTH(NEW.UsrNom) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombres';
+		ELSEIF LENGTH(NEW.UsrApe) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para apellidos';
+		END IF;
+	END;
+$$
+
+DELIMITER $$
+CREATE TRIGGER TR_UsrModDatInv
+	BEFORE UPDATE ON USUARIO FOR EACH ROW
+	BEGIN
+		IF LENGTH(NEW.UsrIde) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para identificador';
+		ELSEIF LENGTH(NEW.UsrDni) <> 8 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para número de DNI';
+		ELSEIF LENGTH(NEW.UsrNom) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombres';
+		ELSEIF LENGTH(NEW.UsrApe) = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para apellidos';
+		ELSEIF (SELECT COUNT(*) FROM USUARIO WHERE UsrEstReg = 1 AND UsrPer = 1) = 1 AND OLD.UsrPer = 1 AND NEW.UsrPer = 0 THEN
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Debe haber al menos un administrador';
+		END IF;
+	END;
+$$
+
 /* UNIDAD UniCod UniDes*/
 
 DELIMITER $$
@@ -9,7 +45,6 @@ CREATE TRIGGER TR_UniInsDatInv
 		IF LENGTH(NEW.UniDes) = 0 THEN
 			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para descripción de unidad';       
 		END IF;
-        
 	END;
 $$
 
@@ -20,7 +55,6 @@ CREATE TRIGGER TR_UniModDatInv
 		IF LENGTH(NEW.UniDes) = 0 THEN
 			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para descripción de unidad';
 		END IF;
-        
 	END;
 $$
 
