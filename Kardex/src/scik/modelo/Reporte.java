@@ -130,11 +130,9 @@ public class Reporte
                         tabla.addCell(celda);
                     }
                 }
-            
                 doc.add(tabla);
                 
                 // FIN REPORTE
-                
                 doc.close();
                 Runtime.getRuntime().exec("cmd /c start " + path);
             }
@@ -473,11 +471,9 @@ public class Reporte
                         tabla.addCell(celda);
                     }
                 }
-                
                 doc.add(tabla);
                 
                 // FIN REPORTE
-                
                 doc.close();
                 Runtime.getRuntime().exec("cmd /c start " + path);
             }
@@ -505,8 +501,8 @@ public class Reporte
 
         if(option==JFileChooser.APPROVE_OPTION)
         {
-            try {
-                
+            try
+            {
                 ArrayList <String> cabPro = new ArrayList <>(); //cabecera del producto--> etiqueta
                 ArrayList <String> detPro = new ArrayList <>(); //detalle del producto--> descripciom
                 
