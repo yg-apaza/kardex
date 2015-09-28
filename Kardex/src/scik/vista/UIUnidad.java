@@ -29,6 +29,7 @@ public class UIUnidad extends javax.swing.JFrame
         
         cellSelectionModel.addListSelectionListener(new ListSelectionListener()
         {
+            @Override
             public void valueChanged(ListSelectionEvent e)
             {
                 interfaz.actualizarEst(tblRegistros, chActivar);

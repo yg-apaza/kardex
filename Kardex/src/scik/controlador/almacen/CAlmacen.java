@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Almacen;
@@ -22,9 +23,9 @@ public class CAlmacen implements IAlmacen
     }
     
     @Override
-    public void cargar(JTable registros)
+    public void cargar(JTable tblRegistros, JTextField txtBuscar)
     {
-        DefaultTableModel model = (DefaultTableModel) registros.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
         
         for(int i = 0; i < almacenes.size(); i++)

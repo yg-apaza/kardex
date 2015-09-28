@@ -2,6 +2,9 @@ package scik.vista;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -21,13 +24,14 @@ public class UIAlmacen extends javax.swing.JFrame
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
-        interfaz.cargar(tblRegistros);
+        interfaz.cargar(tblRegistros, this.txtBuscar);
         
         cellSelectionModel = tblRegistros.getSelectionModel();
         cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         cellSelectionModel.addListSelectionListener(new ListSelectionListener()
         {
+            @Override
             public void valueChanged(ListSelectionEvent e)
             {
                 interfaz.actualizarEst(tblRegistros, chActivar);
@@ -68,7 +72,7 @@ public class UIAlmacen extends javax.swing.JFrame
         chActivar = new javax.swing.JCheckBox();
         btnMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         btnReporte = new javax.swing.JButton();
 
@@ -226,7 +230,7 @@ public class UIAlmacen extends javax.swing.JFrame
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Buscar:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Ubicación" }));
@@ -260,7 +264,7 @@ public class UIAlmacen extends javax.swing.JFrame
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(12, 12, 12)
@@ -289,7 +293,7 @@ public class UIAlmacen extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -349,8 +353,8 @@ public class UIAlmacen extends javax.swing.JFrame
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblRegistros;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
