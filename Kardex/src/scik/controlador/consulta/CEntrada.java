@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Consultas;
 import scik.modelo.Producto;
+import scik.modelo.Reporte;
 import scik.vista.UIEntrada;
 
 public class CEntrada implements IEntrada
@@ -97,7 +98,7 @@ public class CEntrada implements IEntrada
         if(consultaRealizada)
         {
             Producto p = Producto.buscar(txtProCod.getText());
-            //reporte.generarReporte2(p, (String)cbxAnio.getSelectedItem(),(String) cbxMes.getSelectedItem() , resultado);
+            Reporte.generarReporte2(p, (String) cbxMes.getSelectedItem(), (String)cbxAnio.getSelectedItem(), resultado);
         }
         else
             JOptionPane.showMessageDialog(null, "Realize primero una consulta", "ERROR", JOptionPane.ERROR_MESSAGE);
