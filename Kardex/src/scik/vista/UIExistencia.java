@@ -39,6 +39,13 @@ public class UIExistencia extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+        });
 
         cbxProNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxProNom.addActionListener(new java.awt.event.ActionListener()
@@ -211,6 +218,11 @@ public class UIExistencia extends javax.swing.JFrame
     {//GEN-HEADEREND:event_btnReporteActionPerformed
         interfaz.generarReporte(this.txtProCod);
     }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        interfaz.menu();
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;

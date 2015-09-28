@@ -9,7 +9,9 @@ import scik.controlador.documento.CDocumento;
 import scik.controlador.unidad.CUnidad;
 import scik.controlador.usuario.CUsuario;
 import static scik.KardexIni.user;
+import scik.controlador.consulta.CEntrada;
 import scik.controlador.consulta.CExistencia;
+import scik.controlador.consulta.CSalida;
 import scik.controlador.kardex.CKardex;
 import scik.controlador.producto.CProducto;
 
@@ -102,12 +104,14 @@ public class CKardexMenu implements IKardexMenu
     @Override
     public void salida()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CSalida salida = new CSalida();
+        ventana.dispose();
     }
 
     @Override
     public void entrada()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CEntrada entrada = new CEntrada();
+        ventana.dispose();
     }
 }

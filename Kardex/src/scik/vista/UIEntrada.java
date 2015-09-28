@@ -37,7 +37,15 @@ public class UIEntrada extends javax.swing.JFrame
         btnConsultar = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Producto:");
@@ -107,7 +115,7 @@ public class UIEntrada extends javax.swing.JFrame
         }
 
         btnVolver.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kardex/recursos/menu.png"))); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/menu.png"))); // NOI18N
         btnVolver.setText("Volver al Menu");
         btnVolver.addActionListener(new java.awt.event.ActionListener()
         {
@@ -227,6 +235,11 @@ public class UIEntrada extends javax.swing.JFrame
     {//GEN-HEADEREND:event_btnReporteActionPerformed
         interfaz.generarReporte(txtProCod, cbxAnio, cbxMes);
     }//GEN-LAST:event_btnReporteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        interfaz.menu();
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
