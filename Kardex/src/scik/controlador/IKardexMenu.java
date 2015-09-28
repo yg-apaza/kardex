@@ -15,4 +15,10 @@ public interface IKardexMenu
     public void producto();
     public void configuracion();
     public void kardex();
+
+    public void existenciaProducto();
+
+    public void salida();
+
+    public void entrada();
 }

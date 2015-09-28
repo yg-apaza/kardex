@@ -378,17 +378,17 @@ public class UIKardexMenu extends javax.swing.JFrame
 
     private void btnExistenciaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnExistenciaActionPerformed
     {//GEN-HEADEREND:event_btnExistenciaActionPerformed
-        //interfaz.existenciaProducto();
+        interfaz.existenciaProducto();
     }//GEN-LAST:event_btnExistenciaActionPerformed
 
     private void btnSalidaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalidaActionPerformed
     {//GEN-HEADEREND:event_btnSalidaActionPerformed
-        //interfaz.salida();
+        interfaz.salida();
     }//GEN-LAST:event_btnSalidaActionPerformed
 
     private void btnEntradaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEntradaActionPerformed
     {//GEN-HEADEREND:event_btnEntradaActionPerformed
-        //interfaz.entrada();
+        interfaz.entrada();
     }//GEN-LAST:event_btnEntradaActionPerformed
 
     private void itmCerrarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_itmCerrarActionPerformed
