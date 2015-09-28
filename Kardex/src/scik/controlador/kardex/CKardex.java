@@ -11,6 +11,7 @@ import scik.modelo.Almacen;
 import scik.modelo.Kardex_Cab;
 import scik.modelo.Kardex_Det;
 import scik.modelo.Producto;
+import scik.modelo.Reporte;
 import scik.vista.UIKardex;
 
 public class CKardex implements IKardex
@@ -238,5 +239,25 @@ public class CKardex implements IKardex
         {
             JOptionPane.showMessageDialog(null, "Seleccione un Kardex Cabecera", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public void generarReporte(JTable tblRegistrosKC)
+    {
+        int i = tblRegistrosKC.getSelectedRow();
+        if(i != -1)
+        {
+            Kardex_Cab cab = kc.get(i);
+            if(cab.getKarCabEstReg().equals("1"))
+            {
+                ArrayList<String> karcab = cab.getVista(codigoProducto, codigoAlmacen);
+                ArrayList<ArrayList<String>> kardet = (new Kardex_Det()).getVista(codigoProducto, codigoAlmacen);
+                Reporte.generarReporteKardex(karcab, kardet);
+            }
+            else
+                JOptionPane.showMessageDialog(null, "El registro no está activo", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+             JOptionPane.showMessageDialog(null, "Seleccione un registro de Kardex Cabecera", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
 }

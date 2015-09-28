@@ -422,19 +422,15 @@ public class Kardex_Det
         return "000000";
     }
     
-    /*
     public ArrayList<ArrayList<String>> getVista(String producto, String almacen)
     {
-        Conexion con =  new Conexion();
-        con.conectar();
-        ArrayList<ArrayList<String>> kardet = new ArrayList<ArrayList<String>>();
-        
+        ArrayList<ArrayList<String>> kardet = new ArrayList<>();
         try
         {        
-            ResultSet resultado = con.receive("SELECT * FROM VI_KarDet WHERE ProCod = " + producto + " AND AlmCod = " + almacen);
+            ResultSet resultado = con.ejecutar("SELECT * FROM VI_KarDet WHERE ProCod = ? AND AlmCod = ?", new String[] {producto, almacen}, true);
             while(resultado.next())
             {
-                ArrayList<String> data = new ArrayList<String>();
+                ArrayList<String> data = new ArrayList<>();
                 String codigo = resultado.getString("KarDetCod");
                 String fecha = resultado.getString("KarDetAnio") + "/" + resultado.getString("KarDetMes") + "/" + resultado.getString("KarDetDia");
                 String documento = resultado.getString("DocNom");
@@ -467,11 +463,8 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
-        
-        
         return kardet;
     }
-    */
 }

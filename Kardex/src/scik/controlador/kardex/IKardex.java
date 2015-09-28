@@ -15,4 +15,6 @@ public interface IKardex
     public void eliminarKC(JTable tblRegistrosKC, JTable tblRegistrosKD, JTextField txtEst);
     public void modificarKD(JTable tblRegistrosKC);
     public void eliminarKD(JTable tblRegistrosKC);
+
+    public void generarReporte(JTable tblRegistrosKC);
 }

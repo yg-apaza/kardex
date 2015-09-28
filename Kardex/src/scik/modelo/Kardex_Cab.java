@@ -249,25 +249,20 @@ public class Kardex_Cab
         return detalles;
     }
     
-    /*
-    public ArrayList<String> getVista(String producto, String almacen)
+    public static ArrayList<String> getVista(String producto, String almacen)
     {
-        Conexion con =  new Conexion();
-        con.conectar();
-        ArrayList<String> karcab = new ArrayList<String>();
-        
+        ArrayList<String> karcab = new ArrayList<>();
         try
         {        
-            ResultSet resultado = con.receive("SELECT * FROM VI_KarCab WHERE ProCod = " + producto + " AND AlmCod = " + almacen);
-            
+            ResultSet resultado = con.ejecutar("SELECT * FROM VI_KarCab WHERE ProCod = ? AND AlmCod = ?", new String[] {producto, almacen}, true);
             resultado.next();
             String proCod = resultado.getString("ProCod");
             String proNom = resultado.getString("ProNom");
             String uniDes = resultado.getString("UniDes");
             String almCod = resultado.getString("AlmCod");
             String almNom = resultado.getString("AlmNom");
-            String can    = resultado.getString("KarCabCan");
-            String precio = resultado.getString("KarCabPreUni");
+            String can    = resultado.getString("KarCan");
+            String precio = resultado.getString("KarValUni");
             karcab.add(proCod);
             karcab.add(proNom);
             karcab.add(uniDes);
@@ -275,14 +270,11 @@ public class Kardex_Cab
             karcab.add(almNom);
             karcab.add(can);
             karcab.add(precio);
-        
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
-        
         return karcab;
     }
-    */
 }
