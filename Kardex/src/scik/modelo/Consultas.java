@@ -3,6 +3,7 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 public class Consultas
@@ -27,7 +28,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return existencias;
     }
@@ -44,7 +45,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
         return total;
@@ -76,7 +77,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return entradas;
     }
@@ -107,7 +108,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return salidas;
     }
@@ -123,7 +124,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return anios;
     }
@@ -139,7 +140,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return meses;
     }
@@ -155,7 +156,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return anios;
     }
@@ -171,7 +172,7 @@ public class Consultas
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return meses;
     }

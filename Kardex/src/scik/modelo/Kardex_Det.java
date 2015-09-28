@@ -3,6 +3,7 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 public class Kardex_Det
@@ -326,7 +327,6 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
             return ex.getMessage();
         }
         return "";
@@ -367,7 +367,7 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return kardex_det;
     }
@@ -402,7 +402,7 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return detalle;
     }
@@ -417,7 +417,7 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return "000000";
     }
@@ -463,7 +463,7 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return kardet;
     }

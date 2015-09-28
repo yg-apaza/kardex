@@ -238,7 +238,7 @@ public class Almacen
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return almacenes;
     }

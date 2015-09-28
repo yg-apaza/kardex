@@ -3,6 +3,7 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 public class Kardex_Cab
@@ -108,14 +109,6 @@ public class Kardex_Cab
         {
             this.setKarCabEstReg("3");
             con.ejecutar("UPDATE KARDEX SET KarEstReg = 3 WHERE ProCod = ? AND AlmCod = ?", new String[] {ProCod, AlmCod}, false);
-            /*
-            ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE (ProCod = ? AND AlmCod = ?)", new String[] {ProCod, AlmCod}, true);
-            while(rs.next())
-            {
-                String codigo = rs.getString("KarDetCod");
-                (new Kardex_Det()).eliminar(codigo, ProCod, AlmCod);
-            }
-            */
         }
         catch (SQLException ex)
         {
@@ -145,7 +138,7 @@ public class Kardex_Cab
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
               
         return kardex_cab;
@@ -168,7 +161,7 @@ public class Kardex_Cab
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return k;
     }
@@ -206,7 +199,7 @@ public class Kardex_Cab
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return detalles;
     }
@@ -244,7 +237,7 @@ public class Kardex_Cab
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return detalles;
     }
@@ -273,7 +266,7 @@ public class Kardex_Cab
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return karcab;
     }

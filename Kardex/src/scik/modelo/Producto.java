@@ -236,7 +236,7 @@ public class Producto
         }
         catch (SQLException ex)
         {
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return productos;
     }
