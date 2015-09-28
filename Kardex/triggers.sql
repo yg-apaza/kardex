@@ -161,14 +161,14 @@ CREATE TRIGGER TR_KarDetDatInv
 			SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) + NEW.KarDetCan ;
             SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) + NEW.KarDetValTot;
             SET @valUni = @valTot / @cantidad;
-            IF (@valUni = null) THEN
+            IF (@valUni IS null) THEN
 				SET @valUni = 0;
             END IF;
         ELSE
 			SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - NEW.KarDetCan;
             SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - NEW.KarDetValTot ;
             SET @valUni = @valTot / @cantidad;
-            IF (@valUni = null) THEN
+            IF (@valUni IS null) THEN
 				SET @valUni = 0;
             END IF;
         END IF;
@@ -203,7 +203,7 @@ CREATE TRIGGER TR_KarDetMod
 				SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetCan;
 				SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetValTot;
 				SET @valUni = @valTot/@cantidad;
-				IF (@valUni = null) THEN
+				IF (@valUni is NULL) THEN
 					SET @valUni = 0;
 				END IF;
 			ELSE
@@ -219,14 +219,14 @@ CREATE TRIGGER TR_KarDetMod
 				SET @cantidad = @cantidad + NEW.KarDetCan;
                 SET @valTot = @valTot + NEW.KarDetValTot;
                 SET @valUni = @valTot / @cantidad;
-                IF (@valUni = null) THEN
+                IF (@valUni is NULL) THEN
 					SET @valUni = 0;
 				END IF;
 			ELSE
 				SET @cantidad = @cantidad - NEW.KarDetCan;
                 SET @valTot = @valTot - NEW.KarDetValTot;
                 SET @valUni = @valTot / @cantidad;
-                IF (@valUni = null) THEN
+                IF (@valUni is NULL) THEN
 					SET @valUni = 0;	
 				END IF;
             END IF;
@@ -262,14 +262,14 @@ CREATE TRIGGER TR_KarCabActMod
 				SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetCan;
 				SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetValTot;
 				SET @valUni = @valTot/@cantidad;
-				IF (@valUni = null) THEN
+				IF (@valUni IS null) THEN
 					SET @valUni = 0;
 				END IF;
 			ELSE
 				SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) + OLD.KarDetCan;
 				SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) + OLD.KarDetValTot;
 				SET @valUni = @valTot/@cantidad;
-				IF (@valUni = null) THEN
+				IF (@valUni IS null) THEN
 					SET @valUni = 0;
 				END IF;
             END IF;
