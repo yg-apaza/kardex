@@ -17,11 +17,9 @@ public class CExistencia implements IExistencia
     private ArrayList<ArrayList<String>> activosPro;
     private ArrayList<ArrayList<String>> resultado;
     private boolean consultaRealizada;
-    private Consultas c;
     
     public CExistencia()
     {
-        c = new Consultas();
         consultaRealizada = false;
         resultado = new ArrayList<ArrayList<String>>();
         activosPro = Producto.getActivos();
@@ -53,7 +51,7 @@ public class CExistencia implements IExistencia
     {
         if(txtProCod.getText().length() != 0)
         {
-            resultado = c.existenciaProducto(txtProCod.getText());
+            resultado = Consultas.existenciaProducto(txtProCod.getText());
             DefaultTableModel model = (DefaultTableModel) tblConsultas.getModel();
             model.setRowCount(0);
 
@@ -65,7 +63,7 @@ public class CExistencia implements IExistencia
                                                 resultado.get(i).get(2)
                                             });
             }
-            txtTotal.setText(c.existenciaTotal(txtProCod.getText()));
+            txtTotal.setText(Consultas.existenciaTotal(txtProCod.getText()));
             consultaRealizada = true;
         }
         else

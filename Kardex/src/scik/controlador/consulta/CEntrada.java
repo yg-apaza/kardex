@@ -18,8 +18,6 @@ public class CEntrada implements IEntrada
     private ArrayList<ArrayList<String>> resultado;
     private boolean consultaRealizada;
     
-    private Consultas c;
-    
     private int iAnio;
     private int iMes;
     private ArrayList<String> meses;
@@ -28,7 +26,6 @@ public class CEntrada implements IEntrada
     public CEntrada()
     {
         consultaRealizada = false;
-        c = new Consultas();
         resultado = new ArrayList<ArrayList<String>>();
         activosPro = Producto.getActivos();
         
@@ -72,7 +69,7 @@ public class CEntrada implements IEntrada
         {
             if(anios != null && meses != null && iAnio != -1 && iMes != -1)
             {
-                resultado = c.entradas(txtProCod.getText(), anios.get(iAnio), meses.get(iMes));
+                resultado = Consultas.entradas(txtProCod.getText(), anios.get(iAnio), meses.get(iMes));
                 DefaultTableModel model = (DefaultTableModel) tblConsultas.getModel();
                 model.setRowCount(0);
 

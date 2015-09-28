@@ -7,6 +7,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Almacen;
+import scik.modelo.Reporte;
 import scik.vista.UIAlmacen;
 
 public class CAlmacen implements IAlmacen
@@ -136,6 +137,11 @@ public class CAlmacen implements IAlmacen
     @Override
     public void generarReporte()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList <ArrayList<String>> lista = Almacen.getVista();
+        ArrayList <String> cab = new ArrayList <> ();
+        cab.add("Código");
+        cab.add("Nombre de Almacen");
+        cab.add("Ubicación");
+        Reporte.generarReporte("REPORTE DE ALMACENES ACTIVOS", "ALMACEN", lista, cab);
     }
 }

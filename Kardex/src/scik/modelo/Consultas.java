@@ -7,7 +7,7 @@ import static scik.KardexIni.con;
 
 public class Consultas
 {
-    public ArrayList<ArrayList<String>> existenciaProducto(String codigoProducto)
+    public static ArrayList<ArrayList<String>> existenciaProducto(String codigoProducto)
     {
         ArrayList<ArrayList<String>> existencias = new ArrayList<>();       
         try
@@ -32,7 +32,7 @@ public class Consultas
         return existencias;
     }
     
-    public String existenciaTotal(String codigoProducto)
+    public static String existenciaTotal(String codigoProducto)
     {
         String total = "0.00";
         
@@ -50,7 +50,7 @@ public class Consultas
         return total;
     }
     
-    public ArrayList<ArrayList<String>> entradas(String codigoProducto, String anio, String mes)
+    public static ArrayList<ArrayList<String>> entradas(String codigoProducto, String anio, String mes)
     {
         ArrayList<ArrayList<String>> entradas = new ArrayList<>();       
 
@@ -81,7 +81,7 @@ public class Consultas
         return entradas;
     }
     
-    public ArrayList<ArrayList<String>> salidas(String codigoProducto, String anio, String mes)
+    public static ArrayList<ArrayList<String>> salidas(String codigoProducto, String anio, String mes)
     {
         ArrayList<ArrayList<String>> salidas = new ArrayList<>();       
 

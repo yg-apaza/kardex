@@ -18,8 +18,6 @@ public class CSalida implements ISalida
     private ArrayList<ArrayList<String>> resultado;
     private boolean consultaRealizada;
     
-    private Consultas c;
-    
     private int iAnio;
     private int iMes;
     private ArrayList<String> meses;
@@ -28,7 +26,6 @@ public class CSalida implements ISalida
     public CSalida()
     {
         consultaRealizada = false;
-        c = new Consultas();
         resultado = new ArrayList<>();
         activosPro = Producto.getActivos();
         iAnio = -1;
@@ -70,7 +67,7 @@ public class CSalida implements ISalida
         {
             if(anios != null && meses != null && iAnio != -1 && iMes != -1)
             {
-                resultado = c.salidas(txtProCod.getText(), anios.get(iAnio), meses.get(iMes));
+                resultado = Consultas.salidas(txtProCod.getText(), anios.get(iAnio), meses.get(iMes));
                 DefaultTableModel model = (DefaultTableModel) tblConsultas.getModel();
                 model.setRowCount(0);
 

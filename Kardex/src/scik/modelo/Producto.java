@@ -180,37 +180,6 @@ public class Producto
         return productos;
     }
     
-    /*
-    public ArrayList<ArrayList<String>> getVista()
-    {
-        Conexion con =  new Conexion();
-        con.conectar();
-        ArrayList<ArrayList<String>> productos =  new ArrayList<ArrayList<String>>();
-        
-        try
-        {        
-            ResultSet resultado = con.receive("SELECT * FROM VI_Pro");
-            while(resultado.next())
-            {
-                String codigo = resultado.getString("ProCod");
-                String nombre = resultado.getString("ProNom");
-                String unidad = resultado.getString("UniDes");
-                ArrayList<String> data = new ArrayList<String>();
-                data.add(codigo);
-                data.add(nombre);
-                data.add(unidad);
-                productos.add(data);
-            }
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return productos;
-    }
-    */
-    
     public static Producto buscar(String codigo)
     {
         Producto p = null;
@@ -244,5 +213,31 @@ public class Producto
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return "000000";
+    }
+    
+    public static ArrayList<ArrayList<String>> getVista()
+    {
+        ArrayList<ArrayList<String>> productos =  new ArrayList<>();
+        
+        try
+        {        
+            ResultSet rs = con.ejecutar("SELECT * FROM VI_Pro", null, true);
+            while(rs.next())
+            {
+                String codigo = rs.getString("ProCod");
+                String nombre = rs.getString("ProNom");
+                String unidad = rs.getString("UniDes");
+                ArrayList<String> data = new ArrayList<>();
+                data.add(codigo);
+                data.add(nombre);
+                data.add(unidad);
+                productos.add(data);
+            }
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return productos;
     }
 }

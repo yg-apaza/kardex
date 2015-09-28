@@ -218,32 +218,28 @@ public class Almacen
         return "000000";
     }
     
-    /*
-    public ArrayList<ArrayList<String>> getVista()
+    public static ArrayList<ArrayList<String>> getVista()
     {
-        Conexion con =  new Conexion();
-        con.conectar();
-        ArrayList<ArrayList<String>> almacenes = new ArrayList<ArrayList<String>>();
-        
-        try {        
-            ResultSet resultado = con.receive("SELECT * FROM VI_Alm");
-            while(resultado.next())
+        ArrayList<ArrayList<String>> almacenes = new ArrayList<>();
+        try
+        {        
+            ResultSet rs = con.ejecutar("SELECT * FROM VI_Alm", null, true);
+            while(rs.next())
             {
-                ArrayList<String> data = new ArrayList<String>();
-                String codigo = resultado.getString("AlmCod");
-                String nombre = resultado.getString("AlmNom");
-                String ubicacion = resultado.getString("AlmUbi");
+                ArrayList<String> data = new ArrayList<>();
+                String codigo = rs.getString("AlmCod");
+                String nombre = rs.getString("AlmNom");
+                String ubicacion = rs.getString("AlmUbi");
                 data.add(codigo);
                 data.add(nombre);
                 data.add(ubicacion);
                 almacenes.add(data);
             }
-        
-        } catch (SQLException ex) {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
         return almacenes;
     }
-    */
 }

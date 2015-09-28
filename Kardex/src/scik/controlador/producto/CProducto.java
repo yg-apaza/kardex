@@ -7,6 +7,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Producto;
+import scik.modelo.Reporte;
 import scik.vista.UIProducto;
 
 public class CProducto implements IProducto
@@ -136,6 +137,11 @@ public class CProducto implements IProducto
     @Override
     public void generarReporte()
     {
-        
+        ArrayList <ArrayList<String>> lista = Producto.getVista();
+        ArrayList <String> cab = new ArrayList <> ();
+        cab.add("Código");
+        cab.add("Nombre de Producto");
+        cab.add("Unidad");
+        Reporte.generarReporte("REPORTE DE PRODUCTOS ACTIVOS", "PRODUCTO", lista, cab);
     }
 }
