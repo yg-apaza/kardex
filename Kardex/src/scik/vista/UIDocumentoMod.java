@@ -9,10 +9,9 @@ public class UIDocumentoMod extends javax.swing.JFrame
     public UIDocumentoMod(IDocumentoMod interfaz)
     {
         initComponents();
-        this.setVisible(true);
-        this.setTitle("Insertar Documento");
+        this.setTitle("Modificar Documento");
         setLocationRelativeTo(null);
-        
+        this.setVisible(true);
         this.interfaz = interfaz;
         interfaz.cargar(this.txtDocCod, this.txtDocNom);
     }
@@ -89,6 +88,7 @@ public class UIDocumentoMod extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
+        txtDocNom.setColumns(20);
         txtDocNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtDocCod.setEditable(false);
@@ -108,10 +108,10 @@ public class UIDocumentoMod extends javax.swing.JFrame
                     .addComponent(jLabel2))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDocNom)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtDocCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtDocNom))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

@@ -122,12 +122,12 @@ public class UIDocumento extends javax.swing.JFrame
         jScrollPane1.setViewportView(tblRegistros);
         if (tblRegistros.getColumnModel().getColumnCount() > 0)
         {
-            tblRegistros.getColumnModel().getColumn(0).setMinWidth(120);
-            tblRegistros.getColumnModel().getColumn(0).setPreferredWidth(120);
-            tblRegistros.getColumnModel().getColumn(0).setMaxWidth(120);
-            tblRegistros.getColumnModel().getColumn(2).setMinWidth(120);
-            tblRegistros.getColumnModel().getColumn(2).setPreferredWidth(120);
-            tblRegistros.getColumnModel().getColumn(2).setMaxWidth(120);
+            tblRegistros.getColumnModel().getColumn(0).setMinWidth(80);
+            tblRegistros.getColumnModel().getColumn(0).setPreferredWidth(80);
+            tblRegistros.getColumnModel().getColumn(0).setMaxWidth(80);
+            tblRegistros.getColumnModel().getColumn(2).setMinWidth(60);
+            tblRegistros.getColumnModel().getColumn(2).setPreferredWidth(60);
+            tblRegistros.getColumnModel().getColumn(2).setMaxWidth(60);
         }
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

@@ -89,6 +89,7 @@ public class UIDocumentoIns extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
+        txtDocNom.setColumns(20);
         txtDocNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtDocCod.setEditable(false);

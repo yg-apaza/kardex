@@ -99,7 +99,7 @@ public class Unidad
         ArrayList<Unidad> unidades = new ArrayList<> ();
         try
         {
-            ResultSet resultado = con.ejecutar("SELECT * FROM UNIDAD ORDER BY UniEstReg ASC", null, true);
+            ResultSet resultado = con.ejecutar("SELECT * FROM UNIDAD ORDER BY UniEstReg ASC, UniCod ASC", null, true);
             while(resultado.next())
             {
                 String codigo = resultado.getString("UniCod");

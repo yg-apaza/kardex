@@ -334,7 +334,7 @@ public class Kardex_Det
     
     public static ArrayList<Kardex_Det> getLista()
     {
-        ArrayList<Kardex_Det> kardex_det = new ArrayList<Kardex_Det> ();
+        ArrayList<Kardex_Det> kardex_det = new ArrayList<> ();
         try
         {
             ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET", null, true);

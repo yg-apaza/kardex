@@ -88,6 +88,7 @@ public class UIAlmacenIns extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtAlmUbi.setColumns(20);
         txtAlmUbi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -96,6 +97,7 @@ public class UIAlmacenIns extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
+        txtAlmNom.setColumns(20);
         txtAlmNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtAlmCod.setEditable(false);

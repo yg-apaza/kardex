@@ -10,7 +10,7 @@ public class UIKardexDetMod extends javax.swing.JFrame
     public UIKardexDetMod(IKardexDetMod interfaz)
     {
         this.setVisible(true);
-        this.setTitle("Insertar Kardex Detalle");
+        this.setTitle("Modificar Kardex Detalle");
         initComponents();
         setLocationRelativeTo(null);
 

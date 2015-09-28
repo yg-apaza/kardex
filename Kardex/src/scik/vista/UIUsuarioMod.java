@@ -123,16 +123,20 @@ public class UIUsuarioMod extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Identificador:");
 
+        txtUsrIde.setColumns(12);
         txtUsrIde.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtUsrCod.setEditable(false);
+        txtUsrCod.setColumns(12);
         txtUsrCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
 
+        txtCon.setColumns(12);
         txtCon.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        txtRepCon.setColumns(12);
         txtRepCon.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -182,16 +186,19 @@ public class UIUsuarioMod extends javax.swing.JFrame
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Nombres:");
 
+        txtUsrNom.setColumns(18);
         txtUsrNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Apellidos:");
 
+        txtUsrApe.setColumns(18);
         txtUsrApe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("DNI:");
 
+        txtDNI.setColumns(12);
         try
         {
             txtDNI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));

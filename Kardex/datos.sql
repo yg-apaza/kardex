@@ -1,3 +1,9 @@
+/* VOLCADO DE DATOS */
+
+-- Creacion de Usuario Administrador
+INSERT INTO USUARIO VALUES(DEFAULT, 'admin', MD5('admin'), '00000000', 'Admin', 'ADMIN', 1, 1);
+
+-- Unidades
 INSERT INTO UNIDAD VALUES(DEFAULT, 'kilogramos', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'libras', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'toneladas largas', 1);
@@ -13,3 +19,52 @@ INSERT INTO UNIDAD VALUES(DEFAULT, 'cajas', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'millares', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'metros cúbicos', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'metros', 1);
+
+-- Documentos
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Factura', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Recibo por Honorarios', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Boleta de Venta', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Liquidación de Compra', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Boleto de compañía de aviación comercial por el servicio de transporte aéreo de pasajeros', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Carta de porte aéreo por el servicio de transporte de carga aérea', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de crédito', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de débito', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Guía de remisión - Remitente', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Recibo por Arrendamiento', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Póliza emitida por las Bolsas de Valores, Bolsas de Productos o Agentes de Intermediación por operaciones realizadas en las Bolsas de Valores o Productos o fuera de las mismas, autorizadas por CONASEV', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Ticket o cinta emitido por máquina registradora', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento emitido por bancos, instituciones financieras, crediticias y de seguros que se encuentren bajo el control de la Superintendencia de Banca y Seguros', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Recibo por servicios públicos de suministro de energía eléctrica, agua, teléfono, telex y telegráficos y otros servicios complementarios que se incluyan en el recibo de servicio público', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Boleto emitido por las empresas de transporte público urbano de pasajeros', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Boleto de viaje emitido por las empresas de transporte público interprovincial de pasajeros dentro del país', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento emitido por la Iglesia Católica por el arrendamiento de bienes inmuebles', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento emitido por las Administradoras Privadas de Fondo de Pensiones que se encuentran bajo la supervisión de la Superintendencia de Administradoras Privadas de Fondos de Pensiones', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Boleto o entrada por atracciones y espectáculos públicos', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Comprobante de Retención', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Conocimiento de embarque por el servicio de transporte de carga marítima', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Comprobante por Operaciones No Habituales', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Pólizas de Adjudicación emitidas con ocasión del remate o adjudicación de bienes por venta forzada, por los martilleros o las entidades que rematen o subasten bienes por cuenta de terceros', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Certificado de pago de regalías emitidas por PERUPETRO S.A', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento de Atribución (Ley del Impuesto General a las Ventas e Impuesto Selectivo al Consumo, Art. 19º, último párrafo, R.S. Nº 022-98-SUNAT).', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Recibo por el Pago de la Tarifa por Uso de Agua Superficial con fines agrario y por el pago de la Cuota para la ejecución de una determinada obra o actividad acordada por la Asamblea General de la Comisión de Regantes o Resolución expedida por el Jefe de la Unidad de Aguas y de Riego (Decreto Supremo N° 003-90-AG, Arts. 28 y 48)', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Seguro Complementario de Trabajo de Riesgo', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Tarifa Unificada de Uso de Aeropuerto', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documentos emitidos por la COFOPRI en calidad de oferta de venta de terrenos, los correspondientes a las subastas públicas y a la retribución de los servicios que presta', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documentos emitidos por las empresas que desempeñan el rol adquirente en los sistemas de pago mediante tarjetas de crédito y débito', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Guía de Remisión - Transportista', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documentos emitidos por las empresas recaudadoras de la denominada Garantía de Red Principal a la que hace referencia el numeral 7.6 del artículo 7° de la Ley N° 27133 – Ley de Promoción del Desarrollo de la Industria del Gas Natural', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento del Operador', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documento del Partícipe', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Recibo de Distribución de Gas Natural', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Documentos que emitan los concesionarios del servicio de revisiones técnicas vehiculares, por la prestación de dicho servicio', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Declaración Única de Aduanas - Importación definitiva', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Despacho Simplificado - Importación Simplificada', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Declaración de Mensajería o Courier', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Liquidación de Cobranza', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de Crédito Especial', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de Débito Especial', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Comprobante de No Domiciliado', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Exceso de crédito fiscal por retiro de bienes', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de Crédito - No Domiciliado', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Nota de Débito - No Domiciliado', 1);
+INSERT INTO DOCUMENTO VALUES(DEFAULT, 'Otros -Consolidado de Boletas de Venta', 1);

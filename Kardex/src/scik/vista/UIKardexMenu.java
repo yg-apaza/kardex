@@ -233,6 +233,7 @@ public class UIKardexMenu extends javax.swing.JFrame
         jLabel1.setText("Bienvenido(a):");
 
         txtNombre.setEditable(false);
+        txtNombre.setColumns(20);
 
         txtDni.setEditable(false);
 

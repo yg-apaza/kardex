@@ -1,6 +1,10 @@
-﻿/*
+﻿DROP DATABASE IF EXISTS BD_KARDEX;
+CREATE DATABASE BD_KARDEX;
+USE BD_KARDEX;
+
+/*
 Created: 02/06/2015
-Modified: 24/09/2015
+Modified: 28/09/2015
 Model: MySQL 5.5
 Database: MySQL 5.5
 */
@@ -12,7 +16,7 @@ Database: MySQL 5.5
 CREATE TABLE PRODUCTO
 (
   ProCod Int(6) ZEROFILL NOT NULL AUTO_INCREMENT,
-  ProNom Char(50) NOT NULL,
+  ProNom Varchar(50) NOT NULL,
   UniCod Int(3) ZEROFILL,
   ProEstReg Tinyint(1) NOT NULL DEFAULT 1,
  PRIMARY KEY (ProCod)
@@ -58,7 +62,7 @@ CREATE TABLE KARDEX_DET
   KarDetSalCan Double(9,2) NOT NULL,
   KarDetSalValUni Double(9,2) NOT NULL,
   KarDetSalValTot Double(9,2) NOT NULL,
-  KarDetObs Char(100),
+  KarDetObs Varchar(100),
   KarDetEstReg Tinyint(1) NOT NULL DEFAULT 1,
  PRIMARY KEY (KarDetCod,ProCod,AlmCod)
 )
@@ -75,8 +79,8 @@ CREATE INDEX IX_Relationship17 ON KARDEX_DET (UsrCod)
 CREATE TABLE ALMACEN
 (
   AlmCod Int(6) ZEROFILL NOT NULL AUTO_INCREMENT,
-  AlmNom Char(20) NOT NULL,
-  AlmUbi Char(40) NOT NULL,
+  AlmNom Varchar(20) NOT NULL,
+  AlmUbi Varchar(40) NOT NULL,
   AlmEstReg Tinyint(1) NOT NULL DEFAULT 1,
  PRIMARY KEY (AlmCod)
 )
@@ -87,7 +91,7 @@ CREATE TABLE ALMACEN
 CREATE TABLE UNIDAD
 (
   UniCod Int(3) ZEROFILL NOT NULL AUTO_INCREMENT,
-  UniDes Char(20) NOT NULL,
+  UniDes Varchar(20) NOT NULL,
   UniEstReg Tinyint(1) NOT NULL DEFAULT 1,
  PRIMARY KEY (UniCod)
 )
@@ -98,7 +102,7 @@ CREATE TABLE UNIDAD
 CREATE TABLE DOCUMENTO
 (
   DocCod Int(6) ZEROFILL NOT NULL AUTO_INCREMENT,
-  DocNom Char(40) NOT NULL,
+  DocNom Text NOT NULL,
   DocEstReg Tinyint(1) NOT NULL DEFAULT 1,
  PRIMARY KEY (DocCod)
 )
@@ -109,11 +113,11 @@ CREATE TABLE DOCUMENTO
 CREATE TABLE USUARIO
 (
   UsrCod Int(6) ZEROFILL NOT NULL AUTO_INCREMENT,
-  UsrIde Char(32) NOT NULL,
+  UsrIde Varchar(32) NOT NULL,
   UsrCon Char(32) NOT NULL,
   UsrDni Char(8) NOT NULL,
-  UsrNom Char(40) NOT NULL,
-  UsrApe Char(40) NOT NULL,
+  UsrNom Varchar(40) NOT NULL,
+  UsrApe Varchar(40) NOT NULL,
   UsrPer Bool NOT NULL DEFAULT 0,
   UsrEstReg Tinyint(1) NOT NULL,
  PRIMARY KEY (UsrCod)
@@ -142,6 +146,3 @@ ALTER TABLE KARDEX_DET ADD CONSTRAINT Relationship16 FOREIGN KEY (DocCod) REFERE
 
 ALTER TABLE KARDEX_DET ADD CONSTRAINT Relationship17 FOREIGN KEY (UsrCod) REFERENCES USUARIO (UsrCod) ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
-
--- Creacion de Usuario Administrador
-INSERT INTO USUARIO VALUES(DEFAULT, 'admin', MD5('admin'), '00000000', 'Admin', 'ADMIN', 1, 1);

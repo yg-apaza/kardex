@@ -396,6 +396,7 @@
         <Component class="javax.swing.JTextField" name="txtNombre">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDni">

@@ -95,6 +95,7 @@ public class UIProductoIns extends javax.swing.JFrame
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
+        txtProNom.setColumns(20);
         txtProNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtProCod.setEditable(false);
