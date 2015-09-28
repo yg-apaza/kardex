@@ -67,8 +67,13 @@ public class UISalida extends javax.swing.JFrame
         lblTitulo.setText("ENTRADA DE PRODUCTOS");
 
         cbxAnio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxAnio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2000", "2001", "2002", "2003", "2004", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
-        cbxAnio.setSelectedIndex(14);
+        cbxAnio.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                cbxAnioActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Año:");
@@ -77,7 +82,13 @@ public class UISalida extends javax.swing.JFrame
         jLabel3.setText("Mes:");
 
         cbxMes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxMes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" }));
+        cbxMes.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                cbxMesActionPerformed(evt);
+            }
+        });
 
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -218,7 +229,7 @@ public class UISalida extends javax.swing.JFrame
 
     private void cbxProNomActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxProNomActionPerformed
     {//GEN-HEADEREND:event_cbxProNomActionPerformed
-        interfaz.verProducto(txtProCod, cbxProNom);
+        interfaz.verProducto(txtProCod, cbxProNom, cbxAnio);
     }//GEN-LAST:event_cbxProNomActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnVolverActionPerformed
@@ -228,7 +239,7 @@ public class UISalida extends javax.swing.JFrame
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnConsultarActionPerformed
     {//GEN-HEADEREND:event_btnConsultarActionPerformed
-        interfaz.consultar(this.tblConsultas, this.txtProCod, this.cbxAnio, this.cbxMes);
+        interfaz.consultar(this.tblConsultas, this.txtProCod);
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnReporteActionPerformed
@@ -240,6 +251,16 @@ public class UISalida extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosing
         interfaz.menu();
     }//GEN-LAST:event_formWindowClosing
+
+    private void cbxAnioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxAnioActionPerformed
+    {//GEN-HEADEREND:event_cbxAnioActionPerformed
+        interfaz.actualizarAnio(this.txtProCod, this.cbxAnio, this.cbxMes);
+    }//GEN-LAST:event_cbxAnioActionPerformed
+
+    private void cbxMesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxMesActionPerformed
+    {//GEN-HEADEREND:event_cbxMesActionPerformed
+        interfaz.actualizarMes(cbxMes);
+    }//GEN-LAST:event_cbxMesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultar;
