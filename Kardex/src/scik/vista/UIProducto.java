@@ -320,7 +320,7 @@ public class UIProducto extends javax.swing.JFrame
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnReporteActionPerformed
     {//GEN-HEADEREND:event_btnReporteActionPerformed
-        //interfaz.generarReporte();
+        interfaz.generarReporte();
     }//GEN-LAST:event_btnReporteActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing

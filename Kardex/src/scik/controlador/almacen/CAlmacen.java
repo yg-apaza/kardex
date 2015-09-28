@@ -132,4 +132,10 @@ public class CAlmacen implements IAlmacen
         else
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
     }
+
+    @Override
+    public void generarReporte()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

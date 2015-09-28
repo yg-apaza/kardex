@@ -12,4 +12,5 @@ public interface IAlmacen
     public void modificar(JTable tblRegistros);
     public void activar_desactivar(JTable tblRegistros, JCheckBox chEst);
     public void eliminar(JTable tblRegistros, JCheckBox est);
+    public void generarReporte();
 }

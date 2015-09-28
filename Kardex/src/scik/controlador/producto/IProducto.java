@@ -12,4 +12,5 @@ public interface IProducto
     public void modificar(JTable tblRegistros);
     public void eliminar(JTable tblRegistros, JCheckBox chActivar);
     public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar);
+    public void generarReporte();
 }

@@ -132,4 +132,10 @@ public class CProducto implements IProducto
             model.setValueAt("I", i, 3);
         }
     }
+
+    @Override
+    public void generarReporte()
+    {
+        
+    }
 }
