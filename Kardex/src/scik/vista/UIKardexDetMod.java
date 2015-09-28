@@ -1,13 +1,13 @@
 package scik.vista;
 
 import java.util.Calendar;
-import scik.controlador.kardex.IKardexDetIns;
+import scik.controlador.kardex.IKardexDetMod;
 
-public class UIKardexDetIns extends javax.swing.JFrame
+public class UIKardexDetMod extends javax.swing.JFrame
 {
-    private IKardexDetIns interfaz;
+    private IKardexDetMod interfaz;
 
-    public UIKardexDetIns(IKardexDetIns interfaz)
+    public UIKardexDetMod(IKardexDetMod interfaz)
     {
         this.setVisible(true);
         this.setTitle("Insertar Kardex Detalle");
@@ -15,7 +15,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
         setLocationRelativeTo(null);
 
         this.interfaz = interfaz;
-        this.interfaz.cargar(this.cbxDocNom, this.txtKarDetCod, this.txtProCod, this.txtAlmCod);
+        interfaz.cargar(this.txtKarDetCod, this.txtProCod, this.txtAlmCod, this.fecha, this.txtDocCod, this.cbxDocNom, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
     }
 
     @SuppressWarnings("unchecked")
@@ -254,7 +254,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo2.setText("INSERTAR");
+        lblTitulo2.setText("MODIFICAR");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Documento"));
 
@@ -397,7 +397,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtKarDetCod, this.txtProCod, this.txtAlmCod, this.fecha, this.txtDocCod, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
+        interfaz.aceptar(this.fecha, this.txtDocCod, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

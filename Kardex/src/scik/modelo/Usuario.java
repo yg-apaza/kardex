@@ -107,7 +107,7 @@ public class Usuario
         Usuario user = null;
         try
         {
-            ResultSet rs = con.ejecutar("SELECT * FROM USUARIO WHERE UsrIde = ? AND UsrCon = MD5(?) AND UsrEstReg = 1", new String[] {usr, pass}, true);
+            ResultSet rs = con.ejecutar("SELECT * FROM USUARIO WHERE BINARY UsrIde = ? AND UsrCon = MD5(?) AND UsrEstReg = 1", new String[] {usr, pass}, true);
             rs.next();
             if(rs.isLast())
             {

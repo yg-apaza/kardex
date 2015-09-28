@@ -318,6 +318,7 @@ public class Kardex_Det
     
     public String eliminar(String codigo1, String codigo2, String codigo3)
     {
+        
         try
         {
             this.setKarDetEstReg("3");
@@ -325,6 +326,7 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
+            ex.printStackTrace();
             return ex.getMessage();
         }
         return "";

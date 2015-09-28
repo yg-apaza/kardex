@@ -201,7 +201,7 @@ CREATE TRIGGER TR_KarDetMod
 		IF NEW.KarDetEstReg = 1 THEN
 			IF OLD.KarDetOpe = 1 THEN
 				SET @cantidad = (SELECT KarCan FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetCan;
-				SET @valTot = (SELECT KarCabValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetValTot;
+				SET @valTot = (SELECT KarValTot FROM KARDEX WHERE ProCod = NEW.ProCod AND AlmCod = NEW.AlmCod) - OLD.KarDetValTot;
 				SET @valUni = @valTot/@cantidad;
 				IF (@valUni = null) THEN
 					SET @valUni = 0;
@@ -253,7 +253,7 @@ CREATE TRIGGER TR_KarCabActMod
 	AFTER UPDATE ON KARDEX_DET FOR EACH ROW
 	BEGIN
 		IF NEW.KarDetEstReg = 1 THEN
-			UPDATE KARDEX SET KarCan = NEW.KarDetSalCan, KarCabPreUni = NEW.KarDetSalValUni, KarValTot = NEW.KarDetSalValTot WHERE ProCod = New.ProCod AND AlmCod = NEW.AlmCod;
+			UPDATE KARDEX SET KarCan = NEW.KarDetSalCan, KarValUni = NEW.KarDetSalValUni, KarValTot = NEW.KarDetSalValTot WHERE ProCod = New.ProCod AND AlmCod = NEW.AlmCod;
         ELSEIF NEW.KarDetEstReg = 3 THEN
 			SET @cantidad = 0;
 			SET @valTot = 0;

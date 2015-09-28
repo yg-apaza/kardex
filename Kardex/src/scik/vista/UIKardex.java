@@ -570,11 +570,11 @@ public class UIKardex extends javax.swing.JFrame
     }//GEN-LAST:event_btnInsertarKDActionPerformed
 
     private void btnModificarKDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarKDActionPerformed
-        //interfaz.modificarKD(tblRegistrosKC);
+        interfaz.modificarKD(tblRegistrosKC);
     }//GEN-LAST:event_btnModificarKDActionPerformed
 
     private void btnEliminarKDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarKDActionPerformed
-        //interfaz.eliminarKD(tblRegistrosKC);
+        interfaz.eliminarKD(tblRegistrosKC);
     }//GEN-LAST:event_btnEliminarKDActionPerformed
 
     private void btnEliminarKCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarKCActionPerformed

@@ -168,6 +168,9 @@ public class CKardex implements IKardex
                         txtEst.setText("Eliminado");
                     for(int j = 0; j < kds.get(i).size(); j++)
                         kds.get(i).get(j).eliminar(kds.get(i).get(j).getKarDetCod(), codigoProducto, codigoAlmacen);
+
+                    for(int j = 0; j < kds_activos.get(i).size(); j++)
+                        kds_activos.get(i).get(j).setKarDetEstReg("3");
                 }
             }
             else
@@ -175,5 +178,65 @@ public class CKardex implements IKardex
         }
         else
              JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    @Override
+    public void modificarKD(JTable tblRegistrosKC)
+    {
+        int i = tblRegistrosKC.getSelectedRow();
+        if(i != -1)
+        {
+            try
+            {
+                Kardex_Cab c = kc.get(i);
+                Kardex_Det d = kds_activos.get(i).get(kds_activos.get(i).size() - 1);
+                if(d.getKarDetEstReg().equals("1"))
+                {
+                        boolean nuevo = (kds_activos.get(i).size() == 1);
+                        CKardexDetMod modificar = new CKardexDetMod(d.getKarDetCod(), d.getProCod(), d.getAlmCod(), nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalCan() , nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalValTot());
+                        ventana.dispose();
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Solo se permite modificar registros activos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(ArrayIndexOutOfBoundsException e)
+            {
+                JOptionPane.showMessageDialog(null, "Nada por modificar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Seleccione un Kardex Cabecera", "ERROR", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    @Override
+    public void eliminarKD(JTable tblRegistrosKC)
+    {
+        int i = tblRegistrosKC.getSelectedRow();
+        if(i != -1)
+        {
+            try
+            {
+                Kardex_Det d = kds_activos.get(i).get(kds_activos.get(i).size() - 1);
+                if(!d.getKarDetEstReg().equals("3"))
+                {
+                    if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                    {
+                        d.eliminar(d.getKarDetCod(), d.getProCod(), d.getAlmCod());
+                        CKardex ventanaNueva = new CKardex();
+                        ventana.dispose();
+                    }
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "El registro ya está eliminado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(ArrayIndexOutOfBoundsException e)
+            {
+                JOptionPane.showMessageDialog(null, "Nada por eliminar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Seleccione un Kardex Cabecera", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

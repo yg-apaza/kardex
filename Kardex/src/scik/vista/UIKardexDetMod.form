@@ -387,7 +387,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="INSERTAR"/>
+        <Property name="text" type="java.lang.String" value="MODIFICAR"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
