@@ -250,8 +250,8 @@ public class CKardex implements IKardex
             Kardex_Cab cab = kc.get(i);
             if(cab.getKarCabEstReg().equals("1"))
             {
-                ArrayList<String> karcab = cab.getVista(codigoProducto, codigoAlmacen);
-                ArrayList<ArrayList<String>> kardet = (new Kardex_Det()).getVista(codigoProducto, codigoAlmacen);
+                ArrayList<String> karcab = Kardex_Cab.getVista(codigoProducto, codigoAlmacen);
+                ArrayList<ArrayList<String>> kardet = Kardex_Det.getVista(codigoProducto, codigoAlmacen);
                 Reporte.generarReporteKardex(karcab, kardet);
             }
             else

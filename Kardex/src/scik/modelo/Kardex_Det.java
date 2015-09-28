@@ -422,7 +422,7 @@ public class Kardex_Det
         return "000000";
     }
     
-    public ArrayList<ArrayList<String>> getVista(String producto, String almacen)
+    public static ArrayList<ArrayList<String>> getVista(String producto, String almacen)
     {
         ArrayList<ArrayList<String>> kardet = new ArrayList<>();
         try

@@ -20,8 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Reporte
 {
@@ -82,7 +80,7 @@ public class Reporte
                 Calendar c = Calendar.getInstance();
                 SimpleDateFormat format = new SimpleDateFormat("dd 'de' MMMM 'del' yyyy 'a las' hh:mm a");
               
-                celda = new PdfPCell(new Paragraph("Sistema Kardex - Reporte\nGenerado el " + format.format(c.getTime()), FontFactory.getFont(FontFactory.COURIER, 10, BaseColor.BLACK)));
+                celda = new PdfPCell(new Paragraph("Sistema de Control de Inventarios Kardex - Reporte\nGenerado el " + format.format(c.getTime()), FontFactory.getFont(FontFactory.COURIER, 10, BaseColor.BLACK)));
                 celda.setHorizontalAlignment(Element.ALIGN_RIGHT);
                 celda.setVerticalAlignment(Element.ALIGN_MIDDLE);
                 celda.setBackgroundColor(BaseColor.WHITE);
@@ -142,11 +140,11 @@ public class Reporte
             }
             catch (DocumentException ex)
             {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
             catch (IOException ex)
             {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
         }
     }
@@ -181,7 +179,7 @@ public class Reporte
                 // INICIO REPORTE
                 
                 // Titulo
-                Paragraph parrafo = new Paragraph(" KARDEX DE ENTRADA Y SALIDA DE ALMACÉN \n\n", FontFactory.getFont(FontFactory.COURIER_BOLD, 14, BaseColor.BLACK));
+                Paragraph parrafo = new Paragraph("KARDEX DE ENTRADA Y SALIDA DE ALMACÉN \n\n", FontFactory.getFont(FontFactory.COURIER_BOLD, 14, BaseColor.BLACK));
                 parrafo.setAlignment(Element.ALIGN_CENTER);
                 doc.add(parrafo);
                 
@@ -485,11 +483,11 @@ public class Reporte
             }
             catch (DocumentException ex)
             {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
             catch (IOException ex)
             {
-                Logger.getLogger(Reporte.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
         }
     }

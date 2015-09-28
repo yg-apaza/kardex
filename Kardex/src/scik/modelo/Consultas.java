@@ -12,7 +12,7 @@ public class Consultas
         ArrayList<ArrayList<String>> existencias = new ArrayList<>();       
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProAlmCan WHERE ProCod = " + codigoProducto, null, true);
+            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProAlmCan WHERE ProCod = ?", new String[] {codigoProducto}, true);
             while(resultado.next())
             {
                 ArrayList<String> data = new ArrayList<>();
@@ -38,7 +38,7 @@ public class Consultas
         
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT SUM(KarCan) FROM VI_ProAlmCan WHERE ProCod = " + codigoProducto, null, true);
+            ResultSet resultado = con.ejecutar("SELECT SUM(KarCan) FROM VI_ProAlmCan WHERE ProCod = ?", new String[] {codigoProducto}, true);
             resultado.next();
             total = resultado.getString("SUM(KarCan)");
         }
@@ -56,7 +56,7 @@ public class Consultas
 
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProEntMes WHERE ProCod = " + codigoProducto + " AND KarDetAnio = " + anio + " AND KarDetMes = " + mes, null, true);
+            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProEntMes WHERE ProCod = ? AND KarDetAnio = ? AND KarDetMes = ?", new String[] {codigoProducto, anio, mes}, true);
             while(resultado.next())
             {
                 ArrayList<String> data = new ArrayList<>();
@@ -87,7 +87,7 @@ public class Consultas
 
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProSalMes WHERE ProCod = " + codigoProducto + " AND KarDetAnio = " + anio + " AND KarDetMes = " + mes + " ORDER BY KarDetDia", null, true);
+            ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProSalMes WHERE ProCod = ? AND KarDetAnio = ? AND KarDetMes = ? ORDER BY KarDetDia", new String[] {codigoProducto, anio, mes}, true);
             while(resultado.next())
             {
                 ArrayList<String> data = new ArrayList<>();
@@ -117,7 +117,7 @@ public class Consultas
         ArrayList<String> anios = new ArrayList<>();       
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProEntMes WHERE ProCod = " + producto + " GROUP BY KarDetAnio", null, true);
+            ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProEntMes WHERE ProCod = ? GROUP BY KarDetAnio", new String[] {producto}, true);
             while(resultado.next())
                 anios.add(resultado.getString("KarDetAnio"));
         }
@@ -133,7 +133,7 @@ public class Consultas
         ArrayList<String> meses = new ArrayList<>();       
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProEntMes WHERE ProCod = " + producto + " AND KarDetAnio = " + anio + " GROUP BY KarDetMes;", null, true);
+            ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProEntMes WHERE ProCod = ? AND KarDetAnio = ? GROUP BY KarDetMes", new String[] {producto, anio}, true);
             while(resultado.next())
                 meses.add(resultado.getString("KarDetMes"));
         }
@@ -149,7 +149,7 @@ public class Consultas
         ArrayList<String> anios = new ArrayList<>();       
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProSalMes WHERE ProCod = " + producto + " GROUP BY KarDetAnio", null, true);
+            ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProSalMes WHERE ProCod = ? GROUP BY KarDetAnio", new String[] {producto}, true);
             while(resultado.next())
                 anios.add(resultado.getString("KarDetAnio"));
         }
@@ -165,7 +165,7 @@ public class Consultas
         ArrayList<String> meses = new ArrayList<>();       
         try
         {        
-            ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProSalMes WHERE ProCod = " + producto + " AND KarDetAnio = " + anio + " GROUP BY KarDetMes;", null, true);
+            ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProSalMes WHERE ProCod = ? AND KarDetAnio = ? GROUP BY KarDetMes;", new String[] {producto, anio}, true);
             while(resultado.next())
                 meses.add(resultado.getString("KarDetMes"));
         }
