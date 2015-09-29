@@ -10,6 +10,8 @@ import scik.controlador.CKardexMenu;
 import scik.modelo.Almacen;
 import scik.modelo.Reporte;
 import scik.vista.UIAlmacen;
+import com.mxrck.autocompleter.TextAutoCompleter;
+import javax.swing.table.TableModel;
 
 public class CAlmacen implements IAlmacen
 {
@@ -144,5 +146,24 @@ public class CAlmacen implements IAlmacen
         cab.add("Nombre de Almacen");
         cab.add("Ubicación");
         Reporte.generarReporte("REPORTE DE ALMACENES ACTIVOS", "ALMACEN", lista, cab);
+    }
+    
+    /*
+    Realizar búsquedas según el filtro seleccionado en el JComboBox convertido en String, y los muestra en el JTextField
+    */
+    public void buscarAlmacen( String filtro, JTextField buscar, JTable tablaAlmacen)
+    {
+        buscar.setText(null);
+        TextAutoCompleter textAutoAcompleter = new TextAutoCompleter( buscar );
+        textAutoAcompleter.removeAllItems();
+        textAutoAcompleter.setMode(0); // infijo
+        textAutoAcompleter.setCaseSensitive(false); //No sensible a mayúsculas
+        TableModel tableModel = tablaAlmacen.getModel();
+        int i;
+        for(i = 0; i < tableModel.getColumnCount(); i++)
+            if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
+                break;
+        for(int k = 0; k < tableModel.getRowCount(); k++)
+            textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
     }
 }

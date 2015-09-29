@@ -1,5 +1,6 @@
 package scik.controlador.almacen;
 
+import com.mxrck.autocompleter.TextAutoCompleter;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,4 +15,5 @@ public interface IAlmacen
     public void activar_desactivar(JTable tblRegistros, JCheckBox chEst);
     public void eliminar(JTable tblRegistros, JCheckBox est);
     public void generarReporte();
+    public void buscarAlmacen(String filtro, JTextField buscar, JTable tablaAlmacen);
 }
