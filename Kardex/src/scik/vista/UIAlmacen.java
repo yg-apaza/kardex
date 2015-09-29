@@ -1,5 +1,6 @@
 package scik.vista;
 
+import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -37,12 +38,12 @@ public class UIAlmacen extends javax.swing.JFrame
                 interfaz.actualizarEst(tblRegistros, chActivar);
             }
         });
+        interfaz.buscarAlmacen(cbFiltro.getSelectedItem().toString(), txtBuscar, tblRegistros);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -73,16 +74,14 @@ public class UIAlmacen extends javax.swing.JFrame
         btnMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbFiltro = new javax.swing.JComboBox();
         btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
@@ -95,39 +94,31 @@ public class UIAlmacen extends javax.swing.JFrame
 
         tblRegistros.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblRegistros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Codigo", "Nombre", "Ubicación", "Estado"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean []
-            {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         tblRegistros.setSelectionBackground(new java.awt.Color(0, 102, 204));
         jScrollPane1.setViewportView(tblRegistros);
-        if (tblRegistros.getColumnModel().getColumnCount() > 0)
-        {
+        if (tblRegistros.getColumnModel().getColumnCount() > 0) {
             tblRegistros.getColumnModel().getColumn(0).setMinWidth(80);
             tblRegistros.getColumnModel().getColumn(0).setPreferredWidth(80);
             tblRegistros.getColumnModel().getColumn(0).setMaxWidth(80);
@@ -142,10 +133,8 @@ public class UIAlmacen extends javax.swing.JFrame
         btnInsertar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnInsertar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertar.setText("INSERTAR");
-        btnInsertar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarActionPerformed(evt);
             }
         });
@@ -153,10 +142,8 @@ public class UIAlmacen extends javax.swing.JFrame
         btnModificar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/modificar.png"))); // NOI18N
         btnModificar.setText("MODIFICAR");
-        btnModificar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
             }
         });
@@ -164,10 +151,8 @@ public class UIAlmacen extends javax.swing.JFrame
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
@@ -176,10 +161,8 @@ public class UIAlmacen extends javax.swing.JFrame
         chActivar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chActivar.setText("ACTIVAR");
         chActivar.setEnabled(false);
-        chActivar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        chActivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chActivarActionPerformed(evt);
             }
         });
@@ -219,10 +202,8 @@ public class UIAlmacen extends javax.swing.JFrame
         btnMenu.setText("Volver al Menu");
         btnMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMenu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnMenu.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
             }
         });
@@ -232,17 +213,20 @@ public class UIAlmacen extends javax.swing.JFrame
 
         txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Ubicación" }));
+        cbFiltro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Ubicación" }));
+        cbFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbFiltroActionPerformed(evt);
+            }
+        });
 
         btnReporte.setBackground(new java.awt.Color(0, 128, 213));
         btnReporte.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Generar Reporte");
-        btnReporte.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteActionPerformed(evt);
             }
         });
@@ -266,7 +250,7 @@ public class UIAlmacen extends javax.swing.JFrame
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -294,7 +278,7 @@ public class UIAlmacen extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -335,6 +319,10 @@ public class UIAlmacen extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosing
         interfaz.menu();
     }//GEN-LAST:event_formWindowClosing
+
+    private void cbFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroActionPerformed
+        interfaz.buscarAlmacen(cbFiltro.getSelectedItem().toString(), txtBuscar, tblRegistros);
+    }//GEN-LAST:event_cbFiltroActionPerformed
     
     
     
@@ -347,8 +335,8 @@ public class UIAlmacen extends javax.swing.JFrame
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnReporte;
+    private javax.swing.JComboBox cbFiltro;
     private javax.swing.JCheckBox chActivar;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
