@@ -1,10 +1,19 @@
 package scik.controlador.producto;
 
+import com.mxrck.autocompleter.TextAutoCompleter;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Producto;
 import scik.modelo.Reporte;
@@ -143,5 +152,52 @@ public class CProducto implements IProducto
         cab.add("Nombre de Producto");
         cab.add("Unidad");
         Reporte.generarReporte("REPORTE DE PRODUCTOS ACTIVOS", "PRODUCTO", lista, cab);
+    }
+    
+    /*
+    Realizar búsquedas y los muestra en el JTextField
+    */
+    public void buscarProducto( JTextField buscar, JTable tablaProducto)
+    {
+        TextAutoCompleter textAutoAcompleter = new TextAutoCompleter( buscar );
+        textAutoAcompleter.setMode(0); // infijo
+        textAutoAcompleter.setCaseSensitive(false); //No sensible a mayúsculas
+        TableModel tableModel = tablaProducto.getModel();
+        String filtro = "Nombre";
+        int i;
+        for(i = 0; i < tableModel.getColumnCount(); i++)
+            if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
+                break;
+        for(int k = 0; k < tableModel.getRowCount(); k++)
+            textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+    }
+    /*
+    Selecciona la busqueda realizada en la tabla
+    */
+    public void seleccionarFila(JTextField buscar, JTable tablaProducto)
+    {
+        TableModel tableModel = tablaProducto.getModel();
+        String dato = buscar.getText();
+        String filtro = "Nombre";
+        int col;
+        for(col = 0; col < tableModel.getColumnCount(); col++)
+            if(filtro.compareTo(tableModel.getColumnName(col)) == 0)
+                break;
+        int row;
+        try
+        {
+            for(row = 0; row < tableModel.getRowCount(); row++)
+                if(dato.compareTo((String) tableModel.getValueAt(row, col)) == 0)
+                    break;
+
+            if(row == 0)
+                tablaProducto.changeSelection(0,0,false,true);
+            else
+                tablaProducto.getSelectionModel().setSelectionInterval(row - 1, row);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR DATOS", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

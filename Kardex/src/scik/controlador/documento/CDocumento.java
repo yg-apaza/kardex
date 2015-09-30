@@ -1,10 +1,13 @@
 package scik.controlador.documento;
 
+import com.mxrck.autocompleter.TextAutoCompleter;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Documento;
 import scik.vista.UIDocumento;
@@ -129,6 +132,52 @@ public class CDocumento implements IDocumento
         {
             d.desactivar();
             model.setValueAt("I", i, 2);
+        }
+    }
+    /*
+    Realizar búsquedas y los muestra en el JTextField
+    */
+    public void buscarDocumento( JTextField buscar, JTable tablaDocumento)
+    {
+        TextAutoCompleter textAutoAcompleter = new TextAutoCompleter( buscar );
+        textAutoAcompleter.setMode(0); // infijo
+        textAutoAcompleter.setCaseSensitive(false); //No sensible a mayúsculas
+        TableModel tableModel = tablaDocumento.getModel();
+        String filtro = "Nombre";
+        int i;
+        for(i = 0; i < tableModel.getColumnCount(); i++)
+            if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
+                break;
+        for(int k = 0; k < tableModel.getRowCount(); k++)
+            textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+    }
+    /*
+    Selecciona la busqueda realizada en la tabla
+    */
+    public void seleccionarFila(JTextField buscar, JTable tablaDocumento)
+    {
+        TableModel tableModel = tablaDocumento.getModel();
+        String dato = buscar.getText();
+        String filtro = "Nombre";
+        int col;
+        for(col = 0; col < tableModel.getColumnCount(); col++)
+            if(filtro.compareTo(tableModel.getColumnName(col)) == 0)
+                break;
+        int row;
+        try
+        {
+            for(row = 0; row < tableModel.getRowCount(); row++)
+                if(dato.compareTo((String) tableModel.getValueAt(row, col)) == 0)
+                    break;
+
+            if(row == 0)
+                tablaDocumento.changeSelection(0,0,false,true);
+            else
+                tablaDocumento.getSelectionModel().setSelectionInterval(row - 1, row);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR DATOS", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

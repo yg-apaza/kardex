@@ -38,7 +38,7 @@ public class UIAlmacen extends javax.swing.JFrame
                 interfaz.actualizarEst(tblRegistros, chActivar);
             }
         });
-        interfaz.buscarAlmacen(cbFiltro.getSelectedItem().toString(), txtBuscar, tblRegistros);
+        interfaz.buscarAlmacen(jComboBox1.getSelectedItem().toString(), txtBuscar, tblRegistros);
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +74,7 @@ public class UIAlmacen extends javax.swing.JFrame
         btnMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
-        cbFiltro = new javax.swing.JComboBox();
+        jComboBox1 = new javax.swing.JComboBox();
         btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -213,11 +213,11 @@ public class UIAlmacen extends javax.swing.JFrame
 
         txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        cbFiltro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Ubicación" }));
-        cbFiltro.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nombre", "Ubicación" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbFiltroActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
 
@@ -250,7 +250,7 @@ public class UIAlmacen extends javax.swing.JFrame
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -278,7 +278,7 @@ public class UIAlmacen extends javax.swing.JFrame
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -320,9 +320,9 @@ public class UIAlmacen extends javax.swing.JFrame
         interfaz.menu();
     }//GEN-LAST:event_formWindowClosing
 
-    private void cbFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFiltroActionPerformed
-        interfaz.buscarAlmacen(cbFiltro.getSelectedItem().toString(), txtBuscar, tblRegistros);
-    }//GEN-LAST:event_cbFiltroActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        interfaz.buscarAlmacen(jComboBox1.getSelectedItem().toString(), txtBuscar, tblRegistros);
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     
     
     
@@ -335,8 +335,8 @@ public class UIAlmacen extends javax.swing.JFrame
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnReporte;
-    private javax.swing.JComboBox cbFiltro;
     private javax.swing.JCheckBox chActivar;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
