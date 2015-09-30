@@ -9,7 +9,7 @@
 
 ## Instalación - Desarrollador
 1. Clonar el proyecto en NetBeans
-2. Modificar el archivo  kardex/Kardex/conexion.dat, con sus datos de usuario, password y host. Por defecto el host es 'locahost', el usuario es 'root' y el password '123456'. No dejar después del símbolo '=', además los datos deben empezar desde la primera línea sin dejar saltos de líneas antes. El host también puede ser la dirección IP de una máquina remota en red local. Ejemplo:
+2. Modificar el archivo  kardex/Kardex/conexion.dat, con sus datos de usuario, password y host. Por defecto el host es 'locahost', el usuario es 'root' y el password '123456'. No dejar espacios después del símbolo '=', además los datos deben empezar desde la primera línea sin dejar saltos de líneas antes. El host también puede ser la dirección IP de una máquina remota en red local. Ejemplo:
 ```sh
 host=localhost
 usuario=root
