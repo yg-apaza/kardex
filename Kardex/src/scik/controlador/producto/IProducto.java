@@ -1,6 +1,5 @@
 package scik.controlador.producto;
 
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;

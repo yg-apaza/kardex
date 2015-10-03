@@ -1,15 +1,9 @@
 package scik.controlador.producto;
 
 import com.mxrck.autocompleter.TextAutoCompleter;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -197,7 +191,7 @@ public class CProducto implements IProducto
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR DATOS", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se encontraron los datos buscados", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

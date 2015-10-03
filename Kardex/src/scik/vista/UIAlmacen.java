@@ -1,11 +1,7 @@
 package scik.vista;
 
-import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.Color;
 import java.awt.Component;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

@@ -9,8 +9,6 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import scik.controlador.CKardexMenu;
-import scik.controlador.documento.CDocumentoMod;
-import scik.modelo.Documento;
 import scik.modelo.Unidad;
 import scik.vista.UIUnidad;
 
@@ -180,7 +178,7 @@ public class CUnidad implements IUnidad
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR DATOS", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se encontraron los datos buscados", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

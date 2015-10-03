@@ -2,7 +2,6 @@ package scik.controlador.unidad;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import scik.controlador.almacen.CAlmacen;
 import scik.modelo.Unidad;
 import scik.vista.UIUnidadIns;
 

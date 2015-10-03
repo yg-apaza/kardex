@@ -6,7 +6,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
-import scik.controlador.almacen.IAlmacen;
 import scik.controlador.unidad.IUnidad;
 
 public class UIUnidad extends javax.swing.JFrame

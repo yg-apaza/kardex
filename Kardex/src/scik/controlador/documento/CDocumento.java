@@ -177,7 +177,7 @@ public class CDocumento implements IDocumento
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null, "ERROR AL BUSCAR DATOS", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se encontraron los datos buscados", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
