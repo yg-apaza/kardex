@@ -7,9 +7,11 @@ import org.junit.Test;
 import scik.modelo.Producto;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import scik.modelo.Utils;
 
+@RunWith(Parameterized.class)
 public class ProInsTest
 {
     private String ProCod;
@@ -32,9 +34,8 @@ public class ProInsTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Almacen 1", "Planta 1", "1", ""},
-                    {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
-                    {"000002", "Almacen 2", "", "1", "Dato invalido para ubicacion de almacen"},
+                    {"000001", "Producto 1", "1", "1", ""},
+                    {"000002", "", "2", "1", "Dato invalido para nombre de producto"},
                 });
     }
     

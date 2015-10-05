@@ -12,7 +12,7 @@ import scik.modelo.Producto;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
-public class ProEliTest
+public class ProActTest
 {
     private String ProCod;
     private String ProNom;
@@ -20,7 +20,7 @@ public class ProEliTest
     private String ProEstReg;
     private String resultadoEsp;
 
-    public ProEliTest(String ProCod, String ProNom, String UniCod, String ProEstReg, String resultadoEsp)
+    public ProActTest(String ProCod, String ProNom, String UniCod, String ProEstReg, String resultadoEsp)
     {
         this.ProCod = ProCod;
         this.ProNom = ProNom;
@@ -34,7 +34,7 @@ public class ProEliTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Producto 1", "1", "1", ""}
+                    {"000001", "Producto 1", "1", "2", ""}
                 });
     }
     
@@ -42,7 +42,7 @@ public class ProEliTest
     public static void setUpClass()
     {
         Utils.ejecutarScript("UT2001.sql");
-        Utils.ejecutarScript("UT2003.sql");
+        Utils.ejecutarScript("UT2004.sql");
     }
     
     @AfterClass
@@ -53,11 +53,11 @@ public class ProEliTest
     }
     
     @Test
-    public void testEliminar()
+    public void testActivar()
     {
-        System.out.println("UT2-003 - Producto eliminar");
+        System.out.println("UT2-004 - Producto activar");
         Producto p = new Producto(ProCod, ProNom, UniCod, ProEstReg);
-        assertEquals(resultadoEsp, p.eliminar());
-        assertEquals("3", p.getProEstReg());
+        assertEquals(resultadoEsp, p.activar());
+        assertEquals("1", p.getProEstReg());
     }
 }

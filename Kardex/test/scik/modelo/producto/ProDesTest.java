@@ -1,5 +1,6 @@
 package scik.modelo.producto;
 
+import scik.modelo.almacen.*;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
@@ -8,11 +9,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import scik.modelo.Almacen;
 import scik.modelo.Producto;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
-public class ProEliTest
+public class ProDesTest
 {
     private String ProCod;
     private String ProNom;
@@ -20,7 +22,7 @@ public class ProEliTest
     private String ProEstReg;
     private String resultadoEsp;
 
-    public ProEliTest(String ProCod, String ProNom, String UniCod, String ProEstReg, String resultadoEsp)
+    public ProDesTest(String ProCod, String ProNom, String UniCod, String ProEstReg, String resultadoEsp)
     {
         this.ProCod = ProCod;
         this.ProNom = ProNom;
@@ -53,11 +55,11 @@ public class ProEliTest
     }
     
     @Test
-    public void testEliminar()
+    public void testDesactivar()
     {
-        System.out.println("UT2-003 - Producto eliminar");
+        System.out.println("UT2-005 - Producto desactivar");
         Producto p = new Producto(ProCod, ProNom, UniCod, ProEstReg);
-        assertEquals(resultadoEsp, p.eliminar());
-        assertEquals("3", p.getProEstReg());
+        assertEquals(resultadoEsp, p.desactivar());
+        assertEquals("2", p.getProEstReg());
     }
 }

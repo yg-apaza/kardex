@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,20 +13,12 @@ import scik.modelo.Producto;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
-public class ProEliTest
+public class ProSgteCodTest
 {
-    private String ProCod;
-    private String ProNom;
-    private String UniCod;
-    private String ProEstReg;
     private String resultadoEsp;
 
-    public ProEliTest(String ProCod, String ProNom, String UniCod, String ProEstReg, String resultadoEsp)
+    public ProSgteCodTest(String resultadoEsp)
     {
-        this.ProCod = ProCod;
-        this.ProNom = ProNom;
-        this.UniCod = UniCod;
-        this.ProEstReg = ProEstReg;
         this.resultadoEsp = resultadoEsp;
     }
     
@@ -34,7 +27,7 @@ public class ProEliTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Producto 1", "1", "1", ""}
+                    {"000003"}, {"000005"}, {"000007"}
                 });
     }
     
@@ -42,22 +35,25 @@ public class ProEliTest
     public static void setUpClass()
     {
         Utils.ejecutarScript("UT2001.sql");
-        Utils.ejecutarScript("UT2003.sql");
     }
     
     @AfterClass
     public static void tearDownClass()
     {
         Utils.restore("PRODUCTO");
-        Utils.restore("UNIDAD");
+    }
+    
+    @Before
+    public void setUp()
+    {
+        Utils.ejecutarScript("UT2003.sql");
+        Utils.ejecutarScript("UT2003.sql");
     }
     
     @Test
-    public void testEliminar()
+    public void testSgteCodigo()
     {
-        System.out.println("UT2-003 - Producto eliminar");
-        Producto p = new Producto(ProCod, ProNom, UniCod, ProEstReg);
-        assertEquals(resultadoEsp, p.eliminar());
-        assertEquals("3", p.getProEstReg());
+        System.out.println("UT2-006 - Producto sgteCodigo");
+        assertEquals(resultadoEsp, Producto.sgteCodigo());
     }
 }
