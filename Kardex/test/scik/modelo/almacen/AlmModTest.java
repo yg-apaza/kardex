@@ -37,7 +37,6 @@ public class AlmModTest
                     {"000001", "Almacen 1", "Planta 1", "1", ""},
                     {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
                     {"000003", "Almacen 3", "", "1", "Dato invalido para ubicacion de almacen"},
-                    
                 });
     }
     
@@ -53,9 +52,6 @@ public class AlmModTest
         Utils.restore("ALMACEN");
     }
 
-    /**
-     * Test of modificar method, of class Almacen.
-     */
     @Test
     public void testModificar()
     {

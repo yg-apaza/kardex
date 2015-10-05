@@ -5,25 +5,19 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import scik.modelo.Utils;
-import scik.modelo.almacen.AlmEliTest;
-import scik.modelo.almacen.AlmInsTest;
-import scik.modelo.almacen.AlmModTest;
-import scik.modelo.almacen.AlmActTest;
-import scik.modelo.almacen.AlmDesTest;
-import scik.modelo.almacen.AlmSgteCodTest;
+import scik.modelo.producto.ProEliTest;
+import scik.modelo.producto.ProInsTest;
+import scik.modelo.producto.ProModTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses
 ({
-    AlmInsTest.class,
-    AlmModTest.class,
-    AlmEliTest.class,
-    AlmActTest.class,
-    AlmDesTest.class,
-    AlmSgteCodTest.class
+    ProInsTest.class,
+    ProModTest.class,
+    ProEliTest.class,
 })
 
-public class AlmacenTestSuite
+public class ProductoTestSuite
 {
     @BeforeClass
     public static void setUpClass()

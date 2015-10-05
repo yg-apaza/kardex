@@ -3,16 +3,16 @@ package scik.modelo.almacen;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
 import scik.modelo.Almacen;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
-public class AlmInsTest
+public class AlmDesTest
 {
     private String AlmCod;
     private String AlmNom;
@@ -20,7 +20,7 @@ public class AlmInsTest
     private String AlmEstReg;
     private String resultadoEsp;
 
-    public AlmInsTest(String AlmCod, String AlmNom, String AlmUbi, String AlmEstReg, String resultadoEsp)
+    public AlmDesTest(String AlmCod, String AlmNom, String AlmUbi, String AlmEstReg, String resultadoEsp)
     {
         this.AlmCod = AlmCod;
         this.AlmNom = AlmNom;
@@ -29,28 +29,33 @@ public class AlmInsTest
         this.resultadoEsp = resultadoEsp;
     }
     
-    @Parameters
+    @Parameterized.Parameters
     public static Collection data()
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Almacen 1", "Planta 1", "1", ""},
-                    {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
-                    {"000002", "Almacen 2", "", "1", "Dato invalido para ubicacion de almacen"},
+                    {"000001", "Almacen 1", "Planta 1", "1", ""}
                 });
     }
-        
+    
+    @BeforeClass
+    public static void setUpClass()
+    {
+        Utils.ejecutarScript("UT1003.sql");
+    }
+    
     @AfterClass
     public static void tearDownClass()
     {
         Utils.restore("ALMACEN");
     }
-
+    
     @Test
-    public void testInsertar()
+    public void testDesactivar()
     {
-        System.out.println("UT1-001 - Almacen insertar");
+        System.out.println("UT1-005 - Almacen desactivar");
         Almacen a = new Almacen(AlmCod, AlmNom, AlmUbi, AlmEstReg);
-        assertEquals(resultadoEsp, a.insertar());
+        assertEquals(resultadoEsp, a.desactivar());
+        assertEquals("2", a.getAlmEstReg());
     }
 }
