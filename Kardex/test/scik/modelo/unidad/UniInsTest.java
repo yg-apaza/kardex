@@ -32,8 +32,8 @@ public class UniInsTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Unidad 1", "1", ""},
-                    {"000002", "", "1", "Dato invalido para descripcion de unidad"},
+                    {"001", "Unidad 1", "1", ""},
+                    {"002", "", "1", "Dato invalido para descripcion de unidad"},
                 });
     }
         
