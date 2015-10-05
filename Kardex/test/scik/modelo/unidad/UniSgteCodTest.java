@@ -1,6 +1,5 @@
 package scik.modelo.unidad;
 
-import scik.modelo.almacen.*;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
@@ -9,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import scik.modelo.Almacen;
+import scik.modelo.Unidad;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
@@ -27,27 +26,27 @@ public class UniSgteCodTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000003"}, {"000005"}, {"000007"}
+                    {"003"}, {"005"}, {"007"}
                 });
     }
     
     @AfterClass
     public static void tearDownClass()
     {
-        Utils.restore("ALMACEN");
+        Utils.restore("UNIDAD");
     }
     
     @Before
     public void setUp()
     {
-        Utils.ejecutarScript("UT1003.sql");
-        Utils.ejecutarScript("UT1003.sql");
+        Utils.ejecutarScript("UT4003.sql");
+        Utils.ejecutarScript("UT4003.sql");
     }
     
     @Test
     public void testSgteCodigo()
     {
-        System.out.println("UT1-006 - Almacen sgteCodigo");
-        assertEquals(resultadoEsp, Almacen.sgteCodigo());
+        System.out.println("UT4-006 - Unidad sgteCodigo");
+        assertEquals(resultadoEsp, Unidad.sgteCodigo());
     }
 }

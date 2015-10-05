@@ -8,24 +8,22 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import scik.modelo.Almacen;
+import scik.modelo.Unidad;
 import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
 public class UniInsTest
 {
-    private String AlmCod;
-    private String AlmNom;
-    private String AlmUbi;
-    private String AlmEstReg;
+    private String UniCod;
+    private String UniDes;
+    private String UniEstReg;
     private String resultadoEsp;
 
-    public UniInsTest(String AlmCod, String AlmNom, String AlmUbi, String AlmEstReg, String resultadoEsp)
+    public UniInsTest(String UniCod, String UniDes, String UniEstReg, String resultadoEsp)
     {
-        this.AlmCod = AlmCod;
-        this.AlmNom = AlmNom;
-        this.AlmUbi = AlmUbi;
-        this.AlmEstReg = AlmEstReg;
+        this.UniCod = UniCod;
+        this.UniDes = UniDes;
+        this.UniEstReg = UniEstReg;
         this.resultadoEsp = resultadoEsp;
     }
     
@@ -34,23 +32,22 @@ public class UniInsTest
     {
         return  Arrays.asList(new Object[][]
                 {
-                    {"000001", "Almacen 1", "Planta 1", "1", ""},
-                    {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
-                    {"000002", "Almacen 2", "", "1", "Dato invalido para ubicacion de almacen"},
+                    {"000001", "Unidad 1", "1", ""},
+                    {"000002", "", "1", "Dato invalido para descripcion de unidad"},
                 });
     }
         
     @AfterClass
     public static void tearDownClass()
     {
-        Utils.restore("ALMACEN");
+        Utils.restore("UNIDAD");
     }
 
     @Test
     public void testInsertar()
     {
-        System.out.println("UT1-001 - Almacen insertar");
-        Almacen a = new Almacen(AlmCod, AlmNom, AlmUbi, AlmEstReg);
-        assertEquals(resultadoEsp, a.insertar());
+        System.out.println("UT4-001 - Unidad insertar");
+        Unidad u = new Unidad(UniCod, UniDes, UniEstReg);
+        assertEquals(resultadoEsp, u.insertar());
     }
 }
