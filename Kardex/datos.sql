@@ -1,8 +1,5 @@
 /* VOLCADO DE DATOS */
 
--- Creacion de Usuario Administrador
-INSERT INTO USUARIO VALUES(DEFAULT, 'admin', MD5('admin'), '00000000', 'Admin', 'ADMIN', 1, 1);
-
 -- Unidades
 INSERT INTO UNIDAD VALUES(DEFAULT, 'kilogramos', 1);
 INSERT INTO UNIDAD VALUES(DEFAULT, 'libras', 1);

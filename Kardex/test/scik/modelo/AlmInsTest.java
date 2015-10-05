@@ -1,113 +1,68 @@
 package scik.modelo;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import org.junit.After;
+import java.util.Arrays;
+import java.util.Collection;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
-import static scik.KardexIni.con;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
-public class AlmacenTest
+@RunWith(Parameterized.class)
+public class AlmInsTest
 {
-    public AlmacenTest()
+    private String AlmCod;
+    private String AlmNom;
+    private String AlmUbi;
+    private String AlmEstReg;
+    private String resultadoEsp;
+
+    public AlmInsTest(String AlmCod, String AlmNom, String AlmUbi, String AlmEstReg, String resultadoEsp)
     {
-        
+        this.AlmCod = AlmCod;
+        this.AlmNom = AlmNom;
+        this.AlmUbi = AlmUbi;
+        this.AlmEstReg = AlmEstReg;
+        this.resultadoEsp = resultadoEsp;
+    }
+    
+    @Parameters
+    public static Collection data()
+    {
+        return  Arrays.asList(new Object[][]
+                {
+                    {"000001", "Almacen 1", "Planta 1", "1", ""},
+                    {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
+                    {"000002", "Almacen 2", "", "1", "Dato invalido para ubicacion de almacen"},
+                    
+                });
     }
     
     @BeforeClass
     public static void setUpClass()
     {
-        FileReader fr = null;
-        try
-        {
-            String [] conexion_data = new String[3];
-            fr = new FileReader("conexion.dat");
-            BufferedReader br = new BufferedReader(fr);
-            String linea = "";
-            int number = 0;
-            while((linea = br.readLine()) != null)
-            {
-                conexion_data[number] = linea.substring(linea.indexOf("=") + 1, linea.length());
-                number++;
-                if(number > 2)
-                    break;
-            }
-            con = new Conexion(conexion_data[0], "BD_KARDEX", conexion_data[1], conexion_data[2]);
-            con.conectar(false);
-        }
-        catch (FileNotFoundException ex)
-        {
-            ex.printStackTrace();
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                fr.close();
-            }
-            catch (IOException ex)
-            {
-                ex.printStackTrace();
-            }
-        }
+        Utils.setup();
     }
     
     @AfterClass
     public static void tearDownClass()
     {
-    }
-    
-    @Before
-    public void setUp()
-    {
-    }
-    
-    @After
-    public void tearDown()
-    {
+        Utils.restore("ALMACEN");
     }
 
     /**
      * Test of insertar method, of class Almacen.
      */
-    @Ignore
     @Test
     public void testInsertar()
     {
-        System.out.println("insertar");
-        Almacen instance = new Almacen();
-        String expResult = "";
-        String result = instance.insertar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of modificar method, of class Almacen.
-     */
-    @Ignore
-    @Test
-    public void testModificar()
-    {
-        System.out.println("modificar");
-        Almacen instance = new Almacen();
-        String expResult = "";
-        String result = instance.modificar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("UT1-001 - Almacen insertar");
+        Almacen a = new Almacen(AlmCod, AlmNom, AlmUbi, AlmEstReg);
+        assertEquals(resultadoEsp, a.insertar());
     }
 
     /**
@@ -144,6 +99,7 @@ public class AlmacenTest
     /**
      * Test of activar method, of class Almacen.
      */
+    @Ignore
     @Test
     public void testActivar()
     {
@@ -232,5 +188,4 @@ public class AlmacenTest
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
 }
