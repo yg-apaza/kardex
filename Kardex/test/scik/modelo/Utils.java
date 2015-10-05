@@ -5,11 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static scik.KardexIni.con;
 
 public class Utils
 {
-    public static void setup()
+    public static void conectar()
     {
         FileReader fr = null;
         try
@@ -60,6 +62,47 @@ public class Utils
         catch (SQLException ex)
         {
             System.out.println("Error de configuracion de la BD, test unitario imposible de evaluar");
+        }
+    }
+    
+    public static void desconectar()
+    {
+        con.desconectar();
+    }
+    
+    public static void ejecutarScript(String file)
+    {
+        FileReader fr = null;
+        try
+        {
+            fr = new FileReader("test/testScripts/" + file);
+            BufferedReader br = new BufferedReader(fr);
+            String linea = "";
+            while((linea = br.readLine()) != null)
+                con.ejecutar(linea, null, false);
+        }
+        catch (FileNotFoundException ex)
+        {
+            ex.printStackTrace();
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                fr.close();
+            }
+            catch (IOException ex)
+            {
+                ex.printStackTrace();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package scik.modelo;
+package scik.modelo.almacen;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +11,8 @@ import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import scik.modelo.Almacen;
+import scik.modelo.Utils;
 
 @RunWith(Parameterized.class)
 public class AlmInsTest
@@ -41,13 +43,7 @@ public class AlmInsTest
                     
                 });
     }
-    
-    @BeforeClass
-    public static void setUpClass()
-    {
-        Utils.setup();
-    }
-    
+        
     @AfterClass
     public static void tearDownClass()
     {

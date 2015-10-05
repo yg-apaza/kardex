@@ -1,15 +1,17 @@
-package scik.modelo;
+package scik.modelo.almacen;
 
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import scik.modelo.Almacen;
+import scik.modelo.Utils;
 
+@RunWith(Parameterized.class)
 public class AlmModTest
 {
     private String AlmCod;
@@ -34,7 +36,7 @@ public class AlmModTest
                 {
                     {"000001", "Almacen 1", "Planta 1", "1", ""},
                     {"000002", "", "Planta 2", "1", "Dato invalido para nombre de almacen"},
-                    {"000002", "Almacen 2", "", "1", "Dato invalido para ubicacion de almacen"},
+                    {"000003", "Almacen 3", "", "1", "Dato invalido para ubicacion de almacen"},
                     
                 });
     }
@@ -42,7 +44,7 @@ public class AlmModTest
     @BeforeClass
     public static void setUpClass()
     {
-        Utils.setup();
+        Utils.ejecutarScript("UT1002.sql");
     }
     
     @AfterClass
