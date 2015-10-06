@@ -20,7 +20,7 @@ No editar este archivo.
 3. Ejecutar los scripts SQL en el servidor MySQL del host, en el siguiente orden: *script.sql*, *triggers.sql*, *vistas.sql*, *datos.sql*
 
 4. Para conexiones remotas debe modificar el host del usuario de la BD, para ello ejecute el siguiente comando en el servidor MySQL del host:
-```sh
+```sql
 update user set host='<remote_host>' where user='<user>' and host='<localhost>';
 flush privileges;
 ```
