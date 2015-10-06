@@ -1,5 +1,5 @@
 package scik.controlador.almacen;
-
+  
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import scik.modelo.Almacen;
