@@ -19,7 +19,15 @@ import scik.modelo.Usuario;
 
 public class KardexIni
 {
+    /**
+     * Objeto global utilizado para la conexión con la base de datos, sus atributos
+     * van cambiando durante la ejecución del software y dependiendo de la configuración.
+     */
     public static Conexion con;
+    /**
+     * Objeto global que identifica al usuario actual que hace uso del sistema con
+     * sus respectivos permisos, ya sea de administrador o de usuario.
+     */
     public static Usuario user;
     
     /**
