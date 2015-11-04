@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import scik.controlador.CKardexMenu;
 import scik.modelo.Consultas;
 import scik.modelo.Producto;
+import scik.modelo.Reporte;
 import scik.vista.UIExistencia;
 
 public class CExistencia implements IExistencia
@@ -76,7 +77,7 @@ public class CExistencia implements IExistencia
         if(consultaRealizada)
         {
             Producto p = Producto.buscar(txtProCod.getText());
-            //reporte.generarReporte1(p, resultado);
+            Reporte.generarReporte1(p, resultado);
         }
         else
             JOptionPane.showMessageDialog(null, "Realize primero una consulta", "ERROR", JOptionPane.ERROR_MESSAGE);
