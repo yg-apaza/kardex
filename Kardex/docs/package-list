@@ -1,0 +1,11 @@
+scik
+scik.controlador
+scik.controlador.almacen
+scik.controlador.consulta
+scik.controlador.documento
+scik.controlador.kardex
+scik.controlador.producto
+scik.controlador.unidad
+scik.controlador.usuario
+scik.modelo
+scik.vista
