@@ -1,6 +1,5 @@
 package scik.vista;
 
-import java.awt.Color;
 import scik.controlador.consulta.IExistencia;
 
 public class UIExistencia extends javax.swing.JFrame

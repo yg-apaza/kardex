@@ -9,9 +9,9 @@ public class UIKardexDetIns extends javax.swing.JFrame
 
     public UIKardexDetIns(IKardexDetIns interfaz)
     {
+        initComponents();
         this.setVisible(true);
         this.setTitle("Insertar Kardex Detalle");
-        initComponents();
         setLocationRelativeTo(null);
 
         this.interfaz = interfaz;

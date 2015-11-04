@@ -157,6 +157,26 @@ public class Producto
         return "";
     }
     
+    public static Producto buscar(String codigo)
+    {
+        Producto p = null;
+        try
+        {
+            ResultSet rs = con.ejecutar("SELECT * FROM PRODUCTO WHERE ProCod = ?", new String[] {codigo}, true);
+            rs.next();
+            p = new Producto();
+            p.setProCod(rs.getString("ProCod"));
+            p.setProNom(rs.getString("ProNom"));
+            p.setUniCod(rs.getString("UniCod"));
+            p.setProEstReg(rs.getString("ProEstReg"));
+        }
+        catch (SQLException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return p;
+    }
+    
     public static ArrayList<ArrayList<String>> getActivos()
     {
         ArrayList<ArrayList<String>> productos =  new ArrayList<>();
@@ -178,26 +198,6 @@ public class Producto
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return productos;
-    }
-    
-    public static Producto buscar(String codigo)
-    {
-        Producto p = null;
-        try
-        {
-            ResultSet rs = con.ejecutar("SELECT * FROM PRODUCTO WHERE ProCod = ?", new String[] {codigo}, true);
-            rs.next();
-            p = new Producto();
-            p.setProCod(rs.getString("ProCod"));
-            p.setProNom(rs.getString("ProNom"));
-            p.setUniCod(rs.getString("UniCod"));
-            p.setProEstReg(rs.getString("ProEstReg"));
-        }
-        catch (SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        return p;
     }
     
     public static String sgteCodigo()

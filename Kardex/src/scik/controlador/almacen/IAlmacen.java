@@ -1,6 +1,5 @@
 package scik.controlador.almacen;
 
-import com.mxrck.autocompleter.TextAutoCompleter;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;

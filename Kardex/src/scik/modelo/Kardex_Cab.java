@@ -143,29 +143,7 @@ public class Kardex_Cab
               
         return kardex_cab;
     }
-    
-    public static Kardex_Cab buscar(String codigo1, String codigo2)
-    {
-        Kardex_Cab k = null;
-        try
-        {
-            ResultSet rs = con.ejecutar("SELECT * FROM KARDEX WHERE (ProCod = ? AND AlmCod = ?)", new String[] {codigo1, codigo2}, true);
-            rs.next();
-            k = new Kardex_Cab();
-            k.setProCod(rs.getString("ProCod"));
-            k.setAlmCod(rs.getString("AlmCod"));
-            k.setKarCabCan(rs.getString("KarCan"));
-            k.setKarCabValUni(rs.getString("KarValUni"));
-            k.setKarCabValTot(rs.getString("KarValTot"));
-            k.setKarCabEstReg(rs.getString("KarEstReg"));
-        }
-        catch (SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        return k;
-    }
-    
+
     public static ArrayList<Kardex_Det> getDetalles(String p, String a)
     {
         ArrayList<Kardex_Det> detalles = new ArrayList < >();

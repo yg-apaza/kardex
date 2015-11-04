@@ -7,13 +7,13 @@ CREATE TRIGGER TR_UsrInsDatInv
 	BEFORE INSERT ON USUARIO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.UsrIde) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para identificador';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para identificador';
 		ELSEIF LENGTH(NEW.UsrDni) <> 8 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para número de DNI';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para numero de DNI';
 		ELSEIF LENGTH(NEW.UsrNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombres';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombres';
 		ELSEIF LENGTH(NEW.UsrApe) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para apellidos';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para apellidos';
 		END IF;
 	END;
 $$
@@ -23,13 +23,13 @@ CREATE TRIGGER TR_UsrModDatInv
 	BEFORE UPDATE ON USUARIO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.UsrIde) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para identificador';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para identificador';
 		ELSEIF LENGTH(NEW.UsrDni) <> 8 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para número de DNI';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para numero de DNI';
 		ELSEIF LENGTH(NEW.UsrNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombres';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombres';
 		ELSEIF LENGTH(NEW.UsrApe) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para apellidos';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para apellidos';
 		ELSEIF (SELECT COUNT(*) FROM USUARIO WHERE UsrEstReg = 1 AND UsrPer = 1) = 1 AND OLD.UsrPer = 1 AND NEW.UsrPer = 0 THEN
 			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Debe haber al menos un administrador';
 		END IF;
@@ -43,7 +43,7 @@ CREATE TRIGGER TR_UniInsDatInv
 	BEFORE INSERT ON UNIDAD FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.UniDes) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para descripción de unidad';       
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para descripcion de unidad';       
 		END IF;
 	END;
 $$
@@ -53,7 +53,7 @@ CREATE TRIGGER TR_UniModDatInv
 	BEFORE UPDATE ON UNIDAD FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.UniDes) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para descripción de unidad';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para descripcion de unidad';
 		END IF;
 	END;
 $$
@@ -66,11 +66,11 @@ CREATE TRIGGER TR_AlmInsDatInv
 	BEFORE INSERT ON ALMACEN FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.AlmNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de almacen';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de almacen';
 		ELSEIF LENGTH(NEW.AlmUbi) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para ubicación de almacen';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para ubicacion de almacen';
 		END IF;
-    END;
+  END;
 $$
 
 DELIMITER $$
@@ -78,11 +78,11 @@ CREATE TRIGGER TR_AlmModDatInv
 	BEFORE UPDATE ON ALMACEN FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.AlmNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de almacen';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de almacen';
 		ELSEIF LENGTH(NEW.AlmUbi) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para ubicación de almacen';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para ubicacion de almacen';
 		END IF;
-    END;
+  END;
 $$
 
 /*DOCUMENTO DocCod, DocNom, */
@@ -92,9 +92,9 @@ CREATE TRIGGER TR_DocInsDatInv
 	BEFORE INSERT ON DOCUMENTO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.DocNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de documento';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de documento';
 		END IF;
-    END;
+  END;
 $$
 
 DELIMITER $$
@@ -102,7 +102,7 @@ CREATE TRIGGER TR_DocModDatInv
 	BEFORE UPDATE ON DOCUMENTO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.DocNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de documento';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de documento';
 		END IF;
 	END;
 $$
@@ -114,9 +114,9 @@ CREATE TRIGGER TR_ProInsDatInv
 	BEFORE INSERT ON PRODUCTO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.ProNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de producto';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de producto';
 		END IF;
-    END;
+  END;
 $$
 
 DELIMITER $$
@@ -124,9 +124,9 @@ CREATE TRIGGER TR_ProModDatInv
 	BEFORE UPDATE ON PRODUCTO FOR EACH ROW
 	BEGIN
 		IF LENGTH(NEW.ProNom) = 0 THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato inválido para nombre de producto';
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dato invalido para nombre de producto';
 		END IF;
-    END;
+  END;
 $$
 
 /*KARDEX DETALLE Anio, Mes, Dia*/
@@ -137,11 +137,11 @@ CREATE TRIGGER TR_KarDetDatInv
 	BEGIN
 		SET @numKarDet = (SELECT COUNT(*) FROM KARDEX_DET WHERE (AlmCod = NEW.AlmCod AND ProCod = NEW.ProCod));
 		IF (NEW.KarDetAnio < 1990) THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Año inválido'; 
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Año invalido'; 
 		ELSEIF (NEW.KarDetMes > 12 OR NEW.KarDetMes < 1) THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Mes inválido'; 
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Mes invalido'; 
 		ELSEIF (NEW.KarDetDia > 31 OR NEW.KarDetDia < 1) THEN
-				SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dia inválido'; 
+				SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dia invalido'; 
 		ELSEIF (@numKarDet >= 1)	THEN
 			SET @anio =(SELECT KarDetAnio FROM KARDEX_DET WHERE (AlmCod=NEW.AlmCod AND ProCod=NEW.ProCod) ORDER BY KarDetAnio DESC, KarDetMes DESC,KarDetDia DESC LIMIT 1);
 			SET @mes = (SELECT KarDetMes FROM KARDEX_DET WHERE (AlmCod=NEW.AlmCod AND ProCod=NEW.ProCod) ORDER BY KarDetAnio DESC, KarDetMes DESC,KarDetDia DESC LIMIT 1);
@@ -175,7 +175,7 @@ CREATE TRIGGER TR_KarDetDatInv
 		
 		IF(@cantidad < 0 OR @valTot < 0 OR @valUni < 0) THEN
 			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Cantidad excedida';
-        END IF;
+    END IF;
 	END;
 $$
 
@@ -185,11 +185,11 @@ CREATE TRIGGER TR_KarDetMod
 	BEFORE UPDATE ON KARDEX_DET FOR EACH ROW
 	BEGIN
 		IF (NEW.KarDetAnio < 1990) THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Año inválido'; 
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Año invalido'; 
 		ELSEIF (NEW.KarDetMes > 12 OR NEW.KarDetMes < 1) THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Mes inválido'; 
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Mes invalido'; 
 		ELSEIF (NEW.KarDetDia > 31 OR NEW.KarDetDia < 1) THEN
-			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dia inválido'; 
+			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Dia invalido'; 
 		ELSEIF (OLD.KarDetAnio > NEW.KarDetAnio) THEN
 			SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'El año debe de ser mayor al detalle anterior';
 		ELSEIF (OLD.KarDetAnio = NEW.KarDetAnio AND OLD.KarDetMes > NEW.KarDetMes) THEN
@@ -234,7 +234,7 @@ CREATE TRIGGER TR_KarDetMod
 			IF(@cantidad < 0 OR @valTot < 0 OR @valUni < 0) THEN
 				SIGNAL SQLSTATE '45000' set  MESSAGE_TEXT = 'Cantidad excedida';
 			END IF;
-        END IF;
+    END IF;
 	END;
 $$
 
@@ -274,6 +274,6 @@ CREATE TRIGGER TR_KarCabActMod
 				END IF;
             END IF;
             UPDATE KARDEX SET KarCan = @cantidad, KarValUni = @valUni, KarValTot = @valTot WHERE ProCod = New.ProCod AND AlmCod = NEW.AlmCod;
-        END IF;
+    END IF;
 	END;
 $$

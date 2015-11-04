@@ -144,6 +144,25 @@ public class Unidad
         return "";
     }
     
+    public static Unidad buscar(String codigo)
+    {
+        Unidad u = null;
+        try
+        {
+            ResultSet rs = con.ejecutar("SELECT * FROM UNIDAD WHERE UniCod = ?", new String[] {codigo}, true);
+            rs.next();
+            u = new Unidad();
+            u.setUniCod(rs.getString("UniCod"));
+            u.setUniDes(rs.getString("UniDes"));
+            u.setUniEstReg(rs.getString("UniEstReg"));
+        }
+        catch (SQLException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return u;           
+    }
+    
     public static ArrayList<ArrayList<String>> getActivos()
     {
         ArrayList<ArrayList<String>> unidades = new ArrayList<>();
@@ -165,25 +184,6 @@ public class Unidad
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         return unidades;
-    }
-    
-    public static Unidad buscar(String codigo)
-    {
-        Unidad u = null;
-        try
-        {
-            ResultSet rs = con.ejecutar("SELECT * FROM UNIDAD WHERE UniCod = ?", new String[] {codigo}, true);
-            rs.next();
-            u = new Unidad();
-            u.setUniCod(rs.getString("UniCod"));
-            u.setUniDes(rs.getString("UniDes"));
-            u.setUniEstReg(rs.getString("UniEstReg"));
-        }
-        catch (SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        return u;           
     }
     
     public static String sgteCodigo()

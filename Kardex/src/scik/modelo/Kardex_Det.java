@@ -331,47 +331,7 @@ public class Kardex_Det
         }
         return "";
     }
-    
-    public static ArrayList<Kardex_Det> getLista()
-    {
-        ArrayList<Kardex_Det> kardex_det = new ArrayList<> ();
-        try
-        {
-            ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET", null, true);
-            
-            while(rs.next())
-            {
-                String codigo = rs.getString("KarDetCod");
-                String producto = rs.getString("ProCod");
-                String almacen = rs.getString("AlmCod");
-                String anio = rs.getString("KarDetAnio");
-                String mes = rs.getString("KarDetMes");
-                String dia = rs.getString("KarDetDia");
-                String usuario = rs.getString("UsrCod");
-                String documento = rs.getString("DocCod");
-                String numDoc = rs.getString("KarDetDocNum");
-                String operacion = rs.getString("KarDetOpe");
-                String cantidad = rs.getString("KarDetCan");
-                String valorU = rs.getString("KarDetValUni");
-                String total = rs.getString("KarDetValTot");
-                String s_cantidad = rs.getString("KarDetSalCan");
-                String s_valorU = rs.getString("KarDetSalValUni");
-                String s_total = rs.getString("KarDetSalValTot");
-                String observ = rs.getString("KarDetObs");
-                String estado = rs.getString("KarDetEstReg");
 
-                Kardex_Det kardex = new Kardex_Det(codigo, producto, almacen, anio, mes, dia, usuario, documento, numDoc, operacion, cantidad, valorU, total, s_cantidad, s_valorU, s_total, observ, estado);
-                kardex_det.add(kardex);
-            }
-            
-        }
-        catch (SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-        return kardex_det;
-    }
-    
     public static Kardex_Det buscar(String codigo1, String codigo2, String codigo3)
     {
         Kardex_Det detalle = null;
