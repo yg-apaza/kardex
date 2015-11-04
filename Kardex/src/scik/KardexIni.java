@@ -9,11 +9,24 @@ import scik.controlador.CLogin;
 import scik.modelo.Conexion;
 import scik.modelo.Usuario;
 
+/**
+ * Clase principal del Sistema de Control de Inventarios
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class KardexIni
 {
     public static Conexion con;
     public static Usuario user;
     
+    /**
+     * Constructor principal, inicializa el LaF JTattoo y lee archivo 'conexion.dat'
+     * donde se encuentran datos de configuración de la conexión con la base de datos
+     * en MySQL.
+     */
     public KardexIni()
     {
         try
