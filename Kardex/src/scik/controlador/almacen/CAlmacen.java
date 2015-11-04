@@ -151,10 +151,11 @@ public class CAlmacen implements IAlmacen
     /*
     Realizar búsquedas según el filtro seleccionado en el JComboBox convertido en String, y los muestra en el JTextField
     */
-    public void buscarAlmacen( String filtro, JTextField buscar, JTable tablaAlmacen)
+    @Override
+    public void buscarAlmacen(String filtro, JTextField buscar, JTable tablaAlmacen)
     {
-        buscar.setText(null);
-        TextAutoCompleter textAutoAcompleter = new TextAutoCompleter( buscar );
+        buscar.setText("");
+        TextAutoCompleter textAutoAcompleter = new TextAutoCompleter(buscar);
         textAutoAcompleter.removeAllItems();
         textAutoAcompleter.setMode(0); // infijo
         textAutoAcompleter.setCaseSensitive(false); //No sensible a mayúsculas
