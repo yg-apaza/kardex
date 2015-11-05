@@ -8,6 +8,14 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
 import scik.controlador.almacen.IAlmacen;
 
+/**
+ * Vista principal de Gestión de Almacen
+ * <p/>
+ * <img src="screenshot/UIAlmacen.png"/>
+ * @author yuli
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIAlmacen extends javax.swing.JFrame
 {
     private IAlmacen interfaz;

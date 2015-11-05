@@ -2,6 +2,14 @@ package scik.vista;
 
 import scik.controlador.almacen.IAlmacenIns;
 
+/**
+ * Vista principal de Insertar Almacen
+ * <p/>
+ * <img src="screenshot/UIAlmacenIns.png"/>
+ * @author yuli
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIAlmacenIns extends javax.swing.JFrame
 {
     private IAlmacenIns interfaz;

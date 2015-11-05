@@ -2,6 +2,14 @@ package scik.vista;
 
 import scik.controlador.IConfiguracion;
 
+/**
+ * Vista principal de Configuración
+ * <p/>
+ * <img src="screenshot/UIConfiguracion.png"/>
+ * @author yuli
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIConfiguracion extends javax.swing.JFrame
 {
     private IConfiguracion interfaz;
