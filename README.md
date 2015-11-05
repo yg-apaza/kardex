@@ -15,8 +15,8 @@
  
  - Modificar el archivo  kardex/Kardex/conexion.dat, con sus datos de usuario, password y host. Por defecto el host es 'locahost', el usuario es 'root' y el password '123456'. No dejar espacios después del símbolo '=', además los datos deben empezar desde la primera línea sin dejar saltos de líneas antes. El host también puede ser la dirección IP de una máquina remota en red local. Ejemplo:
 ```sql
-host=local
-hostusuario=root
+host=localhost
+usuario=root
 password=123456
 
 No editar este archivo.
