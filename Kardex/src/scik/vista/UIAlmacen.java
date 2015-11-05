@@ -9,7 +9,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.almacen.IAlmacen;
 
 /**
- * Vista principal de Gestión de Almacen
+ * Vista principal de Gestión de Almacén
  * <p/>
  * <img src="screenshot/UIAlmacen.png"/>
  * @author yuli
