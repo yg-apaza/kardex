@@ -127,7 +127,8 @@ public class CConfiguracion implements IConfiguracion
         catch (FileNotFoundException ex)
         {
             ex.printStackTrace();
-        } finally
+        }
+        finally
         {
             out.close();
         }
