@@ -5,7 +5,9 @@
  - MySQL Server
 
 ## Version
-1.0
+2.0
+
+![alt tag](screenshot.png)
 
 ## Instalación - Desarrollador
 1. Clonar el proyecto en NetBeans
