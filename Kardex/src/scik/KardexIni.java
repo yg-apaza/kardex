@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import javax.swing.UIManager;
+
 import scik.controlador.CLogin;
 import scik.modelo.Conexion;
 import scik.modelo.Usuario;
@@ -24,6 +26,7 @@ public class KardexIni
      * van cambiando durante la ejecución del software y dependiendo de la configuración.
      */
     public static Conexion con;
+    
     /**
      * Objeto global que identifica al usuario actual que hace uso del sistema con
      * sus respectivos permisos, ya sea de administrador o de usuario.
@@ -59,7 +62,7 @@ public class KardexIni
             con.conectar(false);
             user = new Usuario();
             
-            CLogin login = new CLogin();
+            new CLogin();
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException | FileNotFoundException ex)
         {
@@ -73,6 +76,6 @@ public class KardexIni
     
     public static void main(String[] args)
     {
-        KardexIni k = new KardexIni();
+        new KardexIni();
     }
 }

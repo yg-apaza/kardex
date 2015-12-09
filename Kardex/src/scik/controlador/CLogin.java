@@ -3,10 +3,22 @@ package scik.controlador;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import static scik.KardexIni.user;
 import static scik.KardexIni.con;
 import scik.modelo.Usuario;
 import scik.vista.UILogin;
+
+/**
+ * Controlador de la vista de Login
+ * 
+ * Valida la entrada de un usuario, comprobando su existencia en la base de datos
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 
 public class CLogin implements ILogin
 {
@@ -24,7 +36,7 @@ public class CLogin implements ILogin
         if(u != null)
         {
             user = u;
-            CKardexMenu k = new CKardexMenu();
+            new CKardexMenu();
             ventana.dispose();
         }
         else
@@ -34,7 +46,7 @@ public class CLogin implements ILogin
     @Override
     public void configuracion()
     {
-        CConfiguracion config = new CConfiguracion(true);
+        new CConfiguracion(true);
         ventana.dispose();
     }
     

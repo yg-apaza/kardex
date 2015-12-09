@@ -1,12 +1,14 @@
 package scik.controlador.usuario;
 
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Usuario;
-import scik.vista.UIUsuario;
+import scik.vista.usuario.UIUsuario;
 
 public class CUsuario implements IUsuario
 {
@@ -22,14 +24,14 @@ public class CUsuario implements IUsuario
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
     @Override
     public void registrar()
     {
-        CUsuarioIns insertar = new CUsuarioIns();
+        new CUsuarioIns();
         ventana.dispose();
     }
     

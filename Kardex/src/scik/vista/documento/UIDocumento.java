@@ -1,11 +1,13 @@
-package scik.vista;
+package scik.vista.documento;
 
 import java.awt.Color;
 import java.awt.Component;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
+
 import scik.controlador.documento.IDocumento;
 
 public class UIDocumento extends javax.swing.JFrame
@@ -290,7 +292,7 @@ public class UIDocumento extends javax.swing.JFrame
 
     private void chActivarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_chActivarActionPerformed
     {//GEN-HEADEREND:event_chActivarActionPerformed
-        interfaz.activar_desactivar(tblRegistros, chActivar);
+        interfaz.activarDesactivar(tblRegistros, chActivar);
     }//GEN-LAST:event_chActivarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing

@@ -3,119 +3,123 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Kardex_Cab
 {
-    private String ProCod;
-    private String AlmCod;
-    private String KarCabCan;
-    private String KarCabValUni;
-    private String KarCabValTot;
-    private String KarCabEstReg;
+    private String proCod;
+    private String almCod;
+    private String karCabCan;
+    private String karCabValUni;
+    private String karCabValTot;
+    private String karCabEstReg;
     
     public Kardex_Cab()
     {
         this("-1", "-1", "0", "0", "0", "1");
     }
     
-    public Kardex_Cab(String ProCod, String AlmCod, String KarCabCan, String KarCabValUni, String KarCabValTot, String KarCabEstReg)
+    public Kardex_Cab(String proCod, String almCod, String karCabCan, String karCabValUni, String karCabValTot, String karCabEstReg)
     {
-        this.ProCod = ProCod;
-        this.AlmCod = AlmCod;
-        this.KarCabCan = KarCabCan;
-        this.KarCabValUni = KarCabValUni;
-        this.KarCabEstReg = KarCabEstReg;
-        this.KarCabValTot = KarCabValTot;
+        this.proCod = proCod;
+        this.almCod = almCod;
+        this.karCabCan = karCabCan;
+        this.karCabValUni = karCabValUni;
+        this.karCabEstReg = karCabEstReg;
+        this.karCabValTot = karCabValTot;
     }
 
     public String getProCod()
     {
-        return ProCod;
+        return proCod;
     }
 
-    public void setProCod(String ProCod)
+    public void setProCod(String proCod)
     {
-        this.ProCod = ProCod;
+        this.proCod = proCod;
     }
 
     public String getAlmCod()
     {
-        return AlmCod;
+        return almCod;
     }
 
-    public void setAlmCod(String AlmCod)
+    public void setAlmCod(String almCod)
     {
-        this.AlmCod = AlmCod;
+        this.almCod = almCod;
     }
 
     public String getKarCabCan()
     {
-        return KarCabCan;
+        return karCabCan;
     }
 
-    public void setKarCabCan(String KarCabCan)
+    public void setKarCabCan(String karCabCan)
     {
-        this.KarCabCan = KarCabCan;
+        this.karCabCan = karCabCan;
     }
 
     public String getKarCabValUni()
     {
-        return KarCabValUni;
+        return karCabValUni;
     }
 
-    public void setKarCabValUni(String KarCabValUni)
+    public void setKarCabValUni(String karCabValUni)
     {
-        this.KarCabValUni = KarCabValUni;
+        this.karCabValUni = karCabValUni;
     }
 
     public String getKarCabValTot()
     {
-        return KarCabValTot;
+        return karCabValTot;
     }
 
-    public void setKarCabValTot(String KarCabValTot)
+    public void setKarCabValTot(String karCabValTot)
     {
-        this.KarCabValTot = KarCabValTot;
+        this.karCabValTot = karCabValTot;
     }
 
     public String getKarCabEstReg()
     {
-        return KarCabEstReg;
+        return karCabEstReg;
     }
 
-    public void setKarCabEstReg(String KarCabEstReg) 
+    public void setKarCabEstReg(String karCabEstReg) 
     {
-        this.KarCabEstReg = KarCabEstReg;
+        this.karCabEstReg = karCabEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO KARDEX VALUES(?, ?, ?, ?, ?, ?)", new String[] {ProCod, AlmCod, KarCabCan, KarCabValUni, KarCabValTot, KarCabEstReg}, false);
+            con.ejecutar("INSERT INTO KARDEX VALUES(?, ?, ?, ?, ?, ?)", new String[] {proCod, almCod, karCabCan, karCabValUni, karCabValTot, karCabEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+        String msg = "";
         try
         {
             this.setKarCabEstReg("3");
-            con.ejecutar("UPDATE KARDEX SET KarEstReg = 3 WHERE ProCod = ? AND AlmCod = ?", new String[] {ProCod, AlmCod}, false);
+            con.ejecutar("UPDATE KARDEX SET KarEstReg = 3 WHERE ProCod = ? AND AlmCod = ?", new String[] {proCod, almCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
         
-        return "";
+        return msg;
     }
            
     public static ArrayList<Kardex_Cab> getLista()

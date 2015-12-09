@@ -5,8 +5,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
 import scik.modelo.Usuario;
-import scik.vista.UIUsuarioIns;
+import scik.vista.usuario.UIUsuarioIns;
 
 public class CUsuarioIns implements IUsuarioIns
 {
@@ -20,7 +21,7 @@ public class CUsuarioIns implements IUsuarioIns
     @Override
     public void cancelar()
     {
-        CUsuario usuario = new CUsuario();
+        new CUsuario();
         ventana.dispose();
     }
     
@@ -49,7 +50,7 @@ public class CUsuarioIns implements IUsuarioIns
                 if(err.equals(""))
                 {
                     JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-                    CUsuario usuario = new CUsuario();
+                    new CUsuario();
                     ventana.dispose();
                 }
                 else

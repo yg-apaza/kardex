@@ -2,8 +2,20 @@ package scik.controlador.almacen;
   
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Almacen;
-import scik.vista.UIAlmacenIns;
+import scik.vista.almacen.UIAlmacenIns;
+
+/**
+ * Controlador de la inserción de almacen
+ * 
+ * Recibe y valida datos sobre un nuevo registro de almacén
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 
 public class CAlmacenIns implements IAlmacenIns
 {
@@ -28,7 +40,7 @@ public class CAlmacenIns implements IAlmacenIns
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-            CAlmacen inicio = new CAlmacen();
+            new CAlmacen();
             ventana.dispose();
         }
         else
@@ -38,7 +50,7 @@ public class CAlmacenIns implements IAlmacenIns
     @Override
     public void cancelar()
     {
-        CAlmacen almacen = new CAlmacen();
+        new CAlmacen();
         ventana.dispose();
     }
 }

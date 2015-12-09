@@ -1,16 +1,29 @@
 package scik.controlador.consulta;
 
 import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Consultas;
 import scik.modelo.Producto;
 import scik.modelo.Reporte;
-import scik.vista.UIEntrada;
+import scik.vista.consulta.UIEntrada;
+
+/**
+ * Controlador de la consulta de entrada de productos
+ * 
+ * Recibe parámetros de consulta sobre la entrada de productos y muestra los
+ * resultados, adicionalmente permite generar reportes.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CEntrada implements IEntrada
 {
@@ -59,7 +72,7 @@ public class CEntrada implements IEntrada
     @Override
     public void menu()
     {
-        CKardexMenu inicio = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
 
@@ -68,7 +81,12 @@ public class CEntrada implements IEntrada
     {
         if(txtProCod.getText().length() != 0)
         {
-            if(anios != null && meses != null && iAnio != -1 && iMes != -1)
+            boolean a = anios != null;
+            boolean m = meses != null;
+            boolean iA = iAnio != -1;
+            boolean iM = iMes != -1;
+            
+            if(a && m && iA && iM)
             {
                 resultado = Consultas.entradas(txtProCod.getText(), anios.get(iAnio), meses.get(iMes));
                 DefaultTableModel model = (DefaultTableModel) tblConsultas.getModel();

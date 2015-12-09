@@ -1,12 +1,14 @@
 package scik.controlador.producto;
 
 import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Producto;
 import scik.modelo.Unidad;
-import scik.vista.UIProductoIns;
+import scik.vista.producto.UIProductoIns;
 
 public class CProductoIns implements IProductoIns
 {
@@ -22,7 +24,7 @@ public class CProductoIns implements IProductoIns
     @Override
     public void cancelar()
     {
-        CProducto producto = new CProducto();
+        new CProducto();
         ventana.dispose();
     }
     
@@ -47,7 +49,7 @@ public class CProductoIns implements IProductoIns
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-            CProducto inicio = new CProducto();
+            new CProducto();
             ventana.dispose();
         }
         else

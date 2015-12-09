@@ -1,23 +1,35 @@
 package scik.controlador.kardex;
 
-import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import scik.modelo.Documento;
 import scik.modelo.Kardex_Det;
-import scik.vista.UIKardexDetMod;
+import scik.vista.kardex.UIKardexDetMod;
 import static scik.KardexIni.user;
+
+import com.toedter.calendar.JDateChooser;
+
+/**
+ * Controlador de la modificación de registro de detalle de kardex
+ * 
+ * Carga, recibe y valida datos sobre un registro existente de movimiento de
+ * entrada o salida de un producto
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CKardexDetMod implements IKardexDetMod
 {
     private UIKardexDetMod ventana;
     private ArrayList<ArrayList<String>> documentos;
-    private String codigo;
-    private String codigoProducto;
     private String codigoAlmacen;
     private String cantidad;
     private String valTot;
@@ -25,9 +37,6 @@ public class CKardexDetMod implements IKardexDetMod
     
     public CKardexDetMod(String codigo, String codigoProducto, String codigoAlmacen, String cantidad, String valTot)
     {
-        this.codigo = codigo;
-        this.codigoProducto = codigoProducto;
-        this.codigoAlmacen = codigoAlmacen;
         this.cantidad = cantidad;
         this.valTot = valTot;
         documentos = Documento.getActivos();
@@ -44,7 +53,7 @@ public class CKardexDetMod implements IKardexDetMod
     @Override
     public void cancelar()
     {
-        CKardex kardex = new CKardex();
+        new CKardex();
         ventana.dispose();
     }
     
@@ -174,7 +183,7 @@ public class CKardexDetMod implements IKardexDetMod
             if(err.equals(""))
             {
                 JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-                CKardex inicio = new CKardex();
+                new CKardex();
                 ventana.dispose();
             }
             else

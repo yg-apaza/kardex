@@ -2,8 +2,19 @@ package scik.controlador.documento;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Documento;
-import scik.vista.UIDocumentoMod;
+import scik.vista.documento.UIDocumentoMod;
+
+/**
+ * Controlador de la modificación de documento
+ * 
+ * Carga datos del documento seleccionado, recibe nuevos valores y los valida
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CDocumentoMod implements IDocumentoMod
 {

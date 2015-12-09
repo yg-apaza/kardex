@@ -2,18 +2,17 @@ package scik.controlador.unidad;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Unidad;
-import scik.vista.UIUnidadMod;
+import scik.vista.unidad.UIUnidadMod;
 
 public class CUnidadMod implements IUnidadMod
 {
     private UIUnidadMod ventana;
-    private String codigo;
     private Unidad u;
     
     public CUnidadMod(String codigo)
     {
-        this.codigo = codigo;
         u = Unidad.buscar(codigo);
         ventana = new UIUnidadMod(this);
     }
@@ -34,7 +33,7 @@ public class CUnidadMod implements IUnidadMod
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-            CUnidad inicio = new CUnidad();
+            new CUnidad();
             ventana.dispose();
         }
         else
@@ -44,7 +43,7 @@ public class CUnidadMod implements IUnidadMod
     @Override
     public void cancelar()
     {
-        CUnidad unidad = new CUnidad();
+        new CUnidad();
         ventana.dispose();
     }
 }

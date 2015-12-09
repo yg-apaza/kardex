@@ -3,95 +3,100 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Unidad
 {
-    private String UniCod;
-    private String UniDes;
-    private String UniEstReg;
+    private String uniCod;
+    private String uniDes;
+    private String uniEstReg;
     
     public Unidad()
     {
         this("-1", "NULL", "0");
     }
     
-    public Unidad(String UniCod, String UniDes, String UniEstReg)
+    public Unidad(String uniCod, String uniDes, String uniEstReg)
     {
-        this.UniCod = UniCod;
-        this.UniDes = UniDes;
-        this.UniEstReg = UniEstReg;
+        this.uniCod = uniCod;
+        this.uniDes = uniDes;
+        this.uniEstReg = uniEstReg;
     }
 
     public String getUniCod()
     {
-        return UniCod;
+        return uniCod;
     }
 
-    public void setUniCod(String UniCod)
+    public void setUniCod(String uniCod)
     {
-        this.UniCod = UniCod;
+        this.uniCod = uniCod;
     }
 
     public String getUniDes()
     {
-        return UniDes;
+        return uniDes;
     }
 
-    public void setUniDes(String UniDes)
+    public void setUniDes(String uniDes)
     {
-        this.UniDes = UniDes;
+        this.uniDes = uniDes;
     }
 
     public String getUniEstReg()
     {
-        return UniEstReg;
+        return uniEstReg;
     }
 
-    public void setUniEstReg(String UniEstReg)
+    public void setUniEstReg(String uniEstReg)
     {
-        this.UniEstReg = UniEstReg;
+        this.uniEstReg = uniEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO UNIDAD VALUES(DEFAULT, ?, ?)", new String[] {UniDes, UniEstReg}, false);
+            con.ejecutar("INSERT INTO UNIDAD VALUES(DEFAULT, ?, ?)", new String[] {uniDes, uniEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String modificar()
     {
+	String msg = "";
         try
         {
-            con.ejecutar("UPDATE UNIDAD SET UniDes = ? WHERE UniCod = ?", new String[] {UniDes, UniCod}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniDes = ? WHERE UniCod = ?", new String[] {uniDes, uniCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+	String msg = "";
         try
         {
             this.setUniEstReg("3");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 3 WHERE UniCod = ?", new String[] {UniCod}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 3 WHERE UniCod = ?", new String[] {uniCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static ArrayList<Unidad> getLista()
@@ -118,30 +123,32 @@ public class Unidad
     
     public String activar()
     {
+	String msg = "";
         try
         {
             this.setUniEstReg("1");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 1 WHERE UniCod = ?", new String[] {UniCod}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 1 WHERE UniCod = ?", new String[] {uniCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+			msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String desactivar()
     {
+	String msg = "";
         try
         {
             this.setUniEstReg("2");
-            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 2 WHERE UniCod = ?", new String[] {UniCod}, false);
+            con.ejecutar("UPDATE UNIDAD SET UniEstReg = 2 WHERE UniCod = ?", new String[] {uniCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static Unidad buscar(String codigo)
@@ -188,16 +195,17 @@ public class Unidad
     
     public static String sgteCodigo()
     {
+        String codigo = "000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM UNIDAD), 3, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000";
+        return codigo;
     }
 }

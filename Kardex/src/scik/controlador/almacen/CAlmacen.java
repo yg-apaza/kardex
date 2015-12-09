@@ -1,17 +1,35 @@
 package scik.controlador.almacen;
 
 import java.util.ArrayList;
+
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Almacen;
 import scik.modelo.Reporte;
-import scik.vista.UIAlmacen;
+import scik.vista.almacen.UIAlmacen;
+
 import com.mxrck.autocompleter.TextAutoCompleter;
-import javax.swing.table.TableModel;
+
+
+/**
+ * Controlador de la gestión de almacen
+ * 
+ * Carga los almacenes existentes con sus datos, además de controlar el
+ * redireccionamiento hacia las ventanas de inserción o modificación. Provee
+ * opciones de generar reporte y buscar registros. Las funciones activar,
+ * desactivar y eliminar son realizadas aquí.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 
 public class CAlmacen implements IAlmacen
 {
@@ -64,14 +82,14 @@ public class CAlmacen implements IAlmacen
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
     @Override
     public void insertar()
     {
-        CAlmacenIns insertar = new CAlmacenIns();
+        new CAlmacenIns();
         ventana.dispose();
     }
 
@@ -96,7 +114,7 @@ public class CAlmacen implements IAlmacen
     }
     
     @Override
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chEst)
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chEst)
     {
         int i = tblRegistros.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();

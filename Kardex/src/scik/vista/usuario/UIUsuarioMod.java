@@ -1,4 +1,4 @@
-package scik.vista;
+package scik.vista.usuario;
 
 import scik.controlador.usuario.IUsuarioMod;
 
@@ -25,8 +25,7 @@ public class UIUsuarioMod extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         grpPermisos = new javax.swing.ButtonGroup();
         lblTitulo1 = new javax.swing.JLabel();
@@ -58,10 +57,8 @@ public class UIUsuarioMod extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
@@ -72,20 +69,16 @@ public class UIUsuarioMod extends javax.swing.JFrame
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAceptar.setText("ACEPTAR");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancelar.setText("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
@@ -199,11 +192,9 @@ public class UIUsuarioMod extends javax.swing.JFrame
         jLabel8.setText("DNI:");
 
         txtDNI.setColumns(12);
-        try
-        {
+        try {
             txtDNI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex)
-        {
+        } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

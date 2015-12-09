@@ -4,19 +4,18 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+
 import javax.swing.JTextField;
 import scik.modelo.Usuario;
-import scik.vista.UIUsuarioMod;
+import scik.vista.usuario.UIUsuarioMod;
 
 public class CUsuarioMod implements IUsuarioMod
 {
     private UIUsuarioMod ventana;
-    private String codigo;
     private Usuario u;
     
     public CUsuarioMod(String codigo)
     {
-        this.codigo = codigo;
         u = Usuario.buscar(codigo);
         ventana = new UIUsuarioMod(this);
     }
@@ -24,7 +23,7 @@ public class CUsuarioMod implements IUsuarioMod
     @Override
     public void cancelar()
     {
-        CUsuario usuario = new CUsuario();
+        new CUsuario();
         ventana.dispose();
     }
     
@@ -66,7 +65,7 @@ public class CUsuarioMod implements IUsuarioMod
                 if(err.equals(""))
                 {
                     JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-                    CUsuario usuario = new CUsuario();
+                    new CUsuario();
                     ventana.dispose();
                 }
                 else

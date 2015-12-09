@@ -1,16 +1,16 @@
-package scik.vista;
+package scik.vista.consulta;
 
-import scik.controlador.consulta.IEntrada;
+import scik.controlador.consulta.ISalida;
 
-public class UIEntrada extends javax.swing.JFrame
+public class UISalida extends javax.swing.JFrame
 {
-    private IEntrada interfaz;
+    private ISalida interfaz;
     
-    public UIEntrada(IEntrada interfaz)
+    public UISalida(ISalida interfaz)
     {
         initComponents();
         this.setVisible(true);
-        this.setTitle("ENTRADA DE PRODUCTOS");
+        this.setTitle("SALIDA DE PRODUCTOS");
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
@@ -19,8 +19,7 @@ public class UIEntrada extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         txtProCod = new javax.swing.JTextField();
@@ -39,10 +38,8 @@ public class UIEntrada extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
@@ -54,10 +51,8 @@ public class UIEntrada extends javax.swing.JFrame
         txtProCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         cbxProNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxProNom.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxProNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxProNomActionPerformed(evt);
             }
         });
@@ -67,10 +62,8 @@ public class UIEntrada extends javax.swing.JFrame
         lblTitulo.setText("ENTRADA DE PRODUCTOS");
 
         cbxAnio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxAnio.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxAnioActionPerformed(evt);
             }
         });
@@ -82,38 +75,30 @@ public class UIEntrada extends javax.swing.JFrame
         jLabel3.setText("Mes:");
 
         cbxMes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxMes.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxMesActionPerformed(evt);
             }
         });
 
         tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Dia", "Codigo de Almacen", "Nombre de Almacen", "Cantidad"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tblConsultas);
-        if (tblConsultas.getColumnModel().getColumnCount() > 0)
-        {
+        if (tblConsultas.getColumnModel().getColumnCount() > 0) {
             tblConsultas.getColumnModel().getColumn(0).setMinWidth(40);
             tblConsultas.getColumnModel().getColumn(0).setPreferredWidth(40);
             tblConsultas.getColumnModel().getColumn(0).setMaxWidth(40);
@@ -128,10 +113,8 @@ public class UIEntrada extends javax.swing.JFrame
         btnVolver.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/menu.png"))); // NOI18N
         btnVolver.setText("Volver al Menu");
-        btnVolver.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
@@ -140,10 +123,8 @@ public class UIEntrada extends javax.swing.JFrame
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultar.setText("CONSULTAR");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);
             }
         });
@@ -152,10 +133,8 @@ public class UIEntrada extends javax.swing.JFrame
         btnReporte.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Generar Reporte");
-        btnReporte.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteActionPerformed(evt);
             }
         });
@@ -259,7 +238,7 @@ public class UIEntrada extends javax.swing.JFrame
 
     private void cbxMesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxMesActionPerformed
     {//GEN-HEADEREND:event_cbxMesActionPerformed
-        interfaz.actualizarMes(this.cbxMes);
+        interfaz.actualizarMes(cbxMes);
     }//GEN-LAST:event_cbxMesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

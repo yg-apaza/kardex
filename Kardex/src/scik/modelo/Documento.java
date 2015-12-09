@@ -3,95 +3,100 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Documento
 {
-    private String DocCod;
-    private String DocNom;
-    private String DocEstReg;
+    private String docCod;
+    private String docNom;
+    private String docEstReg;
         
     public Documento()
     {
         this("-1","NULL", "0");
     }
     
-    public Documento(String DocCod, String DocNom, String DocEstReg)
+    public Documento(String docCod, String docNom, String docEstReg)
     {
-        this.DocCod = DocCod;
-        this.DocNom = DocNom;
-        this.DocEstReg = DocEstReg;
+        this.docCod = docCod;
+        this.docNom = docNom;
+        this.docEstReg = docEstReg;
     }
 
     public String getDocCod()
     {
-        return DocCod;
+        return docCod;
     }
 
-    public void setDocCod(String DocCod)
+    public void setDocCod(String docCod)
     {
-        this.DocCod = DocCod;
+        this.docCod = docCod;
     }
 
     public String getDocNom()
     {
-        return DocNom;
+        return docNom;
     }
 
-    public void setDocNom(String DocNom)
+    public void setDocNom(String docNom)
     {
-        this.DocNom = DocNom;
+        this.docNom = docNom;
     }
 
     public String getDocEstReg()
     {
-        return DocEstReg;
+        return docEstReg;
     }
 
-    public void setDocEstReg(String DocEstReg)
+    public void setDocEstReg(String docEstReg)
     {
-        this.DocEstReg = DocEstReg;
+        this.docEstReg = docEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO DOCUMENTO VALUES(DEFAULT, ?, ?)", new String[] {DocNom, DocEstReg}, false);
+            con.ejecutar("INSERT INTO DOCUMENTO VALUES(DEFAULT, ?, ?)", new String[] {docNom, docEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String modificar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("UPDATE DOCUMENTO SET DocNom = ? WHERE DocCod = ?", new String[] {DocNom, DocCod}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocNom = ? WHERE DocCod = ?", new String[] {docNom, docCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+        String msg = "";
         try
         {
             this.setDocEstReg("3");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 3 WHERE DocCod = ?", new String[] {DocCod}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 3 WHERE DocCod = ?", new String[] {docCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static ArrayList<Documento> getLista()
@@ -118,30 +123,32 @@ public class Documento
 
     public String activar()
     {
+        String msg = "";
         try
         {
             this.setDocEstReg("1");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 1 WHERE DocCod = ?", new String[] {DocCod}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 1 WHERE DocCod = ?", new String[] {docCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String desactivar()
     {
+        String msg = "";
         try
         {
             this.setDocEstReg("2");
-            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 2 WHERE DocCod = ?", new String[] {DocCod}, false);
+            con.ejecutar("UPDATE DOCUMENTO SET DocEstReg = 2 WHERE DocCod = ?", new String[] {docCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static Documento buscar(String codigo)
@@ -188,16 +195,17 @@ public class Documento
     
     public static String sgteCodigo()
     {
+        String codigo = "000000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM DOCUMENTO), 6, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000000";
+        return codigo;
     }
 }

@@ -1,27 +1,27 @@
-package scik.vista;
+package scik.vista.kardex;
 
 import java.util.Calendar;
-import scik.controlador.kardex.IKardexDetIns;
 
-public class UIKardexDetIns extends javax.swing.JFrame
+import scik.controlador.kardex.IKardexDetMod;
+
+public class UIKardexDetMod extends javax.swing.JFrame
 {
-    private IKardexDetIns interfaz;
+    private IKardexDetMod interfaz;
 
-    public UIKardexDetIns(IKardexDetIns interfaz)
+    public UIKardexDetMod(IKardexDetMod interfaz)
     {
-        initComponents();
         this.setVisible(true);
-        this.setTitle("Insertar Kardex Detalle");
+        this.setTitle("Modificar Kardex Detalle");
+        initComponents();
         setLocationRelativeTo(null);
 
         this.interfaz = interfaz;
-        this.interfaz.cargar(this.cbxDocNom, this.txtKarDetCod, this.txtProCod, this.txtAlmCod);
+        interfaz.cargar(this.txtKarDetCod, this.txtProCod, this.txtAlmCod, this.fecha, this.txtDocCod, this.cbxDocNom, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -60,10 +60,8 @@ public class UIKardexDetIns extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
@@ -98,7 +96,6 @@ public class UIKardexDetIns extends javax.swing.JFrame
         txtAlmCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         fecha.setCalendar(Calendar.getInstance());
-        fecha.setDateFormatString("dd/MM/yyyy");
         fecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -155,7 +152,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
         jLayeredPane2.setLayer(fecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLayeredPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MOVIMIENTO", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        jLayeredPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MOVIMIENTO", 0, 0, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         cbxOpe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxOpe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Entrada", "Salida" }));
@@ -170,27 +167,21 @@ public class UIKardexDetIns extends javax.swing.JFrame
         jLabel14.setText("Valor Total:");
 
         txtCan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCan.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
+        txtCan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCanKeyReleased(evt);
             }
         });
 
-        txtValUni.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
+        txtValUni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtValUniKeyReleased(evt);
             }
         });
 
         txtValTot.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtValTot.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
+        txtValTot.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtValTotKeyReleased(evt);
             }
         });
@@ -254,7 +245,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo2.setText("INSERTAR");
+        lblTitulo2.setText("MODIFICAR");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Documento"));
 
@@ -262,10 +253,8 @@ public class UIKardexDetIns extends javax.swing.JFrame
         jLabel11.setText("Tipo:");
 
         cbxDocNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbxDocNom.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cbxDocNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDocNomActionPerformed(evt);
             }
         });
@@ -312,20 +301,16 @@ public class UIKardexDetIns extends javax.swing.JFrame
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAceptar.setText("ACEPTAR");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCancelar.setText("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
@@ -397,7 +382,7 @@ public class UIKardexDetIns extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtKarDetCod, this.txtProCod, this.txtAlmCod, this.fecha, this.txtDocCod, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
+        interfaz.aceptar(this.fecha, this.txtDocCod, this.txtNumDoc, this.cbxOpe, this.txtCan, this.txtValUni, this.txtValTot, this.txtObs);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

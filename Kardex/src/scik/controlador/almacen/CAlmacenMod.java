@@ -2,18 +2,27 @@ package scik.controlador.almacen;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Almacen;
-import scik.vista.UIAlmacenMod;
+import scik.vista.almacen.UIAlmacenMod;
+
+/**
+ * Controlador de la modificación de almacen
+ * 
+ * Carga datos del almacén seleccionado, recibe nuevos valores y los valida
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CAlmacenMod implements IAlmacenMod
 {
     private UIAlmacenMod ventana;
-    private String codigo;
     private Almacen a;
     
     public CAlmacenMod(String codigo)
     {
-        this.codigo = codigo;
         a = Almacen.buscar(codigo);
         ventana = new UIAlmacenMod(this);
     }
@@ -36,7 +45,7 @@ public class CAlmacenMod implements IAlmacenMod
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-            CAlmacen inicio = new CAlmacen();
+            new CAlmacen();
             ventana.dispose();
         }
         else
@@ -46,7 +55,7 @@ public class CAlmacenMod implements IAlmacenMod
     @Override
     public void cancelar()
     {
-        CAlmacen almacen = new CAlmacen();
+        new CAlmacen();
         ventana.dispose();
     }
 }

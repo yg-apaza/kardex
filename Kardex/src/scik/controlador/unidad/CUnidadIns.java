@@ -2,8 +2,9 @@ package scik.controlador.unidad;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Unidad;
-import scik.vista.UIUnidadIns;
+import scik.vista.unidad.UIUnidadIns;
 
 public class CUnidadIns implements IUnidadIns
 {
@@ -28,7 +29,7 @@ public class CUnidadIns implements IUnidadIns
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-            CUnidad inicio = new CUnidad();
+            new CUnidad();
             ventana.dispose();
         }
         else
@@ -38,7 +39,7 @@ public class CUnidadIns implements IUnidadIns
     @Override
     public void cancelar()
     {
-        CUnidad unidad = new CUnidad();
+        new CUnidad();
         ventana.dispose();
     }
 }

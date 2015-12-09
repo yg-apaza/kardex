@@ -1,17 +1,20 @@
 package scik.controlador.producto;
 
-import com.mxrck.autocompleter.TextAutoCompleter;
 import java.util.ArrayList;
+
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Producto;
 import scik.modelo.Reporte;
-import scik.vista.UIProducto;
+import scik.vista.producto.UIProducto;
+
+import com.mxrck.autocompleter.TextAutoCompleter;
 
 public class CProducto implements IProducto
 {
@@ -51,8 +54,9 @@ public class CProducto implements IProducto
     {
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
-        
-        for(int i = 0; i < productos.size(); i++)
+		
+		int productosSize = productos.size();
+        for(int i = 0; i < productosSize; i++)
         {
             model.addRow(new Object[]{  productos.get(i).getProCod(),
                                         productos.get(i).getProNom(),
@@ -64,14 +68,14 @@ public class CProducto implements IProducto
     @Override
     public void insertar()
     {
-        CProductoIns insertar = new CProductoIns();
+        new CProductoIns();
         ventana.dispose();
     }
     
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
@@ -120,7 +124,7 @@ public class CProducto implements IProducto
     }
     
     @Override
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar)
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chActivar)
     {
         int i = tblRegistros.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
@@ -159,10 +163,12 @@ public class CProducto implements IProducto
         TableModel tableModel = tablaProducto.getModel();
         String filtro = "Nombre";
         int i;
-        for(i = 0; i < tableModel.getColumnCount(); i++)
+        int column = tableModel.getColumnCount();
+	for(i = 0; i < column; i++)
             if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
                 break;
-        for(int k = 0; k < tableModel.getRowCount(); k++)
+		int row = tableModel.getRowCount();
+        for(int k = 0; k < row; k++)
             textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
     }
     /*
@@ -174,13 +180,15 @@ public class CProducto implements IProducto
         String dato = buscar.getText();
         String filtro = "Nombre";
         int col;
-        for(col = 0; col < tableModel.getColumnCount(); col++)
+		int column = tableModel.getColumnCount();
+        for(col = 0; col < column; col++)
             if(filtro.compareTo(tableModel.getColumnName(col)) == 0)
                 break;
         int row;
         try
         {
-            for(row = 0; row < tableModel.getRowCount(); row++)
+			int rowC = tableModel.getRowCount();
+            for(row = 0; row < rowC; row++)
                 if(dato.compareTo((String) tableModel.getValueAt(row, col)) == 0)
                     break;
 

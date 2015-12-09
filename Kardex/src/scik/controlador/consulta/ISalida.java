@@ -4,6 +4,16 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+/**
+ * Interfaz de la consulta de salida de productos
+ * 
+ * Métodos disponibles para el controlador de consulta de salidas.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public interface ISalida
 {
     public void cargar(JComboBox cbxProNom);

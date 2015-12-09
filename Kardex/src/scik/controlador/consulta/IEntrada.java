@@ -4,6 +4,16 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+/**
+ * Interfaz de la consulta de entrada de productos
+ * 
+ * Métodos disponibles para el controlador de consulta de entradas.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public interface IEntrada
 {
     public void cargar(JComboBox cbxProNom);

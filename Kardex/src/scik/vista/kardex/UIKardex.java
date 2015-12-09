@@ -1,11 +1,13 @@
-package scik.vista;
+package scik.vista.kardex;
 
 import java.awt.Color;
 import java.awt.Component;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
+
 import scik.controlador.kardex.IKardex;
 
 public class UIKardex extends javax.swing.JFrame
@@ -51,8 +53,7 @@ public class UIKardex extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel19 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -127,10 +128,8 @@ public class UIKardex extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
@@ -139,42 +138,34 @@ public class UIKardex extends javax.swing.JFrame
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("MANTENIMIENTO - KARDEX");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Cabecera", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Kardex Cabecera", 0, 0, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         tblRegistrosKC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblRegistrosKC.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Codigo de Producto", "Producto", "Codigo de Almacen", "Almacen", "Estado"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean []
-            {
+            boolean[] canEdit = new boolean [] {
                 true, false, true, false, true
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tblRegistrosKC);
-        if (tblRegistrosKC.getColumnModel().getColumnCount() > 0)
-        {
+        if (tblRegistrosKC.getColumnModel().getColumnCount() > 0) {
             tblRegistrosKC.getColumnModel().getColumn(0).setMinWidth(120);
             tblRegistrosKC.getColumnModel().getColumn(0).setPreferredWidth(120);
             tblRegistrosKC.getColumnModel().getColumn(0).setMaxWidth(120);
@@ -192,10 +183,8 @@ public class UIKardex extends javax.swing.JFrame
         btnInsertarKC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnInsertarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertarKC.setText("INSERTAR");
-        btnInsertarKC.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnInsertarKC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarKCActionPerformed(evt);
             }
         });
@@ -203,10 +192,8 @@ public class UIKardex extends javax.swing.JFrame
         btnEliminarKC.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnEliminarKC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminarKC.setText("ELIMINAR");
-        btnEliminarKC.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnEliminarKC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarKCActionPerformed(evt);
             }
         });
@@ -298,38 +285,30 @@ public class UIKardex extends javax.swing.JFrame
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Kardex Detalle"));
 
         tblRegistrosKD.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Codigo", "Fecha", "Operacion", "Cantidad", "Val. Unitario", "Val. Total", "Saldo Cantidad", "Saldo Val. Unitario", "Saldo Val. Total"
             }
-        )
-        {
-            Class[] types = new Class []
-            {
+        ) {
+            Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean []
-            {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex)
-            {
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(tblRegistrosKD);
-        if (tblRegistrosKD.getColumnModel().getColumnCount() > 0)
-        {
+        if (tblRegistrosKD.getColumnModel().getColumnCount() > 0) {
             tblRegistrosKD.getColumnModel().getColumn(0).setMinWidth(70);
             tblRegistrosKD.getColumnModel().getColumn(0).setPreferredWidth(70);
             tblRegistrosKD.getColumnModel().getColumn(0).setMaxWidth(70);
@@ -344,10 +323,8 @@ public class UIKardex extends javax.swing.JFrame
         btnInsertarKD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnInsertarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/insertar.png"))); // NOI18N
         btnInsertarKD.setText("INSERTAR");
-        btnInsertarKD.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnInsertarKD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertarKDActionPerformed(evt);
             }
         });
@@ -355,10 +332,8 @@ public class UIKardex extends javax.swing.JFrame
         btnModificarKD.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnModificarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/modificar.png"))); // NOI18N
         btnModificarKD.setText("MODIFICAR ÚLTIMO REGISTRO");
-        btnModificarKD.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnModificarKD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarKDActionPerformed(evt);
             }
         });
@@ -366,10 +341,8 @@ public class UIKardex extends javax.swing.JFrame
         btnEliminarKD.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnEliminarKD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/eliminar.png"))); // NOI18N
         btnEliminarKD.setText("ELIMINAR ÚLTIMO REGISTRO");
-        btnEliminarKD.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnEliminarKD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarKDActionPerformed(evt);
             }
         });
@@ -377,10 +350,8 @@ public class UIKardex extends javax.swing.JFrame
         btnMenu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/menu.png"))); // NOI18N
         btnMenu.setText("Volver al Menu");
-        btnMenu.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
             }
         });
@@ -389,10 +360,8 @@ public class UIKardex extends javax.swing.JFrame
         btnReporte.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Generar Formato");
-        btnReporte.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteActionPerformed(evt);
             }
         });

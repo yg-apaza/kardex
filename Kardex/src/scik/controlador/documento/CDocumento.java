@@ -1,16 +1,32 @@
 package scik.controlador.documento;
 
-import com.mxrck.autocompleter.TextAutoCompleter;
 import java.util.ArrayList;
+
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Documento;
-import scik.vista.UIDocumento;
+import scik.vista.documento.UIDocumento;
+
+import com.mxrck.autocompleter.TextAutoCompleter;
+
+/**
+ * Controlador de la gestión de documento
+ * 
+ * Carga los documentos existentes con sus datos, además de controlar el
+ * redireccionamiento hacia las ventanas de inserción o modificación. Provee
+ * opciones de buscar registros. Las funciones activar, desactivar y eliminar
+ * son realizadas aquí.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CDocumento implements IDocumento
 {
@@ -118,7 +134,7 @@ public class CDocumento implements IDocumento
     }
     
     @Override
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar)
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chActivar)
     {
         int i = tblRegistros.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();

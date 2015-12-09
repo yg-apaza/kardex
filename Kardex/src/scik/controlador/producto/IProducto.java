@@ -12,7 +12,7 @@ public interface IProducto
     public void menu();
     public void modificar(JTable tblRegistros);
     public void eliminar(JTable tblRegistros, JCheckBox chActivar);
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar);
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chActivar);
     public void generarReporte();
     public void buscarProducto( JTextField buscar, JTable tablaProducto);
     public void seleccionarFila(JTextField buscar, JTable tablaProducto);

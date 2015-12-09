@@ -3,6 +3,7 @@ package scik.controlador;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import scik.vista.UIKardexMenu;
 import scik.controlador.almacen.CAlmacen;
 import scik.controlador.documento.CDocumento;
@@ -14,6 +15,18 @@ import scik.controlador.consulta.CExistencia;
 import scik.controlador.consulta.CSalida;
 import scik.controlador.kardex.CKardex;
 import scik.controlador.producto.CProducto;
+
+/**
+ * Controlador del Menu Principal
+ * 
+ * Carga las opciones correspondientes dependiendo del tipo de usuario y redirige
+ * hacia las diferentes vistas correspondientes.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 
 public class CKardexMenu implements IKardexMenu
 {
@@ -27,7 +40,7 @@ public class CKardexMenu implements IKardexMenu
     @Override
     public void almacen()
     {
-        CAlmacen almacen = new CAlmacen();
+        new CAlmacen();
         ventana.dispose();
     }
     @Override
@@ -48,70 +61,70 @@ public class CKardexMenu implements IKardexMenu
     @Override
     public void cerrarSesion()
     {
-        CLogin login = new CLogin();
+        new CLogin();
         ventana.dispose();
     }
     
     @Override
     public void usuario()
     {
-        CUsuario usuario = new CUsuario();
+        new CUsuario();
         ventana.dispose();
     }
     
     @Override
     public void unidad()
     {
-        CUnidad unidad = new CUnidad();
+        new CUnidad();
         ventana.dispose();
     }
     
     @Override
     public void documento()
     {
-        CDocumento documento = new CDocumento();
+        new CDocumento();
         ventana.dispose();
     }
     
     @Override
     public void producto()
     {
-        CProducto producto = new CProducto();
+        new CProducto();
         ventana.dispose();
     }
     
     @Override
     public void configuracion()
     {
-        CConfiguracion config = new CConfiguracion(false);
+        new CConfiguracion(false);
         ventana.dispose();
     }
     
     @Override
     public void kardex()
     {
-        CKardex kardex = new CKardex();
+        new CKardex();
         ventana.dispose();
     }
 
     @Override
     public void existenciaProducto()
     {
-        CExistencia existencia = new CExistencia();
+        new CExistencia();
         ventana.dispose();
     }
 
     @Override
     public void salida()
     {
-        CSalida salida = new CSalida();
+        new CSalida();
         ventana.dispose();
     }
 
     @Override
     public void entrada()
     {
-        CEntrada entrada = new CEntrada();
+        new CEntrada();
         ventana.dispose();
     }
 }

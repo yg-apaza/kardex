@@ -3,107 +3,112 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Almacen
 {
-    private String AlmCod;
-    private String AlmNom;
-    private String AlmUbi;
-    private String AlmEstReg;
+    private String almCod;
+    private String almNom;
+    private String almUbi;
+    private String almEstReg;
     
     public Almacen()
     {
         this("-1", "-1", "NULL", "0");
     }
     
-    public Almacen(String AlmCod, String AlmNom, String AlmUbi, String AlmEstReg)
+    public Almacen(String almCod, String almNom, String almUbi, String almEstReg)
     {
-        this.AlmCod = AlmCod;
-        this.AlmNom = AlmNom;
-        this.AlmUbi = AlmUbi;
-        this.AlmEstReg = AlmEstReg;
+        this.almCod = almCod;
+        this.almNom = almNom;
+        this.almUbi = almUbi;
+        this.almEstReg = almEstReg;
     }
 
     public String getAlmCod()
     {
-        return AlmCod;
+        return almCod;
     }
 
-    public void setAlmCod(String AlmCod)
+    public void setAlmCod(String almCod)
     {
-        this.AlmCod = AlmCod;
+        this.almCod = almCod;
     }
 
     public String getAlmNom()
     {
-        return AlmNom;
+        return almNom;
     }
 
-    public void setAlmNom(String AlmNom)
+    public void setAlmNom(String almNom)
     {
-        this.AlmNom = AlmNom;
+        this.almNom = almNom;
     }
 
     public String getAlmUbi()
     {
-        return AlmUbi;
+        return almUbi;
     }
 
-    public void setAlmUbi(String AlmUbi)
+    public void setAlmUbi(String almUbi)
     {
-        this.AlmUbi = AlmUbi;
+        this.almUbi = almUbi;
     }
 
     public String getAlmEstReg()
     {
-        return AlmEstReg;
+        return almEstReg;
     }
 
-    public void setAlmEstReg(String AlmEstReg)
+    public void setAlmEstReg(String almEstReg)
     {
-        this.AlmEstReg = AlmEstReg;
+        this.almEstReg = almEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO ALMACEN VALUES(DEFAULT, ?, ?, ?)", new String[] {AlmNom, AlmUbi, AlmEstReg}, false);
+            con.ejecutar("INSERT INTO ALMACEN VALUES(DEFAULT, ?, ?, ?)", new String[] {almNom, almUbi, almEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String modificar()
     {
+	String msg = "";
         try
         {
-            con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {AlmNom, AlmUbi, AlmCod}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmNom = ?, AlmUbi = ? WHERE AlmCod = ?", new String[] {almNom, almUbi, almCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+	String msg = "";
         try
         {
             this.setAlmEstReg("3");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {AlmCod}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 3 WHERE AlmCod = ?", new String[] {almCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static ArrayList<Almacen> getLista()
@@ -132,30 +137,32 @@ public class Almacen
 
     public String activar()
     {
+	String msg = "";
         try
         {
             this.setAlmEstReg("1");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {AlmCod}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 1 WHERE AlmCod = ?", new String[] {almCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String desactivar()
     {
+	String msg = "";
         try
         {
             this.setAlmEstReg("2");
-            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {AlmCod}, false);
+            con.ejecutar("UPDATE ALMACEN SET AlmEstReg = 2 WHERE AlmCod = ?", new String[] {almCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static Almacen buscar(String codigo)
@@ -205,17 +212,18 @@ public class Almacen
     
     public static String sgteCodigo()
     {
+        String codigo = "000000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM ALMACEN), 6, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000000";
+        return codigo;
     }
     
     public static ArrayList<ArrayList<String>> getVista()

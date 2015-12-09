@@ -3,107 +3,112 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Producto
 {
-    private String ProCod;
-    private String ProNom;
-    private String UniCod;
-    private String ProEstReg;
+    private String proCod;
+    private String proNom;
+    private String uniCod;
+    private String proEstReg;
     
     public Producto()
     {
         this("-1", "NULL", "-1", "0");
     }
     
-    public Producto(String ProCod, String ProNom, String UniCod, String ProEstReg)
+    public Producto(String proCod, String proNom, String uniCod, String proEstReg)
     {
-        this.ProCod = ProCod;
-        this.ProNom = ProNom;
-        this.UniCod = UniCod;
-        this.ProEstReg = ProEstReg;
+        this.proCod = proCod;
+        this.proNom = proNom;
+        this.uniCod = uniCod;
+        this.proEstReg = proEstReg;
     }
 
     public String getProCod()
     {
-        return ProCod;
+        return proCod;
     }
 
-    public void setProCod(String ProCod)
+    public void setProCod(String proCod)
     {
-        this.ProCod = ProCod;
+        this.proCod = proCod;
     }
 
     public String getProNom()
     {
-        return ProNom;
+        return proNom;
     }
 
-    public void setProNom(String ProNom)
+    public void setProNom(String proNom)
     {
-        this.ProNom = ProNom;
+        this.proNom = proNom;
     }
 
     public String getUniCod()
     {
-        return UniCod;
+        return uniCod;
     }
 
-    public void setUniCod(String UniCod)
+    public void setUniCod(String uniCod)
     {
-        this.UniCod = UniCod;
+        this.uniCod = uniCod;
     }
 
     public String getProEstReg()
     {
-        return ProEstReg;
+        return proEstReg;
     }
 
-    public void setProEstReg(String ProEstReg)
+    public void setProEstReg(String proEstReg)
     {
-        this.ProEstReg = ProEstReg;
+        this.proEstReg = proEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO PRODUCTO VALUES(DEFAULT, ?, ?, ?)", new String[] {ProNom, UniCod, ProEstReg}, false);
+            con.ejecutar("INSERT INTO PRODUCTO VALUES(DEFAULT, ?, ?, ?)", new String[] {proNom, uniCod, proEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String modificar()
     {
+	String msg = "";
         try
         {
-            con.ejecutar("UPDATE PRODUCTO SET ProNom = ?, UniCod = ? WHERE ProCod = ?", new String[] {ProNom, UniCod, ProCod}, false);
+            con.ejecutar("UPDATE PRODUCTO SET ProNom = ?, UniCod = ? WHERE ProCod = ?", new String[] {proNom, uniCod, proCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+	String msg = "";
         try
         {
             this.setProEstReg("3");
-            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 3 WHERE ProCod = ?", new String[] {ProCod}, false);
+            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 3 WHERE ProCod = ?", new String[] {proCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static ArrayList<Producto> getLista()
@@ -131,30 +136,32 @@ public class Producto
     
     public String activar()
     {
+	String msg = "";
         try
         {
             this.setProEstReg("1");
-            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 1 WHERE ProCod = ?", new String[] {ProCod}, false);
+            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 1 WHERE ProCod = ?", new String[] {proCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String desactivar()
     {
+	String msg = "";
         try
         {
             this.setProEstReg("2");
-            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 2 WHERE ProCod = ?", new String[] {ProCod}, false);
+            con.ejecutar("UPDATE PRODUCTO SET ProEstReg = 2 WHERE ProCod = ?", new String[] {proCod}, false);
         }
         catch (SQLException ex)
         {
-             return ex.getMessage();
+             msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static Producto buscar(String codigo)
@@ -202,17 +209,18 @@ public class Producto
     
     public static String sgteCodigo()
     {
+        String codigo = "000000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM PRODUCTO), 6, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000000";
+        return codigo;
     }
     
     public static ArrayList<ArrayList<String>> getVista()

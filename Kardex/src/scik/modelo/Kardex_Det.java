@@ -3,274 +3,278 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Kardex_Det
 {
-    private String KarDetCod;
-    private String ProCod;
-    private String AlmCod;
-    private String KarDetAnio;
-    private String KarDetMes;
-    private String KarDetDia;
-    private String UsrCod;
-    private String DocCod;
-    private String KarDetDocNum;
-    private String KarDetOpe;
-    private String KarDetCan;
-    private String KarDetValUni;
-    private String KarDetValTot;
-    private String KarDetSalCan;
-    private String KarDetSalValUni;
-    private String KarDetSalValTot;
-    private String KarDetObs;
-    private String KarDetEstReg;
+    private String karDetCod;
+    private String proCod;
+    private String almCod;
+    private String karDetAnio;
+    private String karDetMes;
+    private String karDetDia;
+    private String usrCod;
+    private String docCod;
+    private String karDetDocNum;
+    private String karDetOpe;
+    private String karDetCan;
+    private String karDetValUni;
+    private String karDetValTot;
+    private String karDetSalCan;
+    private String karDetSalValUni;
+    private String karDetSalValTot;
+    private String karDetObs;
+    private String karDetEstReg;
     
     public Kardex_Det()
     {
         this("-1", "-1", "-1", "0", "0", "0", "-1", "-1", "0", "0", "0", "0", "0", "0", "0", "0", "NULL", "0");
     }
 
-    public Kardex_Det(String KarDetCod, String ProCod, String AlmCod, String KarDetAnio, String KarDetMes, String KarDetDia, String UsrCod, String DocCod, String KarDetDocNum, String KarDetOpe, String KarDetCan, String KarDetValUni, String KarDetValTot, String KarDetSalCan, String KarDetSalValUni, String KarDetSalValTot, String KarDetObs, String KarDetEstReg)
+    public Kardex_Det(String karDetCod, String proCod, String almCod, String karDetAnio, String karDetMes, String karDetDia, String usrCod, String docCod, String karDetDocNum, String karDetOpe, String karDetCan, String karDetValUni, String karDetValTot, String karDetSalCan, String karDetSalValUni, String karDetSalValTot, String karDetObs, String karDetEstReg)
     {
-        this.KarDetCod = KarDetCod;
-        this.ProCod = ProCod;
-        this.AlmCod = AlmCod;
-        this.KarDetAnio = KarDetAnio;
-        this.KarDetMes = KarDetMes;
-        this.KarDetDia = KarDetDia;
-        this.UsrCod = UsrCod;
-        this.DocCod = DocCod;
-        this.KarDetDocNum = KarDetDocNum;
-        this.KarDetOpe = KarDetOpe;
-        this.KarDetCan = KarDetCan;
-        this.KarDetValUni = KarDetValUni;
-        this.KarDetValTot = KarDetValTot;
-        this.KarDetSalCan = KarDetSalCan;
-        this.KarDetSalValUni = KarDetSalValUni;
-        this.KarDetSalValTot = KarDetSalValTot;
-        this.KarDetObs = KarDetObs;
-        this.KarDetEstReg = KarDetEstReg;
+        this.karDetCod = karDetCod;
+        this.proCod = proCod;
+        this.almCod = almCod;
+        this.karDetAnio = karDetAnio;
+        this.karDetMes = karDetMes;
+        this.karDetDia = karDetDia;
+        this.usrCod = usrCod;
+        this.docCod = docCod;
+        this.karDetDocNum = karDetDocNum;
+        this.karDetOpe = karDetOpe;
+        this.karDetCan = karDetCan;
+        this.karDetValUni = karDetValUni;
+        this.karDetValTot = karDetValTot;
+        this.karDetSalCan = karDetSalCan;
+        this.karDetSalValUni = karDetSalValUni;
+        this.karDetSalValTot = karDetSalValTot;
+        this.karDetObs = karDetObs;
+        this.karDetEstReg = karDetEstReg;
     }
 
     public String getKarDetCod()
     {
-        return KarDetCod;
+        return karDetCod;
     }
 
-    public void setKarDetCod(String KarDetCod)
+    public void setKarDetCod(String karDetCod)
     {
-        this.KarDetCod = KarDetCod;
+        this.karDetCod = karDetCod;
     }
 
     public String getProCod()
     {
-        return ProCod;
+        return proCod;
     }
 
-    public void setProCod(String ProCod)
+    public void setProCod(String proCod)
     {
-        this.ProCod = ProCod;
+        this.proCod = proCod;
     }
 
     public String getAlmCod()
     {
-        return AlmCod;
+        return almCod;
     }
 
-    public void setAlmCod(String AlmCod)
+    public void setAlmCod(String almCod)
     {
-        this.AlmCod = AlmCod;
+        this.almCod = almCod;
     }
 
     public String getKarDetAnio()
     {
-        return KarDetAnio;
+        return karDetAnio;
     }
 
-    public void setKarDetAnio(String KarDetAnio)
+    public void setKarDetAnio(String karDetAnio)
     {
-        this.KarDetAnio = KarDetAnio;
+        this.karDetAnio = karDetAnio;
     }
 
     public String getKarDetMes()
     {
-        return KarDetMes;
+        return karDetMes;
     }
 
-    public void setKarDetMes(String KarDetMes)
+    public void setKarDetMes(String karDetMes)
     {
-        this.KarDetMes = KarDetMes;
+        this.karDetMes = karDetMes;
     }
 
     public String getKarDetDia()
     {
-        return KarDetDia;
+        return karDetDia;
     }
 
-    public void setKarDetDia(String KarDetDia)
+    public void setKarDetDia(String karDetDia)
     {
-        this.KarDetDia = KarDetDia;
+        this.karDetDia = karDetDia;
     }
 
     public String getUsrCod()
     {
-        return UsrCod;
+        return usrCod;
     }
 
-    public void setUsrCod(String UsrCod)
+    public void setUsrCod(String usrCod)
     {
-        this.UsrCod = UsrCod;
+        this.usrCod = usrCod;
     }
 
     public String getDocCod()
     {
-        return DocCod;
+        return docCod;
     }
 
-    public void setDocCod(String DocCod)
+    public void setDocCod(String docCod)
     {
-        this.DocCod = DocCod;
+        this.docCod = docCod;
     }
 
     public String getKarDetDocNum()
     {
-        return KarDetDocNum;
+        return karDetDocNum;
     }
 
-    public void setKarDetDocNum(String KarDetDocNum)
+    public void setKarDetDocNum(String karDetDocNum)
     {
-        this.KarDetDocNum = KarDetDocNum;
+        this.karDetDocNum = karDetDocNum;
     }
 
     public String getKarDetOpe()
     {
-        return KarDetOpe;
+        return karDetOpe;
     }
 
-    public void setKarDetOpe(String KarDetOpe)
+    public void setKarDetOpe(String karDetOpe)
     {
-        this.KarDetOpe = KarDetOpe;
+        this.karDetOpe = karDetOpe;
     }
 
     public String getKarDetCan()
     {
-        return KarDetCan;
+        return karDetCan;
     }
 
-    public void setKarDetCan(String KarDetCan)
+    public void setKarDetCan(String karDetCan)
     {
-        this.KarDetCan = KarDetCan;
+        this.karDetCan = karDetCan;
     }
 
     public String getKarDetValUni()
     {
-        return KarDetValUni;
+        return karDetValUni;
     }
 
-    public void setKarDetValUni(String KarDetValUni)
+    public void setKarDetValUni(String karDetValUni)
     {
-        this.KarDetValUni = KarDetValUni;
+        this.karDetValUni = karDetValUni;
     }
 
     public String getKarDetValTot()
     {
-        return KarDetValTot;
+        return karDetValTot;
     }
 
-    public void setKarDetValTot(String KarDetValTot)
+    public void setKarDetValTot(String karDetValTot)
     {
-        this.KarDetValTot = KarDetValTot;
+        this.karDetValTot = karDetValTot;
     }
 
     public String getKarDetSalCan()
     {
-        return KarDetSalCan;
+        return karDetSalCan;
     }
 
-    public void setKarDetSalCan(String KarDetSalCan)
+    public void setKarDetSalCan(String karDetSalCan)
     {
-        this.KarDetSalCan = KarDetSalCan;
+        this.karDetSalCan = karDetSalCan;
     }
 
     public String getKarDetSalValUni()
     {
-        return KarDetSalValUni;
+        return karDetSalValUni;
     }
 
-    public void setKarDetSalValUni(String KarDetSalValUni)
+    public void setKarDetSalValUni(String karDetSalValUni)
     {
-        this.KarDetSalValUni = KarDetSalValUni;
+        this.karDetSalValUni = karDetSalValUni;
     }
 
     public String getKarDetSalValTot()
     {
-        return KarDetSalValTot;
+        return karDetSalValTot;
     }
 
-    public void setKarDetSalValTot(String KarDetSalValTot)
+    public void setKarDetSalValTot(String karDetSalValTot)
     {
-        this.KarDetSalValTot = KarDetSalValTot;
+        this.karDetSalValTot = karDetSalValTot;
     }
 
     public String getKarDetObs()
     {
-        return KarDetObs;
+        return karDetObs;
     }
 
-    public void setKarDetObs(String KarDetObs)
+    public void setKarDetObs(String karDetObs)
     {
-        this.KarDetObs = KarDetObs;
+        this.karDetObs = karDetObs;
     }
 
     public String getKarDetEstReg()
     {
-        return KarDetEstReg;
+        return karDetEstReg;
     }
 
-    public void setKarDetEstReg(String KarDetEstReg)
+    public void setKarDetEstReg(String karDetEstReg)
     {
-        this.KarDetEstReg = KarDetEstReg;
+        this.karDetEstReg = karDetEstReg;
     }
     
     public String insertar()
     {
+        String msg = "";
         try
         {
             con.ejecutar(   "INSERT INTO KARDEX_DET VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                             new String[] {
-                                ProCod,
-                                AlmCod,
-                                KarDetAnio,
-                                KarDetMes,
-                                KarDetDia,
-                                UsrCod,
-                                DocCod,
-                                KarDetDocNum,
-                                KarDetOpe,
-                                KarDetCan,
-                                KarDetValUni,
-                                KarDetValTot,
-                                KarDetSalCan,
-                                KarDetSalValUni,
-                                KarDetSalValTot,
-                                KarDetObs,
-                                KarDetEstReg
+                                proCod,
+                                almCod,
+                                karDetAnio,
+                                karDetMes,
+                                karDetDia,
+                                usrCod,
+                                docCod,
+                                karDetDocNum,
+                                karDetOpe,
+                                karDetCan,
+                                karDetValUni,
+                                karDetValTot,
+                                karDetSalCan,
+                                karDetSalValUni,
+                                karDetSalValTot,
+                                karDetObs,
+                                karDetEstReg
                             },
                             false
                         );
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
         
-        return "";
+        return msg;
     }
     
     public String modificar()
     {
+        String msg = "";
         try
         {
             con.ejecutar("UPDATE KARDEX_DET SET KarDetAnio = ?, "
@@ -289,37 +293,37 @@ public class Kardex_Det
                                             + "KarDetObs = ? "
                                             + "WHERE (KarDetCod = ? AND ProCod = ? AND AlmCod = ?)",
                         new String[] {
-                                            KarDetAnio,
-                                            KarDetMes,
-                                            KarDetDia,
-                                            UsrCod,
-                                            DocCod,
-                                            KarDetDocNum,
-                                            KarDetOpe,
-                                            KarDetCan,
-                                            KarDetValUni,
-                                            KarDetValTot,
-                                            KarDetSalCan,
-                                            KarDetSalValUni,
-                                            KarDetSalValTot,
-                                            KarDetObs,
-                                            KarDetCod,
-                                            ProCod,
-                                            AlmCod
+                                            karDetAnio,
+                                            karDetMes,
+                                            karDetDia,
+                                            usrCod,
+                                            docCod,
+                                            karDetDocNum,
+                                            karDetOpe,
+                                            karDetCan,
+                                            karDetValUni,
+                                            karDetValTot,
+                                            karDetSalCan,
+                                            karDetSalValUni,
+                                            karDetSalValTot,
+                                            karDetObs,
+                                            karDetCod,
+                                            proCod,
+                                            almCod
                         },
                         false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
         
-        return "";
+        return msg;
     }
     
     public String eliminar(String codigo1, String codigo2, String codigo3)
     {
-        
+        String msg = "";
         try
         {
             this.setKarDetEstReg("3");
@@ -327,9 +331,9 @@ public class Kardex_Det
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
 
     public static Kardex_Det buscar(String codigo1, String codigo2, String codigo3)
@@ -369,17 +373,18 @@ public class Kardex_Det
     
     public static String sgteCodigo()
     {
+        String codigo = "000000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM KARDEX_DET), 6, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000000";
+        return codigo;
     }
     
     public static ArrayList<ArrayList<String>> getVista(String producto, String almacen)

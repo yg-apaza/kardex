@@ -1,18 +1,32 @@
 package scik.controlador.kardex;
 
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Almacen;
 import scik.modelo.Kardex_Cab;
 import scik.modelo.Kardex_Det;
 import scik.modelo.Producto;
 import scik.modelo.Reporte;
-import scik.vista.UIKardex;
+import scik.vista.kardex.UIKardex;
+
+/**
+ * Controlador principal de la gestión de kardex
+ * 
+ * Carga los productos - almacenes existentes con sus datos, además de controlar el
+ * redireccionamiento hacia las ventanas de inserción o modificación. La eliminación
+ * de kardex se realiza aquí.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CKardex implements IKardex
 {
@@ -28,10 +42,10 @@ public class CKardex implements IKardex
         kds = new ArrayList<>();
         kds_activos = new ArrayList<ArrayList<Kardex_Det>>();
         kc = Kardex_Cab.getLista();
-        
-        for(int i = 0; i < kc.size(); i++)
+        int kcSize = kc.size();
+        for(int i = 0; i < kcSize; i++)
             kds.add(Kardex_Cab.getDetalles(kc.get(i).getProCod(), kc.get(i).getAlmCod()));
-        for(int i = 0; i < kc.size(); i++)
+        for(int i = 0; i < kcSize; i++)
             kds_activos.add(Kardex_Cab.getDetallesActivos(kc.get(i).getProCod(), kc.get(i).getAlmCod()));
         ventana = new UIKardex(this);
     }
@@ -45,7 +59,8 @@ public class CKardex implements IKardex
         Producto p = null;
         Almacen a = null;
         
-        for(int i = 0; i < kc.size(); i++)
+	int kcSize = kc.size();
+        for(int i = 0; i < kcSize; i++)
         {
             p = Producto.buscar(kc.get(i).getProCod());
             a = Almacen.buscar(kc.get(i).getAlmCod());
@@ -74,7 +89,8 @@ public class CKardex implements IKardex
         txtValUni.setText(kc.get(i).getKarCabValUni());
         txtValTot.setText(kc.get(i).getKarCabValTot());
         
-        for(i = 0; i < det.size(); i++)
+	int detSize = det.size();
+        for(i = 0; i < detSize; i++)
         {
             model.addRow(new Object[]{  det.get(i).getKarDetCod(),
                                         det.get(i).getKarDetDia() + "/" + 
@@ -95,14 +111,14 @@ public class CKardex implements IKardex
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
     @Override
     public void insertarKC()
     {
-        CKardexCabIns insertar = new CKardexCabIns();
+        new CKardexCabIns();
         ventana.dispose();
     }
     
@@ -140,8 +156,8 @@ public class CKardex implements IKardex
             if(cab.getKarCabEstReg().equals("1"))
             {
                 ArrayList<Kardex_Det> aux = kds_activos.get(i);
-                CKardexDetIns k = new CKardexDetIns(codigoProducto, codigoAlmacen, cab.getKarCabCan(),
-                                                    aux.size() == 0?"0":aux.get(aux.size() - 1).getKarDetSalValTot());
+                new CKardexDetIns(codigoProducto, codigoAlmacen, cab.getKarCabCan(),
+									aux.size() == 0?"0":aux.get(aux.size() - 1).getKarDetSalValTot());
                 ventana.dispose();
             }
             else
@@ -167,6 +183,8 @@ public class CKardex implements IKardex
                     model.setValueAt("*", i, 4);
                     if(tblRegistrosKD.getSelectedRow() != -1)
                         txtEst.setText("Eliminado");
+                    int kdsSize = kds.get(i).size();
+                    int kdsActivosSize = kds_activos.get(i).size();
                     for(int j = 0; j < kds.get(i).size(); j++)
                         kds.get(i).get(j).eliminar(kds.get(i).get(j).getKarDetCod(), codigoProducto, codigoAlmacen);
 
@@ -189,12 +207,11 @@ public class CKardex implements IKardex
         {
             try
             {
-                Kardex_Cab c = kc.get(i);
                 Kardex_Det d = kds_activos.get(i).get(kds_activos.get(i).size() - 1);
                 if(d.getKarDetEstReg().equals("1"))
                 {
                         boolean nuevo = (kds_activos.get(i).size() == 1);
-                        CKardexDetMod modificar = new CKardexDetMod(d.getKarDetCod(), d.getProCod(), d.getAlmCod(), nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalCan() , nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalValTot());
+                        new CKardexDetMod(d.getKarDetCod(), d.getProCod(), d.getAlmCod(), nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalCan() , nuevo? "0" : kds_activos.get(i).get(kds_activos.get(i).size() - 2).getKarDetSalValTot());
                         ventana.dispose();
                 }
                 else
@@ -223,7 +240,7 @@ public class CKardex implements IKardex
                     if(JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el registro?", "Eliminar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
                     {
                         d.eliminar(d.getKarDetCod(), d.getProCod(), d.getAlmCod());
-                        CKardex ventanaNueva = new CKardex();
+                        new CKardex();
                         ventana.dispose();
                     }
                 }

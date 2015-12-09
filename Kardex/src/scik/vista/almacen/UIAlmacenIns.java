@@ -1,33 +1,43 @@
-package scik.vista;
+package scik.vista.almacen;
 
-import scik.controlador.documento.IDocumentoMod;
+import scik.controlador.almacen.IAlmacenIns;
 
-public class UIDocumentoMod extends javax.swing.JFrame
+/**
+ * Vista principal de Insertar Almacen
+ * <p/>
+ * <img src="screenshot/UIAlmacenIns.png"/>
+ * @author yuli
+ * @version 2.0
+ * @since 2015-10-05
+ */
+public class UIAlmacenIns extends javax.swing.JFrame
 {
-    private IDocumentoMod interfaz;
+    private IAlmacenIns interfaz;
 
-    public UIDocumentoMod(IDocumentoMod interfaz)
+    public UIAlmacenIns(IAlmacenIns interfaz)
     {
         initComponents();
-        this.setTitle("Modificar Documento");
-        setLocationRelativeTo(null);
         this.setVisible(true);
+        this.setTitle("Insertar Almacen");
+        setLocationRelativeTo(null);
+        
         this.interfaz = interfaz;
-        interfaz.cargar(this.txtDocCod, this.txtDocNom);
+        interfaz.cargar(this.txtAlmCod);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        txtAlmUbi = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtDocNom = new javax.swing.JTextField();
-        txtDocCod = new javax.swing.JTextField();
+        txtAlmNom = new javax.swing.JTextField();
+        txtAlmCod = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblTitulo1 = new javax.swing.JLabel();
         lblTitulo2 = new javax.swing.JLabel();
@@ -36,30 +46,24 @@ public class UIDocumentoMod extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAceptar.setText("ACEPTAR");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancelar.setText("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
@@ -68,12 +72,12 @@ public class UIDocumentoMod extends javax.swing.JFrame
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,14 +89,20 @@ public class UIDocumentoMod extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtAlmUbi.setColumns(20);
+        txtAlmUbi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Ubicacion:");
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
-        txtDocNom.setColumns(20);
-        txtDocNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAlmNom.setColumns(20);
+        txtAlmNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtDocCod.setEditable(false);
-        txtDocCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtAlmCod.setEditable(false);
+        txtAlmCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
@@ -104,14 +114,16 @@ public class UIDocumentoMod extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
-                .addGap(35, 35, 35)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAlmNom)
+                    .addComponent(txtAlmUbi)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtDocCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDocNom))
+                        .addComponent(txtAlmCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,21 +132,25 @@ public class UIDocumentoMod extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtDocCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAlmCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDocNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAlmNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAlmUbi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblTitulo1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setText("MANTENIMIENTO - DOCUMENTO");
+        lblTitulo1.setText("MANTENIMIENTO - ALMACÉN");
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo2.setText("MODIFICAR");
+        lblTitulo2.setText("INSERTAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,7 +186,7 @@ public class UIDocumentoMod extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtDocNom);
+        interfaz.aceptar(this.txtAlmCod, this.txtAlmNom, this.txtAlmUbi);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -187,12 +203,14 @@ public class UIDocumentoMod extends javax.swing.JFrame
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
-    private javax.swing.JTextField txtDocCod;
-    private javax.swing.JTextField txtDocNom;
+    private javax.swing.JTextField txtAlmCod;
+    private javax.swing.JTextField txtAlmNom;
+    private javax.swing.JTextField txtAlmUbi;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,34 +1,33 @@
-package scik.vista;
+package scik.vista.documento;
 
-import scik.controlador.unidad.IUnidadIns;
+import scik.controlador.documento.IDocumentoIns;
 
-public class UIUnidadIns extends javax.swing.JFrame
+public class UIDocumentoIns extends javax.swing.JFrame
 {
-    private IUnidadIns interfaz;
+    private IDocumentoIns interfaz;
 
-    public UIUnidadIns(IUnidadIns interfaz)
+    public UIDocumentoIns(IDocumentoIns interfaz)
     {
         initComponents();
         this.setVisible(true);
-        this.setTitle("Insertar Unidad");
+        this.setTitle("Insertar Documento");
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
-        interfaz.cargar(this.txtUniCod);
+        interfaz.cargar(this.txtDocCod);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        txtUniDes = new javax.swing.JTextField();
-        txtUniCod = new javax.swing.JTextField();
+        txtDocNom = new javax.swing.JTextField();
+        txtDocCod = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblTitulo1 = new javax.swing.JLabel();
         lblTitulo2 = new javax.swing.JLabel();
@@ -37,30 +36,24 @@ public class UIUnidadIns extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAceptar.setText("ACEPTAR");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancelar.setText("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
@@ -74,7 +67,7 @@ public class UIUnidadIns extends javax.swing.JFrame
                 .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(45, 45, 45))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,13 +80,13 @@ public class UIUnidadIns extends javax.swing.JFrame
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Descripción:");
+        jLabel3.setText("Nombre:");
 
-        txtUniDes.setColumns(20);
-        txtUniDes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDocNom.setColumns(20);
+        txtDocNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtUniCod.setEditable(false);
-        txtUniCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDocCod.setEditable(false);
+        txtDocCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
@@ -107,11 +100,11 @@ public class UIUnidadIns extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUniDes)
+                    .addComponent(txtDocNom)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtUniCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDocCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -121,17 +114,17 @@ public class UIUnidadIns extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtUniCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDocCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUniDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDocNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblTitulo1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setText("MANTENIMIENTO - UNIDAD");
+        lblTitulo1.setText("MANTENIMIENTO - DOCUMENTO");
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -171,7 +164,7 @@ public class UIUnidadIns extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtUniCod, this.txtUniDes);
+        interfaz.aceptar(this.txtDocCod, this.txtDocNom);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -193,7 +186,7 @@ public class UIUnidadIns extends javax.swing.JFrame
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
-    private javax.swing.JTextField txtUniCod;
-    private javax.swing.JTextField txtUniDes;
+    private javax.swing.JTextField txtDocCod;
+    private javax.swing.JTextField txtDocNom;
     // End of variables declaration//GEN-END:variables
 }

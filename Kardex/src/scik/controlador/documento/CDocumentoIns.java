@@ -2,8 +2,19 @@ package scik.controlador.documento;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Documento;
-import scik.vista.UIDocumentoIns;
+import scik.vista.documento.UIDocumentoIns;
+
+/**
+ * Controlador de la inserción de documento
+ * 
+ * Recibe y valida datos sobre un nuevo registro de documento
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CDocumentoIns implements IDocumentoIns
 {

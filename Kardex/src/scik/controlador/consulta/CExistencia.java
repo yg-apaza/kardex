@@ -1,16 +1,29 @@
 package scik.controlador.consulta;
 
 import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Consultas;
 import scik.modelo.Producto;
 import scik.modelo.Reporte;
-import scik.vista.UIExistencia;
+import scik.vista.consulta.UIExistencia;
+
+/**
+ * Controlador de la consulta de existencia de productos
+ * 
+ * Recibe parámetros de consulta sobre la existencia de productos y muestra los
+ * resultados, adicionalmente permite generar reportes.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CExistencia implements IExistencia
 {
@@ -43,7 +56,7 @@ public class CExistencia implements IExistencia
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
 

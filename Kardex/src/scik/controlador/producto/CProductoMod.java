@@ -1,23 +1,23 @@
 package scik.controlador.producto;
 
 import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Producto;
 import scik.modelo.Unidad;
-import scik.vista.UIProductoMod;
+import scik.vista.producto.UIProductoMod;
 
 public class CProductoMod implements IProductoMod
 {
     private UIProductoMod ventana;
-    private String codigo;
     private Producto p;
     ArrayList<ArrayList<String>> unidades;
     
     public CProductoMod(String codigo)
     {
-        this.codigo = codigo;
         p = Producto.buscar(codigo);
         unidades = Unidad.getActivos();
         ventana = new UIProductoMod(this);
@@ -39,7 +39,7 @@ public class CProductoMod implements IProductoMod
     @Override
     public void cancelar()
     {
-        CProducto producto = new CProducto();
+        new CProducto();
         ventana.dispose();
     }
     
@@ -59,7 +59,7 @@ public class CProductoMod implements IProductoMod
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-            CProducto inicio = new CProducto();
+            new CProducto();
             ventana.dispose();
         }
         else

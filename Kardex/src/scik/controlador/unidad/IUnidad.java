@@ -12,7 +12,7 @@ public interface IUnidad
     public void insertar();
     public void modificar(JTable tblRegistros);
     public void eliminar(JTable tblRegistros, JCheckBox chActivar);
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar);
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chActivar);
     public void buscarUnidad( JTextField buscar, JTable tablaUnidad);
     public void seleccionarFila(JTextField buscar, JTable tablaUnidad);
 }

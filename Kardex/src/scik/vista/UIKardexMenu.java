@@ -2,6 +2,7 @@ package scik.vista;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 import scik.controlador.IKardexMenu;
 
 public class UIKardexMenu extends javax.swing.JFrame

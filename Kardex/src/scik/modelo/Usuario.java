@@ -3,103 +3,105 @@ package scik.modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
+
 import static scik.KardexIni.con;
 
 public class Usuario
 {
-    private String UsrCod;
-    private String UsrIde;
-    private String UsrDni;
-    private String UsrNom;
-    private String UsrApe;
-    private String UsrPer;
-    private String UsrEstReg;
+    private String usrCod;
+    private String usrIde;
+    private String usrDni;
+    private String usrNom;
+    private String usrApe;
+    private String usrPer;
+    private String usrEstReg;
     
     public Usuario()
     {
         this("-1", "NULL", "00000000", "NULL", "NULL", "0", "3");
     }
     
-    public Usuario(String UsrCod, String UsrIde, String UsrDni, String UsrNom, String UsrApe, String UsrPer, String UsrEstReg)
+    public Usuario(String usrCod, String usrIde, String usrDni, String usrNom, String usrApe, String usrPer, String usrEstReg)
     {
-        this.UsrCod = UsrCod;
-        this.UsrIde = UsrIde;
-        this.UsrDni = UsrDni;
-        this.UsrNom = UsrNom;
-        this.UsrApe = UsrApe;
-        this.UsrPer = UsrPer;
-        this.UsrEstReg = UsrEstReg;
+        this.usrCod = usrCod;
+        this.usrIde = usrIde;
+        this.usrDni = usrDni;
+        this.usrNom = usrNom;
+        this.usrApe = usrApe;
+        this.usrPer = usrPer;
+        this.usrEstReg = usrEstReg;
     }
 
     public String getUsrCod()
     {
-        return UsrCod;
+        return usrCod;
     }
 
-    public void setUsrCod(String UsrCod)
+    public void setUsrCod(String usrCod)
     {
-        this.UsrCod = UsrCod;
+        this.usrCod = usrCod;
     }
 
     public String getUsrIde()
     {
-        return UsrIde;
+        return usrIde;
     }
 
-    public void setUsrIde(String UsrIde)
+    public void setUsrIde(String usrIde)
     {
-        this.UsrIde = UsrIde;
+        this.usrIde = usrIde;
     }
 
     public String getUsrDni()
     {
-        return UsrDni;
+        return usrDni;
     }
 
-    public void setUsrDni(String UsrDni)
+    public void setUsrDni(String usrDni)
     {
-        this.UsrDni = UsrDni;
+        this.usrDni = usrDni;
     }
 
     public String getUsrNom()
     {
-        return UsrNom;
+        return usrNom;
     }
 
-    public void setUsrNom(String UsrNom)
+    public void setUsrNom(String usrNom)
     {
-        this.UsrNom = UsrNom;
+        this.usrNom = usrNom;
     }
 
     public String getUsrApe()
     {
-        return UsrApe;
+        return usrApe;
     }
 
-    public void setUsrApe(String UsrApe)
+    public void setUsrApe(String usrApe)
     {
-        this.UsrApe = UsrApe;
+        this.usrApe = usrApe;
     }
 
     public String getUsrPer()
     {
-        return UsrPer;
+        return usrPer;
     }
 
-    public void setUsrPer(String UsrPer)
+    public void setUsrPer(String usrPer)
     {
-        this.UsrPer = UsrPer;
+        this.usrPer = usrPer;
     }
 
     public String getUsrEstReg()
     {
-        return UsrEstReg;
+        return usrEstReg;
     }
 
-    public void setUsrEstReg(String UsrEstReg)
+    public void setUsrEstReg(String usrEstReg)
     {
-        this.UsrEstReg = UsrEstReg;
+        this.usrEstReg = usrEstReg;
     }
     
     public static Usuario validar(String usr, String pass)
@@ -130,42 +132,45 @@ public class Usuario
     
     public String insertar(String pass)
     {
+	String msg = "";
         try
         {
-            con.ejecutar("INSERT INTO USUARIO VALUES(DEFAULT, ?, MD5(?), ?, ?, ?, ?, ?)", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrEstReg}, false);
+            con.ejecutar("INSERT INTO USUARIO VALUES(DEFAULT, ?, MD5(?), ?, ?, ?, ?, ?)", new String[] {usrIde, pass, usrDni, usrNom, usrApe, usrPer, usrEstReg}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String modificar(String pass)
     {
+	String msg = "";
         try
         {
-            con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {UsrIde, pass, UsrDni, UsrNom, UsrApe, UsrPer, UsrCod}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrIde = ?, UsrCon = MD5(?), UsrDni = ?, UsrNom = ?, UsrApe = ?, UsrPer = ? WHERE UsrCod = ?", new String[] {usrIde, pass, usrDni, usrNom, usrApe, usrPer, usrCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public String eliminar()
     {
+	String msg = "";
         try
         {
             this.setUsrEstReg("3");
-            con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {UsrCod}, false);
+            con.ejecutar("UPDATE USUARIO SET UsrEstReg = 3 WHERE UsrCod = ?", new String[] {usrCod}, false);
         }
         catch (SQLException ex)
         {
-            return ex.getMessage();
+            msg = ex.getMessage();
         }
-        return "";
+        return msg;
     }
     
     public static ArrayList<Usuario> getLista()
@@ -222,16 +227,17 @@ public class Usuario
     
     public static String sgteCodigo()
     {
+        String codigo = "000000";
         try
         {
             ResultSet rs = con.ejecutar("SELECT LPAD((SELECT COUNT(*) + 1 FROM USUARIO), 6, '0') AS nextCod", null, true);
             rs.next();
-            return rs.getString("nextCod");
+            codigo = rs.getString("nextCod");
         }
         catch (SQLException ex)
         {
             JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        return "000000";
+        return codigo;
     }
 }

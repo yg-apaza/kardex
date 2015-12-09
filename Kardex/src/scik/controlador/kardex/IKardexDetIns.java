@@ -1,9 +1,10 @@
 package scik.controlador.kardex;
 
-import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import com.toedter.calendar.JDateChooser;
 
 public interface IKardexDetIns
 {

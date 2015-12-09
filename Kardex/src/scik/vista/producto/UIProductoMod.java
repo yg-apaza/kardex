@@ -1,45 +1,37 @@
-package scik.vista;
+package scik.vista.producto;
 
-import scik.controlador.almacen.IAlmacenIns;
+import scik.controlador.producto.IProductoMod;
 
-/**
- * Vista principal de Insertar Almacen
- * <p/>
- * <img src="screenshot/UIAlmacenIns.png"/>
- * @author yuli
- * @version 2.0
- * @since 2015-10-05
- */
-public class UIAlmacenIns extends javax.swing.JFrame
+public class UIProductoMod extends javax.swing.JFrame
 {
-    private IAlmacenIns interfaz;
+    private IProductoMod interfaz;
 
-    public UIAlmacenIns(IAlmacenIns interfaz)
+    public UIProductoMod(IProductoMod interfaz)
     {
         initComponents();
         this.setVisible(true);
-        this.setTitle("Insertar Almacen");
+        this.setTitle("Modificar Producto");
         setLocationRelativeTo(null);
         
         this.interfaz = interfaz;
-        interfaz.cargar(this.txtAlmCod);
+        interfaz.cargar(this.txtProCod, this.txtProNom, this.txtUniCod, this.cbxUniDes);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtAlmUbi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtAlmNom = new javax.swing.JTextField();
-        txtAlmCod = new javax.swing.JTextField();
+        txtProNom = new javax.swing.JTextField();
+        txtProCod = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        cbxUniDes = new javax.swing.JComboBox();
+        txtUniCod = new javax.swing.JTextField();
         lblTitulo1 = new javax.swing.JLabel();
         lblTitulo2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -47,30 +39,24 @@ public class UIAlmacenIns extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/scik/recursos/icono.png")).getImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowClosing(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
         btnAceptar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAceptar.setText("ACEPTAR");
-        btnAceptar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
         btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancelar.setText("CANCELAR");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
@@ -96,23 +82,30 @@ public class UIAlmacenIns extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtAlmUbi.setColumns(20);
-        txtAlmUbi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Ubicacion:");
+        jLabel4.setText("Unidad:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
-        txtAlmNom.setColumns(20);
-        txtAlmNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtProNom.setColumns(20);
+        txtProNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtAlmCod.setEditable(false);
-        txtAlmCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtProCod.setEditable(false);
+        txtProCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
+
+        cbxUniDes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbxUniDes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxUniDesActionPerformed(evt);
+            }
+        });
+
+        txtUniCod.setEditable(false);
+        txtUniCod.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,11 +119,12 @@ public class UIAlmacenIns extends javax.swing.JFrame
                     .addComponent(jLabel2))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAlmNom)
-                    .addComponent(txtAlmUbi)
+                    .addComponent(txtProNom)
+                    .addComponent(txtProCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtAlmCod, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(txtUniCod, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxUniDes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,25 +133,26 @@ public class UIAlmacenIns extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtAlmCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAlmNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAlmUbi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(cbxUniDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUniCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         lblTitulo1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setText("MANTENIMIENTO - ALMACÉN");
+        lblTitulo1.setText("MANTENIMIENTO - PRODUCTO");
 
         lblTitulo2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo2.setText("INSERTAR");
+        lblTitulo2.setText("MODIFICAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,10 +162,10 @@ public class UIAlmacenIns extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTitulo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -193,7 +188,7 @@ public class UIAlmacenIns extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        interfaz.aceptar(this.txtAlmCod, this.txtAlmNom, this.txtAlmUbi);
+        interfaz.aceptar(this.txtProCod, this.txtProNom, this.txtUniCod);
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -205,9 +200,15 @@ public class UIAlmacenIns extends javax.swing.JFrame
         interfaz.cancelar();
     }//GEN-LAST:event_formWindowClosing
 
+    private void cbxUniDesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cbxUniDesActionPerformed
+    {//GEN-HEADEREND:event_cbxUniDesActionPerformed
+        interfaz.verUnidad(this.cbxUniDes, this.txtUniCod);
+    }//GEN-LAST:event_cbxUniDesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox cbxUniDes;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -216,8 +217,8 @@ public class UIAlmacenIns extends javax.swing.JFrame
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JLabel lblTitulo2;
-    private javax.swing.JTextField txtAlmCod;
-    private javax.swing.JTextField txtAlmNom;
-    private javax.swing.JTextField txtAlmUbi;
+    private javax.swing.JTextField txtProCod;
+    private javax.swing.JTextField txtProNom;
+    private javax.swing.JTextField txtUniCod;
     // End of variables declaration//GEN-END:variables
 }

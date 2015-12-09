@@ -1,13 +1,25 @@
 package scik.controlador.kardex;
 
 import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 import scik.modelo.Almacen;
 import scik.modelo.Kardex_Cab;
 import scik.modelo.Producto;
-import scik.vista.UIKardexCabIns;
+import scik.vista.kardex.UIKardexCabIns;
+
+/**
+ * Controlador de la inserción de kardex
+ * 
+ * Recibe datos sobre un nuevo registro de kardex.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CKardexCabIns implements IKardexCabIns
 {
@@ -25,7 +37,7 @@ public class CKardexCabIns implements IKardexCabIns
     @Override
     public void cancelar()
     {
-        CKardex kardex = new CKardex();
+        new CKardex();
         ventana.dispose();
     }
     
@@ -50,7 +62,7 @@ public class CKardexCabIns implements IKardexCabIns
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-            CKardex inicio = new CKardex();
+            new CKardex();
             ventana.dispose();
         }
         else

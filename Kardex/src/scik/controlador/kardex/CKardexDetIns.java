@@ -1,16 +1,30 @@
 package scik.controlador.kardex;
 
-import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
 import scik.modelo.Documento;
 import scik.modelo.Kardex_Det;
-import scik.vista.UIKardexDetIns;
+import scik.vista.kardex.UIKardexDetIns;
 import static scik.KardexIni.user;
+
+import com.toedter.calendar.JDateChooser;
+
+/**
+ * Controlador de la inserción de registro de detalle de kardex
+ * 
+ * Recibe y valida datos sobre un nuevo registro de movimiento de entrada o
+ * salida de un producto
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CKardexDetIns implements IKardexDetIns
 {
@@ -90,7 +104,7 @@ public class CKardexDetIns implements IKardexDetIns
     @Override
     public void cancelar()
     {
-        CKardex kardex = new CKardex();
+        new CKardex();
         ventana.dispose();
     }
     
@@ -158,7 +172,7 @@ public class CKardexDetIns implements IKardexDetIns
             if(err.equals(""))
             {
                 JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-                CKardex inicio = new CKardex();
+                new CKardex();
                 ventana.dispose();
             }
             else

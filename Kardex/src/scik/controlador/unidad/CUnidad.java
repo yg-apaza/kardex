@@ -1,16 +1,19 @@
 package scik.controlador.unidad;
 
-import com.mxrck.autocompleter.TextAutoCompleter;
 import java.util.ArrayList;
+
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 import scik.controlador.CKardexMenu;
 import scik.modelo.Unidad;
-import scik.vista.UIUnidad;
+import scik.vista.unidad.UIUnidad;
+
+import com.mxrck.autocompleter.TextAutoCompleter;
 
 public class CUnidad implements IUnidad
 {
@@ -28,8 +31,8 @@ public class CUnidad implements IUnidad
     {
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
-        
-        for(int i = 0; i < unidades.size(); i++)
+		int unidadesSize = unidades.size();
+        for(int i = 0; i < unidadesSize; i++)
         {
             model.addRow(new Object[]{  unidades.get(i).getUniCod(),
                                         unidades.get(i).getUniDes(),
@@ -62,14 +65,14 @@ public class CUnidad implements IUnidad
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
     @Override
     public void insertar()
     {
-        CUnidadIns insertar = new CUnidadIns();
+        new CUnidadIns();
         ventana.dispose();
     }
     
@@ -118,7 +121,7 @@ public class CUnidad implements IUnidad
     }
     
     @Override
-    public void activar_desactivar(JTable tblRegistros, JCheckBox chActivar)
+    public void activarDesactivar(JTable tblRegistros, JCheckBox chActivar)
     {
         int i = tblRegistros.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();

@@ -1,11 +1,13 @@
 package scik.modelo;
 
-import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.Connection;
 
 public class Conexion
 {
@@ -75,6 +77,7 @@ public class Conexion
 
     public boolean conectar(boolean verificar)
     {
+        boolean ok = true;
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
@@ -84,12 +87,12 @@ public class Conexion
         {
             if(!verificar)
                 JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.\nConfigure la conexión correctamente", "ERROR", JOptionPane.ERROR_MESSAGE);
-            return false;
+            ok = false;
         }
-        return true;
+        return ok;
     }
     
-    public ResultSet ejecutar(String comando, String [] data,  boolean receive) throws SQLException
+    public ResultSet ejecutar(String comando, String[] data,  boolean receive) throws SQLException
     {
         ResultSet rs = null;
         if(con != null)

@@ -6,12 +6,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import scik.modelo.Conexion;
 import scik.vista.UIConfiguracion;
 import static scik.KardexIni.con;
+
+/**
+ * Controlador de la vista de Configuracion
+ * 
+ * Modifica valores de la configuración con la base de datos, además de comprobar
+ * si la conexión proporcionada por el usuario es correcta.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 
 public class CConfiguracion implements IConfiguracion
 {

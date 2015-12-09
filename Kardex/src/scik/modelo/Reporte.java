@@ -1,9 +1,17 @@
 package scik.modelo;
 
-import com.itextpdf.text.BaseColor;
+import java.awt.Font;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -13,13 +21,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Font;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import com.itextpdf.text.BaseColor;
 
 public class Reporte
 {
@@ -490,8 +492,8 @@ public class Reporte
     
     public static boolean generarReporte1(Producto myProducto, ArrayList<ArrayList<String>> resultados)
     {
+        boolean ok = true;
         JFileChooser save=new JFileChooser();
-        
         save.setDialogTitle("Guardar Reporte PDF");
         FileFilter filter = new FileNameExtensionFilter("Archivo PDF","pdf");
         save.setAcceptAllFileFilterUsed(false);
@@ -519,7 +521,6 @@ public class Reporte
                 String fecha = format1.format(fechaActual);                
                 SimpleDateFormat format2 = new SimpleDateFormat("hh:mm aa");
                 String hora = format2.format(fechaActual);
-                
         
                 /*-------------------------------------------------------------------------------------------------------------------------*/
 
@@ -628,23 +629,22 @@ public class Reporte
                     cellReporte.setVerticalAlignment(Element.ALIGN_MIDDLE);
                     tbaReporte.addCell(cellReporte);
                 }
-
                 doc.add(tbaReporte);
 
                 doc.close();
                 Runtime.getRuntime().exec("cmd /c start " + path);
-                return true;
             } catch (DocumentException ex) {
-                return false;
+                ok = false;
             } catch (IOException ex) {
-                return false;
+                ok = false;
             }
         }
-        return false;
+        return ok;
     }
     
     public static boolean generarReporte2(Producto myProducto, String mes, String anio, ArrayList<ArrayList<String>> detalles)
     {
+        boolean ok = true;
         JFileChooser save=new JFileChooser();
         
         save.setDialogTitle("Guardar Reporte PDF");
@@ -806,14 +806,13 @@ public class Reporte
 
                 doc.close();
                 Runtime.getRuntime().exec("cmd /c start " + path);
-                return true;
             } catch (DocumentException ex) {
-                return false;
+                ok = false;
             } catch (IOException ex) {
-                return false;
+                ok = false;
             }
         }
-        return false;
+        return ok;
     }
     
 }

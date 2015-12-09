@@ -2,6 +2,7 @@ package scik.vista;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 import scik.controlador.ILogin;
 
 public class UILogin extends javax.swing.JFrame
