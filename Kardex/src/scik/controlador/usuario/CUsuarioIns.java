@@ -34,12 +34,16 @@ public class CUsuarioIns implements IUsuarioIns
     @Override
     public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin)
     {
+        String permiso = "0";
+        if(rbAdmin.isSelected())
+            permiso = "1";
+        
         Usuario u = new Usuario(txtUsrCod.getText(),
                                 txtUsrIde.getText(),
                                 txtDNI.getText(),
                                 txtUsrNom.getText(),
                                 txtUsrApe.getText(),
-                                rbAdmin.isSelected()?"1":"0",
+                                permiso,
                                 "1");
         
         if(String.valueOf(txtRepCon.getPassword()).equals(String.valueOf(txtCon.getPassword())))

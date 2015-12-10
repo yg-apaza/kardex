@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import static scik.KardexIni.con;
 
-public class Kardex_Cab
+public class KardexCab
 {
     private String proCod;
     private String almCod;
@@ -17,12 +17,12 @@ public class Kardex_Cab
     private String karCabValTot;
     private String karCabEstReg;
     
-    public Kardex_Cab()
+    public KardexCab()
     {
         this("-1", "-1", "0", "0", "0", "1");
     }
     
-    public Kardex_Cab(String proCod, String almCod, String karCabCan, String karCabValUni, String karCabValTot, String karCabEstReg)
+    public KardexCab(String proCod, String almCod, String karCabCan, String karCabValUni, String karCabValTot, String karCabEstReg)
     {
         this.proCod = proCod;
         this.almCod = almCod;
@@ -122,9 +122,9 @@ public class Kardex_Cab
         return msg;
     }
            
-    public static ArrayList<Kardex_Cab> getLista()
+    public static ArrayList<KardexCab> getLista()
     {
-        ArrayList<Kardex_Cab> kardex_cab = new ArrayList<>();
+        ArrayList<KardexCab> kardex_cab = new ArrayList<>();
         try
         {
             ResultSet rs = con.ejecutar("SELECT * FROM KARDEX ORDER BY KarEstReg ASC, ProCod ASC, AlmCod ASC", null, true);
@@ -136,7 +136,7 @@ public class Kardex_Cab
                 String valUni = rs.getString("KarValUni");
                 String valTot = rs.getString("KarValTot");
                 String estado = rs.getString("KarEstReg");
-                Kardex_Cab kardex = new Kardex_Cab(producto, almacen, cantidad, valUni, valTot, estado);
+                KardexCab kardex = new KardexCab(producto, almacen, cantidad, valUni, valTot, estado);
                 kardex_cab.add(kardex);
             }
         }
@@ -148,9 +148,9 @@ public class Kardex_Cab
         return kardex_cab;
     }
 
-    public static ArrayList<Kardex_Det> getDetalles(String p, String a)
+    public static ArrayList<KardexDet> getDetalles(String p, String a)
     {
-        ArrayList<Kardex_Det> detalles = new ArrayList < >();
+        ArrayList<KardexDet> detalles = new ArrayList < >();
         try
         {
             ResultSet rs = con.ejecutar("SELECT KarDetCod, ProCod, AlmCod, KarDetAnio, KarDetMes, KarDetDia, UsrNom, UsrApe, DocNom, KarDetDocNum, KarDetOpe, KarDetCan, KarDetValUni, KarDetValTot, KarDetSalCan, KarDetSalValUni, KarDetSalValTot, KarDetObs, KarDetEstReg FROM KARDEX_DET INNER JOIN DOCUMENTO ON KARDEX_DET.DocCod = DOCUMENTO.DocCod INNER JOIN USUARIO ON KARDEX_DET.UsrCod = USUARIO.UsrCod WHERE ProCod = ? AND AlmCod = ?", new String[] {p, a}, true);
@@ -175,7 +175,7 @@ public class Kardex_Cab
                 String obs = rs.getString("KarDetObs");
                 String estado = rs.getString("KarDetEstReg");
                 
-                Kardex_Det kardex = new Kardex_Det(codigo, producto, almacen, anio, mes, dia, usrCod, docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
+                KardexDet kardex = new KardexDet(codigo, producto, almacen, anio, mes, dia, usrCod, docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
                 detalles.add(kardex);
             }
         }
@@ -186,9 +186,9 @@ public class Kardex_Cab
         return detalles;
     }
     
-    public static ArrayList<Kardex_Det> getDetallesActivos(String p, String a)
+    public static ArrayList<KardexDet> getDetallesActivos(String p, String a)
     {
-        ArrayList<Kardex_Det> detalles = new ArrayList <>();
+        ArrayList<KardexDet> detalles = new ArrayList <>();
         try
         {
             ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE ProCod = ? AND AlmCod = ? AND KarDetEstReg = 1", new String[] {p, a}, true);
@@ -213,7 +213,7 @@ public class Kardex_Cab
                 String obs = rs.getString("KarDetObs");
                 String estado = rs.getString("KarDetEstReg");
                 
-                Kardex_Det kardex = new Kardex_Det(codigo, producto, almacen, anio, mes, dia, usrCod, docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
+                KardexDet kardex = new KardexDet(codigo, producto, almacen, anio, mes, dia, usrCod, docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
                 detalles.add(kardex);
             }
         }

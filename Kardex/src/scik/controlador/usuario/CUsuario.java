@@ -41,15 +41,26 @@ public class CUsuario implements IUsuario
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
         
+        String permiso = "";
+        String estado = "";
         for(int i = 0; i < usuarios.size(); i++)
         {
+            if(usuarios.get(i).getUsrPer().equals("1"))
+                permiso = "Administrador";
+            else
+                permiso = "Usuario";
+            
+            if(usuarios.get(i).getUsrEstReg().equals("1"))
+                estado = "A";
+            else
+                estado = "*";
             model.addRow(new Object[]{  usuarios.get(i).getUsrCod(),
                                         usuarios.get(i).getUsrIde(),
                                         usuarios.get(i).getUsrDni(),
                                         usuarios.get(i).getUsrNom(),
                                         usuarios.get(i).getUsrApe(),
-                                        usuarios.get(i).getUsrPer().equals("1")?"Administrador":"Usuario",
-                                        usuarios.get(i).getUsrEstReg().equals("1")?"A":"*"});
+                                        permiso,
+                                        estado});
         }
     }
     

@@ -44,12 +44,19 @@ public class CDocumento implements IDocumento
     {
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
-        
+        String estado = "";
+                
         for(int i = 0; i < documentos.size(); i++)
         {
+            if(documentos.get(i).getDocEstReg().equals("1"))
+                estado = "A";
+            else if(documentos.get(i).getDocEstReg().equals("2"))
+                estado = "I";
+            else
+                estado = "*";
             model.addRow(new Object[]{  documentos.get(i).getDocCod(),
                                         documentos.get(i).getDocNom(),
-                                        documentos.get(i).getDocEstReg().equals("1")?"A":(documentos.get(i).getDocEstReg().equals("2")?"I":"*")});
+                                        estado});
         }
     }
     
@@ -78,14 +85,14 @@ public class CDocumento implements IDocumento
     @Override
     public void menu()
     {
-        CKardexMenu menu = new CKardexMenu();
+        new CKardexMenu();
         ventana.dispose();
     }
     
     @Override
     public void insertar()
     {
-        CDocumentoIns insertar = new CDocumentoIns();
+        new CDocumentoIns();
         ventana.dispose();
     }
     
@@ -162,10 +169,15 @@ public class CDocumento implements IDocumento
         String filtro = "Nombre";
         int i;
         for(i = 0; i < tableModel.getColumnCount(); i++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
                 break;
+        }
+        
         for(int k = 0; k < tableModel.getRowCount(); k++)
+        {
             textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+        }
     }
     /*
     Selecciona la busqueda realizada en la tabla
@@ -176,15 +188,21 @@ public class CDocumento implements IDocumento
         String dato = buscar.getText();
         String filtro = "Nombre";
         int col;
+        
         for(col = 0; col < tableModel.getColumnCount(); col++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(col)) == 0)
                 break;
+        }
+        
         int row;
         try
         {
             for(row = 0; row < tableModel.getRowCount(); row++)
+            {
                 if(dato.compareTo((String) tableModel.getValueAt(row, col)) == 0)
                     break;
+            }
 
             if(row == 0)
                 tablaDocumento.changeSelection(0,0,false,true);

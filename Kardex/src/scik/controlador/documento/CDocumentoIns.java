@@ -34,7 +34,7 @@ public class CDocumentoIns implements IDocumentoIns
     @Override
     public void cancelar()
     {
-        CDocumento documento = new CDocumento();
+        new CDocumento();
         ventana.dispose();
     }
     
@@ -46,7 +46,7 @@ public class CDocumentoIns implements IDocumentoIns
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha agregado el registro nuevo", "INSERCION", JOptionPane.INFORMATION_MESSAGE);
-            CDocumento inicio = new CDocumento();
+            new CDocumento();
             ventana.dispose();
         }
         else

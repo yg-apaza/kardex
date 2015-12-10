@@ -47,13 +47,19 @@ public class CAlmacen implements IAlmacen
     {
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
-        
+        String estado = "";
         for(int i = 0; i < almacenes.size(); i++)
         {
+            if(almacenes.get(i).getAlmEstReg().equals("1"))
+                estado = "A";
+            else if(almacenes.get(i).getAlmEstReg().equals("2"))
+                estado = "I";
+            else
+                estado = "*";
             model.addRow(new Object[]{  almacenes.get(i).getAlmCod(),
                                         almacenes.get(i).getAlmNom(),
                                         almacenes.get(i).getAlmUbi(),
-                                        almacenes.get(i).getAlmEstReg().equals("1")?"A":(almacenes.get(i).getAlmEstReg().equals("2")?"I":"*")});
+                                        estado});
         }
     }
     
@@ -180,9 +186,13 @@ public class CAlmacen implements IAlmacen
         TableModel tableModel = tablaAlmacen.getModel();
         int i;
         for(i = 0; i < tableModel.getColumnCount(); i++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
                 break;
+        }
         for(int k = 0; k < tableModel.getRowCount(); k++)
+        {
             textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+        }
     }
 }

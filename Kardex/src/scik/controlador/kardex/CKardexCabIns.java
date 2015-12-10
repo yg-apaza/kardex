@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import scik.modelo.Almacen;
-import scik.modelo.Kardex_Cab;
+import scik.modelo.KardexCab;
 import scik.modelo.Producto;
 import scik.vista.kardex.UIKardexCabIns;
 
@@ -56,7 +56,7 @@ public class CKardexCabIns implements IKardexCabIns
     @Override
     public void aceptar(JTextField txtProCod, JTextField txtAlmCod)
     {
-        Kardex_Cab kc = new Kardex_Cab(txtProCod.getText(), txtAlmCod.getText(), "0", "0", "0", "1");
+        KardexCab kc = new KardexCab(txtProCod.getText(), txtAlmCod.getText(), "0", "0", "0", "1");
         String err = kc.insertar();
         
         if(err.equals(""))
@@ -73,8 +73,12 @@ public class CKardexCabIns implements IKardexCabIns
     public void cargar(JComboBox cbxProNom, JComboBox cbxAlmNom)
     {
         for(int i = 0; i < productos.size(); i++)
+        {
             cbxProNom.insertItemAt(productos.get(i).get(1), i);
+        }
         for(int i = 0; i < almacenes.size(); i++)
+        {
             cbxAlmNom.insertItemAt(almacenes.get(i).get(1), i);
+        }
     }
 }

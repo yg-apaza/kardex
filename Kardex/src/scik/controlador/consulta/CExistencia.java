@@ -44,7 +44,9 @@ public class CExistencia implements IExistencia
     public void cargar(JComboBox cbxProNom)
     {
         for(int i = 0; i < activosPro.size(); i++)
+        {
             cbxProNom.insertItemAt(activosPro.get(i).get(1), i);
+        }
     }
 
     @Override

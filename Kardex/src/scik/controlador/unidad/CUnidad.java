@@ -31,12 +31,21 @@ public class CUnidad implements IUnidad
     {
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
-		int unidadesSize = unidades.size();
+        int unidadesSize = unidades.size();
+        String estado = "";
+        
         for(int i = 0; i < unidadesSize; i++)
         {
+            if(unidades.get(i).getUniEstReg().equals("1"))
+                estado = "A";
+            else if(unidades.get(i).getUniEstReg().equals("2"))
+                estado = "I";
+            else
+                estado = "*";
+                
             model.addRow(new Object[]{  unidades.get(i).getUniCod(),
                                         unidades.get(i).getUniDes(),
-                                        unidades.get(i).getUniEstReg().equals("1")?"A":(unidades.get(i).getUniEstReg().equals("2")?"I":"*")});
+                                        estado});
         }
     }
     
@@ -149,11 +158,17 @@ public class CUnidad implements IUnidad
         TableModel tableModel = tablaUnidad.getModel();
         String filtro = "Descripción";
         int i;
+        
         for(i = 0; i < tableModel.getColumnCount(); i++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
                 break;
+        }
+        
         for(int k = 0; k < tableModel.getRowCount(); k++)
+        {
             textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+        }
     }
     /*
     Selecciona la busqueda realizada en la tabla
@@ -164,15 +179,21 @@ public class CUnidad implements IUnidad
         String dato = buscar.getText();
         String filtro = "Descripción";
         int col;
+        
         for(col = 0; col < tableModel.getColumnCount(); col++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(col)) == 0)
                 break;
+        }
+        
         int row;
         try
         {
             for(row = 0; row < tableModel.getRowCount(); row++)
+            {
                 if(dato.compareTo((String) tableModel.getValueAt(row, col)) == 0)
                     break;
+            }
 
             if(row == 0)
                 tablaUnidad.changeSelection(0,0,false,true);

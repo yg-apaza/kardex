@@ -51,11 +51,14 @@ public class CUsuarioMod implements IUsuarioMod
     @Override
     public void aceptar(JTextField txtUsrCod, JTextField txtUsrIde, JPasswordField txtCon, JPasswordField txtRepCon, JFormattedTextField txtDNI, JTextField txtUsrNom, JTextField txtUsrApe, JRadioButton rbAdmin)
     {
+        String permiso = "0";
+        if(rbAdmin.isSelected())
+            permiso = "1";
         u.setUsrIde(txtUsrIde.getText());
         u.setUsrDni(txtDNI.getText());
         u.setUsrNom(txtUsrNom.getText());
         u.setUsrApe(txtUsrApe.getText());
-        u.setUsrPer(rbAdmin.isSelected()?"1":"0");
+        u.setUsrPer(permiso);
         
         if(String.valueOf(txtRepCon.getPassword()).equals(String.valueOf(txtCon.getPassword())))
         {

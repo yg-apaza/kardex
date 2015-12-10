@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import scik.modelo.Documento;
-import scik.modelo.Kardex_Det;
+import scik.modelo.KardexDet;
 import scik.vista.kardex.UIKardexDetMod;
 import static scik.KardexIni.user;
 
@@ -33,14 +33,14 @@ public class CKardexDetMod implements IKardexDetMod
     private String codigoAlmacen;
     private String cantidad;
     private String valTot;
-    private Kardex_Det kd;
+    private KardexDet kd;
     
     public CKardexDetMod(String codigo, String codigoProducto, String codigoAlmacen, String cantidad, String valTot)
     {
         this.cantidad = cantidad;
         this.valTot = valTot;
         documentos = Documento.getActivos();
-        kd = Kardex_Det.buscar(codigo, codigoProducto, codigoAlmacen);
+        kd = KardexDet.buscar(codigo, codigoProducto, codigoAlmacen);
         ventana = new UIKardexDetMod(this);
     }
     
@@ -60,9 +60,9 @@ public class CKardexDetMod implements IKardexDetMod
     @Override
     public void calcular(JTextField txtCan, JTextField txtValUni, JTextField txtValTot, int s)
     {
-        boolean cantidad    = !(txtCan.getText().length() == 0);
-        boolean valUni      = !(txtValUni.getText().length() == 0);
-        boolean valTot      = !(txtValTot.getText().length() == 0);
+        boolean canB    = !(txtCan.getText().length() == 0);
+        boolean vUniB   = !(txtValUni.getText().length() == 0);
+        boolean vTotB   = !(txtValTot.getText().length() == 0);
         
         double can  = 0;
         double vUni = 0;
@@ -74,7 +74,7 @@ public class CKardexDetMod implements IKardexDetMod
         }
         catch(NumberFormatException e)
         {
-            cantidad = false;
+            canB = false;
         }
         
         try
@@ -83,7 +83,7 @@ public class CKardexDetMod implements IKardexDetMod
         }
         catch(NumberFormatException e)
         {
-            valUni = false;
+            vUniB = false;
         }
         
         try
@@ -92,23 +92,27 @@ public class CKardexDetMod implements IKardexDetMod
         }
         catch(NumberFormatException e)
         {
-            valTot = false;
+            vTotB = false;
         }
              
-        if(cantidad && valUni && s != 3)
+        if(canB && vUniB && s != 3)
         {
             vTot = can * vUni;
             txtValTot.setText(String.valueOf(vTot));
         }
-        else if(cantidad && valTot && s != 2)
+        else if(canB && vTotB && s != 2)
         {
             vUni = vTot / can;
-            txtValUni.setText(String.valueOf(Double.isFinite(vUni)?vUni:0));
+            if(!Double.isFinite(vUni))
+                vUni = 0;
+            txtValUni.setText(String.valueOf(vUni));
         }
-        else if(valUni && valTot && s != 1)
+        else if(vUniB && vTotB && s != 1)
         {
             can = vTot / vUni;
-            txtCan.setText(String.valueOf(Double.isFinite(can)?can:0));
+            if(!Double.isFinite(can))
+                can = 0;
+            txtCan.setText(String.valueOf(can));
         }
     }
     
@@ -125,15 +129,20 @@ public class CKardexDetMod implements IKardexDetMod
         fecha.setCalendar(c);
         txtDocCod.setText(kd.getDocCod());
         txtNumDoc.setText(kd.getKarDetDocNum());
-        cbxOpe.setSelectedIndex(kd.getKarDetOpe().equals("1")?0:1);
+        int ope = 1;
+        if(kd.getKarDetOpe().equals("1"))
+            ope = 0;
+        cbxOpe.setSelectedIndex(ope);
         txtCan.setText(kd.getKarDetCan());
         txtValUni.setText(kd.getKarDetValUni());
         txtValTot.setText(kd.getKarDetValTot());
 
         txtObs.setText(kd.getKarDetObs());
 
-        for(int i = 0; i < documentos.size(); i++)
+        for(int i = 0; i < documentos.size(); i++) 
+        {
             cbxDocNom.insertItemAt(documentos.get(i).get(1), i);
+        }
         
         Documento d = Documento.buscar(kd.getDocCod());
         cbxDocNom.setSelectedItem(d.getDocNom());
@@ -154,14 +163,18 @@ public class CKardexDetMod implements IKardexDetMod
                 salCan = String.valueOf(Double.parseDouble(cantidad) + Double.parseDouble(txtCan.getText()));
                 salValTot = String.valueOf(Double.parseDouble(valTot) + Double.parseDouble(txtValTot.getText()));
                 Double saldoTotal = Double.parseDouble(salValTot)/Double.parseDouble(salCan);
-                salValUni = String.valueOf(Double.isFinite(saldoTotal)?saldoTotal:0);
+                if(!Double.isFinite(saldoTotal))
+                    saldoTotal = 0.0;
+                salValUni = String.valueOf(saldoTotal);
             }
             else
             {
                 salCan = String.valueOf(Double.parseDouble(cantidad) - Double.parseDouble(txtCan.getText()));
                 salValTot = String.valueOf(Double.parseDouble(valTot) - Double.parseDouble(txtValTot.getText()));
                 Double saldoTotal = Double.parseDouble(salValTot)/Double.parseDouble(salCan);
-                salValUni = String.valueOf(Double.isFinite(saldoTotal)?saldoTotal:0);
+                if(!Double.isFinite(saldoTotal))
+                    saldoTotal = 0.0;
+                salValUni = String.valueOf(saldoTotal);
             }
         
             kd.setKarDetAnio(String.valueOf(c.get(Calendar.YEAR)));
@@ -170,7 +183,12 @@ public class CKardexDetMod implements IKardexDetMod
             kd.setUsrCod(user.getUsrCod());
             kd.setDocCod(txtDocCod.getText());
             kd.setKarDetDocNum(txtNumDoc.getText());
-            kd.setKarDetOpe((cbxOpe.getSelectedIndex() == 0)?"1":"0");
+            String ope = "1";
+            if(cbxOpe.getSelectedIndex() == 0)
+                ope = "1";
+            else
+                ope = "0";
+            kd.setKarDetOpe(ope);
             kd.setKarDetCan(txtCan.getText());
             kd.setKarDetValUni(txtValUni.getText());
             kd.setKarDetValTot(txtValTot.getText());

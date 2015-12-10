@@ -31,7 +31,9 @@ public class CProductoMod implements IProductoMod
         txtUniCod.setText(p.getUniCod());
         
         for(int i = 0; i < unidades.size(); i++)
+        {
             cbxUniDes.insertItemAt(unidades.get(i).get(1), i);
+        }
         
         cbxUniDes.setSelectedItem(Unidad.buscar(p.getUniCod()).getUniDes());
     }

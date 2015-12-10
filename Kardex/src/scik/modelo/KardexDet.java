@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import static scik.KardexIni.con;
 
-public class Kardex_Det
+public class KardexDet
 {
     private String karDetCod;
     private String proCod;
@@ -29,12 +29,12 @@ public class Kardex_Det
     private String karDetObs;
     private String karDetEstReg;
     
-    public Kardex_Det()
+    public KardexDet()
     {
         this("-1", "-1", "-1", "0", "0", "0", "-1", "-1", "0", "0", "0", "0", "0", "0", "0", "0", "NULL", "0");
     }
 
-    public Kardex_Det(String karDetCod, String proCod, String almCod, String karDetAnio, String karDetMes, String karDetDia, String usrCod, String docCod, String karDetDocNum, String karDetOpe, String karDetCan, String karDetValUni, String karDetValTot, String karDetSalCan, String karDetSalValUni, String karDetSalValTot, String karDetObs, String karDetEstReg)
+    public KardexDet(String karDetCod, String proCod, String almCod, String karDetAnio, String karDetMes, String karDetDia, String usrCod, String docCod, String karDetDocNum, String karDetOpe, String karDetCan, String karDetValUni, String karDetValTot, String karDetSalCan, String karDetSalValUni, String karDetSalValTot, String karDetObs, String karDetEstReg)
     {
         this.karDetCod = karDetCod;
         this.proCod = proCod;
@@ -336,15 +336,15 @@ public class Kardex_Det
         return msg;
     }
 
-    public static Kardex_Det buscar(String codigo1, String codigo2, String codigo3)
+    public static KardexDet buscar(String codigo1, String codigo2, String codigo3)
     {
-        Kardex_Det detalle = null;
+        KardexDet detalle = null;
         try
         {
             ResultSet rs = con.ejecutar("SELECT * FROM KARDEX_DET WHERE (KarDetCod = ? AND ProCod = ? AND AlmCod = ?)",
                                                 new String[] {codigo1, codigo2, codigo3}, true);
             rs.next();
-            detalle = new Kardex_Det();
+            detalle = new KardexDet();
             detalle.setKarDetCod(rs.getString("KarDetCod"));
             detalle.setProCod(rs.getString("ProCod"));
             detalle.setAlmCod(rs.getString("AlmCod"));
@@ -393,14 +393,19 @@ public class Kardex_Det
         try
         {        
             ResultSet resultado = con.ejecutar("SELECT * FROM VI_KarDet WHERE ProCod = ? AND AlmCod = ?", new String[] {producto, almacen}, true);
+            String operacion = "";
+            
             while(resultado.next())
             {
+                if(resultado.getString("KarDetOpe").equals("1"))
+                    operacion = "Entrada";
+                else
+                    operacion = "Salida";
                 ArrayList<String> data = new ArrayList<>();
                 String codigo = resultado.getString("KarDetCod");
                 String fecha = resultado.getString("KarDetAnio") + "/" + resultado.getString("KarDetMes") + "/" + resultado.getString("KarDetDia");
                 String documento = resultado.getString("DocNom");
                 String numDoc = resultado.getString("KarDetDocNum");
-                String operacion = resultado.getString("KarDetOpe").equals("1")?"Entrada":"Salida";
                 String cantidad = resultado.getString("KarDetCan");
                 String valorU = resultado.getString("KarDetValUni");
                 String total = resultado.getString("KarDetValTot");

@@ -53,7 +53,9 @@ public class CSalida implements ISalida
     public void cargar(JComboBox cbxProNom)
     {
         for(int i = 0; i < activosPro.size(); i++)
+        {
             cbxProNom.insertItemAt(activosPro.get(i).get(1), i);
+        }
     }
 
     @Override
@@ -63,8 +65,11 @@ public class CSalida implements ISalida
         anios = Consultas.getAnioSalida(txtProCod.getText());
         cbxAnio.removeAllItems();
         iAnio = -1;
+        
         for(int i = 0; i < anios.size(); i++)
+        {
             cbxAnio.insertItemAt(anios.get(i), i);
+        }
     }
 
     @Override

@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import scik.modelo.Documento;
-import scik.modelo.Kardex_Det;
+import scik.modelo.KardexDet;
 import scik.vista.kardex.UIKardexDetIns;
 import static scik.KardexIni.user;
 
@@ -49,9 +49,9 @@ public class CKardexDetIns implements IKardexDetIns
     @Override
     public void calcular(JTextField txtCan, JTextField txtValUni, JTextField txtValTot, int s)
     {
-        boolean cantidad    = !(txtCan.getText().length() == 0);
-        boolean valUni      = !(txtValUni.getText().length() == 0);
-        boolean valTot      = !(txtValTot.getText().length() == 0);
+        boolean canB    = !(txtCan.getText().length() == 0);
+        boolean valUniB = !(txtValUni.getText().length() == 0);
+        boolean valTotB = !(txtValTot.getText().length() == 0);
         
         double can  = 0;
         double vUni = 0;
@@ -63,7 +63,7 @@ public class CKardexDetIns implements IKardexDetIns
         }
         catch(NumberFormatException e)
         {
-            cantidad = false;
+            canB = false;
         }
         
         try
@@ -72,7 +72,7 @@ public class CKardexDetIns implements IKardexDetIns
         }
         catch(NumberFormatException e)
         {
-            valUni = false;
+            valUniB = false;
         }
         
         try
@@ -81,23 +81,27 @@ public class CKardexDetIns implements IKardexDetIns
         }
         catch(NumberFormatException e)
         {
-            valTot = false;
+            valTotB = false;
         }
              
-        if(cantidad && valUni && s != 3)
+        if(canB && valUniB && s != 3)
         {
             vTot = can * vUni;
             txtValTot.setText(String.valueOf(vTot));
         }
-        else if(cantidad && valTot && s != 2)
+        else if(canB && valTotB && s != 2)
         {
             vUni = vTot / can;
-            txtValUni.setText(String.valueOf(Double.isFinite(vUni)?vUni:0));
+            if(!Double.isFinite(vUni))
+                vUni = 0;
+            txtValUni.setText(String.valueOf(vUni));
         }
-        else if(valUni && valTot && s != 1)
+        else if(valUniB && valTotB && s != 1)
         {
             can = vTot / vUni;
-            txtCan.setText(String.valueOf(Double.isFinite(can)?can:0));
+            if(!Double.isFinite(can))
+                can = 0;
+            txtCan.setText(String.valueOf(can));
         }
     }
     
@@ -118,8 +122,10 @@ public class CKardexDetIns implements IKardexDetIns
     public void cargar(JComboBox cbxDocNom, JTextField txtKarDetCod, JTextField txtProCod, JTextField txtAlmCod)
     {
         for(int i = 0; i < documentos.size(); i++)
+        {
             cbxDocNom.insertItemAt(documentos.get(i).get(1), i);  
-        txtKarDetCod.setText(Kardex_Det.sgteCodigo());
+        }
+        txtKarDetCod.setText(KardexDet.sgteCodigo());
         txtProCod.setText(codigoProducto);
         txtAlmCod.setText(codigoAlmacen);
     }
@@ -138,17 +144,25 @@ public class CKardexDetIns implements IKardexDetIns
                 salCan = String.valueOf(Double.parseDouble(cantidad) + Double.parseDouble(txtCan.getText()));
                 salValTot = String.valueOf(Double.parseDouble(valTot) + Double.parseDouble(txtValTot.getText()));
                 Double saldoTotal = Double.parseDouble(salValTot)/Double.parseDouble(salCan);
-                salValUni = String.valueOf(Double.isFinite(saldoTotal)?saldoTotal:0);
+                if(!Double.isFinite(saldoTotal))
+                    saldoTotal = 0.0;
+                salValUni = String.valueOf(saldoTotal);
             }
             else
             {
                 salCan = String.valueOf(Double.parseDouble(cantidad) - Double.parseDouble(txtCan.getText()));
                 salValTot = String.valueOf(Double.parseDouble(valTot) - Double.parseDouble(txtValTot.getText()));
                 Double saldoTotal = Double.parseDouble(salValTot)/Double.parseDouble(salCan);
-                salValUni = String.valueOf(Double.isFinite(saldoTotal)?saldoTotal:0);
+                if(!Double.isFinite(saldoTotal))
+                    saldoTotal = 0.0;
+                salValUni = String.valueOf(saldoTotal);
             }
-            
-            Kardex_Det kd = new Kardex_Det( txtKarDetCod.getText(),
+            String ope = "";
+            if(cbxOpe.getSelectedIndex() == 0)
+                ope = "1";
+            else
+                ope = "0";
+            KardexDet kd = new KardexDet( txtKarDetCod.getText(),
                                             txtProCod.getText(),
                                             txtAlmCod.getText(),
                                             String.valueOf(c.get(Calendar.YEAR)),
@@ -157,7 +171,7 @@ public class CKardexDetIns implements IKardexDetIns
                                             user.getUsrCod(),
                                             txtDocCod.getText(),
                                             txtNumDoc.getText(),
-                                            (cbxOpe.getSelectedIndex() == 0)?"1":"0",
+                                            ope,
                                             txtCan.getText(),
                                             txtValUni.getText(),
                                             txtValTot.getText(),

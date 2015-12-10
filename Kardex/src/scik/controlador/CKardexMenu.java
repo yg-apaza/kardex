@@ -48,7 +48,12 @@ public class CKardexMenu implements IKardexMenu
     {
         txtNombre.setText(user.getUsrNom() + " " + user.getUsrApe());
         txtDni.setText("DNI Nº " + user.getUsrDni());
-        lblPermisos.setText(user.getUsrPer().equals("1")?"Administrador":"Usuario");
+        String permiso = "";
+        if(user.getUsrPer().equals("1"))
+            permiso = "Administrador";
+        else
+            permiso = "Usuario";
+        lblPermisos.setText(permiso);
         if(user.getUsrPer().equals("0"))
         {
             btnUsuario.setEnabled(false);

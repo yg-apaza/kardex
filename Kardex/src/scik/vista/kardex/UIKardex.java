@@ -13,8 +13,6 @@ import scik.controlador.kardex.IKardex;
 public class UIKardex extends javax.swing.JFrame
 {
     private IKardex interfaz;
-    private ListSelectionModel cellSelectionModel;
-    private ListSelectionModel cellSelectionModel2;
     
     public UIKardex(IKardex interfaz)
     {
@@ -26,7 +24,7 @@ public class UIKardex extends javax.swing.JFrame
         this.interfaz = interfaz;
         interfaz.cargar(tblRegistrosKC);
         
-        cellSelectionModel = tblRegistrosKC.getSelectionModel();
+        ListSelectionModel cellSelectionModel = tblRegistrosKC.getSelectionModel();
         cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         cellSelectionModel.addListSelectionListener(new ListSelectionListener()
@@ -38,7 +36,7 @@ public class UIKardex extends javax.swing.JFrame
             }
         });
         
-        cellSelectionModel2 = tblRegistrosKD.getSelectionModel();
+        ListSelectionModel cellSelectionModel2 = tblRegistrosKD.getSelectionModel();
         cellSelectionModel2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         cellSelectionModel2.addListSelectionListener(new ListSelectionListener()

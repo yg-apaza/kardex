@@ -10,7 +10,7 @@ public class Consultas
 {
     public static ArrayList<ArrayList<String>> existenciaProducto(String codigoProducto)
     {
-        ArrayList<ArrayList<String>> existencias = new ArrayList<>();       
+        ArrayList<ArrayList<String>> existencias = new ArrayList<ArrayList<String>>();       
         try
         {        
             ResultSet resultado = con.ejecutar("SELECT * FROM VI_ProAlmCan WHERE ProCod = ?", new String[] {codigoProducto}, true);
@@ -120,7 +120,9 @@ public class Consultas
         {        
             ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProEntMes WHERE ProCod = ? GROUP BY KarDetAnio", new String[] {producto}, true);
             while(resultado.next())
+            {
                 anios.add(resultado.getString("KarDetAnio"));
+            }
         }
         catch (SQLException ex)
         {
@@ -136,7 +138,9 @@ public class Consultas
         {        
             ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProEntMes WHERE ProCod = ? AND KarDetAnio = ? GROUP BY KarDetMes", new String[] {producto, anio}, true);
             while(resultado.next())
+            {
                 meses.add(resultado.getString("KarDetMes"));
+            }
         }
         catch (SQLException ex)
         {
@@ -152,7 +156,9 @@ public class Consultas
         {        
             ResultSet resultado = con.ejecutar("SELECT KarDetAnio FROM VI_ProSalMes WHERE ProCod = ? GROUP BY KarDetAnio", new String[] {producto}, true);
             while(resultado.next())
+            {
                 anios.add(resultado.getString("KarDetAnio"));
+            }
         }
         catch (SQLException ex)
         {
@@ -168,7 +174,9 @@ public class Consultas
         {        
             ResultSet resultado = con.ejecutar("SELECT KarDetMes FROM VI_ProSalMes WHERE ProCod = ? AND KarDetAnio = ? GROUP BY KarDetMes;", new String[] {producto, anio}, true);
             while(resultado.next())
+            {
                 meses.add(resultado.getString("KarDetMes"));
+            }
         }
         catch (SQLException ex)
         {

@@ -33,7 +33,9 @@ public class CProductoIns implements IProductoIns
     {
         txtProCod.setText(Producto.sgteCodigo());
         for(int i = 0; i < unidades.size(); i++)
+        {
             cbxUniDes.insertItemAt(unidades.get(i).get(1), i);
+        }
     }
     
     @Override

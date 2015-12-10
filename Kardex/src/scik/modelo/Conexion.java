@@ -100,7 +100,9 @@ public class Conexion
             PreparedStatement preparedStmt = con.prepareStatement(comando);
             if(data != null)
                 for(int i = 0; i < data.length; i++)
+                {
                     preparedStmt.setString(i + 1, data[i]);
+                }
             if(receive)
                 rs = preparedStmt.executeQuery();
             else

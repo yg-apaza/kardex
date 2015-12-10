@@ -39,7 +39,7 @@ public class CDocumentoMod implements IDocumentoMod
     @Override
     public void cancelar()
     {
-        CDocumento documento = new CDocumento();
+        new CDocumento();
         ventana.dispose();
     }
     
@@ -51,7 +51,7 @@ public class CDocumentoMod implements IDocumentoMod
         if(err.equals(""))
         {
             JOptionPane.showMessageDialog(null, "Se ha modificado el registro", "MODIFICACIÓN", JOptionPane.INFORMATION_MESSAGE);
-            CDocumento inicio = new CDocumento();
+            new CDocumento();
             ventana.dispose();
         }
         else

@@ -55,13 +55,21 @@ public class CProducto implements IProducto
         DefaultTableModel model = (DefaultTableModel) tblRegistros.getModel();
         model.setRowCount(0);
 		
-		int productosSize = productos.size();
+        int productosSize = productos.size();
+        String estado = "";
+        
         for(int i = 0; i < productosSize; i++)
         {
+            if(productos.get(i).getProEstReg().equals("1"))
+                estado = "A";
+            else if(productos.get(i).getProEstReg().equals("2"))
+                estado = "I";
+            else
+                estado = "*";
             model.addRow(new Object[]{  productos.get(i).getProCod(),
                                         productos.get(i).getProNom(),
                                         productos.get(i).getUniCod(),
-                                        productos.get(i).getProEstReg().equals("1")?"A":(productos.get(i).getProEstReg().equals("2")?"I":"*")});
+                                        estado});
         }
     }
     
@@ -162,14 +170,20 @@ public class CProducto implements IProducto
         textAutoAcompleter.setCaseSensitive(false); //No sensible a mayúsculas
         TableModel tableModel = tablaProducto.getModel();
         String filtro = "Nombre";
+        
         int i;
         int column = tableModel.getColumnCount();
+        
 	for(i = 0; i < column; i++)
+        {
             if(filtro.compareTo(tableModel.getColumnName(i)) == 0)
                 break;
-		int row = tableModel.getRowCount();
+        }
+        int row = tableModel.getRowCount();
         for(int k = 0; k < row; k++)
+        {
             textAutoAcompleter.addItem(tableModel.getValueAt(k, i));
+        }
     }
     /*
     Selecciona la busqueda realizada en la tabla
