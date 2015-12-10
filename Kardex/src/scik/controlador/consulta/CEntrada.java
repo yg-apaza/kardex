@@ -17,7 +17,7 @@ import scik.vista.consulta.UIEntrada;
 /**
  * Controlador de la consulta de entrada de productos
  * 
- * Recibe parámetros de consulta sobre la entrada de productos y muestra los
+ * Recibe parametros de consulta sobre la entrada de productos y muestra los
  * resultados, adicionalmente permite generar reportes.
  *  
  * @author Yuliana Apaza

@@ -6,9 +6,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la inserción de usuario
+ * Interfaz de la insercion de usuario
  * 
- * Métodos disponibles para el controlador de inserción de usuario
+ * Metodos disponibles para el controlador de insercion de usuario
  *  
  * @author Yuliana Apaza
  * @version 2.0

@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- * Interfaz del controlador de la vista del menú principal
+ * Interfaz del controlador de la vista del menu principal
  * 
  * @author Yuliana Apaza
  * @version 2.0

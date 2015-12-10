@@ -7,7 +7,7 @@ import scik.modelo.Documento;
 import scik.vista.documento.UIDocumentoMod;
 
 /**
- * Controlador de la modificación de documento
+ * Controlador de la modificacion de documento
  * 
  * Carga datos del documento seleccionado, recibe nuevos valores y los valida
  *  

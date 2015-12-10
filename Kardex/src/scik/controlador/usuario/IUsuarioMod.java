@@ -6,9 +6,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la modificación de usuario
+ * Interfaz de la modificacion de usuario
  * 
- * Métodos disponibles para el controlador de moficación de usuario
+ * Metodos disponibles para el controlador de moficacion de usuario
  *  
  * @author Yuliana Apaza
  * @version 2.0

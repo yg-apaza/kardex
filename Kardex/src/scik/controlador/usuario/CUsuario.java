@@ -11,11 +11,11 @@ import scik.modelo.Usuario;
 import scik.vista.usuario.UIUsuario;
 
 /**
- * Controlador de la gestión de usuario
+ * Controlador de la gestion de usuario
  * 
  * Carga los usuarios existentes con sus datos, además de controlar el
- * redireccionamiento hacia las ventanas de inserción o modificación.
- * La función eliminar es realizada aquí.
+ * redireccionamiento hacia las ventanas de insercion o modificacion.
+ * La funcion eliminar es realizada aqui.
  *  
  * @author Yuliana Apaza
  * @version 2.0

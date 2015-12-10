@@ -11,7 +11,7 @@ import scik.modelo.Unidad;
 import scik.vista.producto.UIProductoIns;
 
 /**
- * Controlador de la inserción de producto
+ * Controlador de la insercion de producto
  * 
  * Recibe y valida datos sobre un nuevo registro de producto
  *  

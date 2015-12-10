@@ -5,9 +5,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la gestión de unidad
+ * Interfaz de la gestion de unidad
  * 
- * Métodos disponibles para el controlador de gestión de unidad
+ * Metodos disponibles para el controlador de gestion de unidad
  *  
  * @author Yuliana Apaza
  * @version 2.0

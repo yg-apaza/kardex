@@ -11,7 +11,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.documento.IDocumento;
 
 /**
- * Vista principal de Gestión de Documento
+ * Vista principal de Gestion de Documento
  * <p/>
  * <img src="screenshot/UIDocumento.png"/>
  * @author Yuliana Apaza

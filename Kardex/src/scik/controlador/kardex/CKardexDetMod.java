@@ -16,7 +16,7 @@ import static scik.KardexIni.user;
 import com.toedter.calendar.JDateChooser;
 
 /**
- * Controlador de la modificación de registro de detalle de kardex
+ * Controlador de la modificacion de registro de detalle de kardex
  * 
  * Carga, recibe y valida datos sobre un registro existente de movimiento de
  * entrada o salida de un producto

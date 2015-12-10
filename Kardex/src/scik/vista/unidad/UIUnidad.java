@@ -11,7 +11,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.unidad.IUnidad;
 
 /**
- * Vista principal de Gestión de Unidad
+ * Vista principal de Gestion de Unidad
  * <p/>
  * <img src="screenshot/UIUnidad.png"/>
  * @author Yuliana Apaza

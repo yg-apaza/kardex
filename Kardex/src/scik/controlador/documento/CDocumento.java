@@ -16,12 +16,12 @@ import scik.vista.documento.UIDocumento;
 import com.mxrck.autocompleter.TextAutoCompleter;
 
 /**
- * Controlador de la gestión de documento
+ * Controlador de la gestion de documento
  * 
- * Carga los documentos existentes con sus datos, además de controlar el
- * redireccionamiento hacia las ventanas de inserción o modificación. Provee
+ * Carga los documentos existentes con sus datos, ademas de controlar el
+ * redireccionamiento hacia las ventanas de insercion o modificacion. Provee
  * opciones de buscar registros. Las funciones activar, desactivar y eliminar
- * son realizadas aquí.
+ * son realizadas aqui.
  *  
  * @author Yuliana Apaza
  * @version 2.0

@@ -3,9 +3,9 @@ package scik.controlador.unidad;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la inserción de unidad
+ * Interfaz de la insercion de unidad
  * 
- * Métodos disponibles para el controlador de inserción de unidad
+ * Metodos disponibles para el controlador de insercion de unidad
  *  
  * @author Yuliana Apaza
  * @version 2.0

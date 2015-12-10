@@ -8,7 +8,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.usuario.IUsuario;
 
 /**
- * Vista principal de Gestión de Usuario
+ * Vista principal de Gestion de Usuario
  * <p/>
  * <img src="screenshot/UIUsuario.png"/>
  * @author Yuliana Apaza

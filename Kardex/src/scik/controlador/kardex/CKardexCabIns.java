@@ -12,7 +12,7 @@ import scik.modelo.Producto;
 import scik.vista.kardex.UIKardexCabIns;
 
 /**
- * Controlador de la inserción de kardex
+ * Controlador de la insercion de kardex
  * 
  * Recibe datos sobre un nuevo registro de kardex.
  *  

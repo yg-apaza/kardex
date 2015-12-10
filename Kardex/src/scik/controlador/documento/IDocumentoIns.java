@@ -3,9 +3,9 @@ package scik.controlador.documento;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la inserción de documento
+ * Interfaz de la insercion de documento
  * 
- * Métodos disponibles para el controlador de inserción de documento
+ * Metodos disponibles para el controlador de insercion de documento
  *  
  * @author Yuliana Apaza
  * @version 2.0

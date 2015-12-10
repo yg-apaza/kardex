@@ -4,6 +4,15 @@ import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+/**
+ * Interfaz de la gestion de producto
+ * 
+ * Metodos disponibles para el controlador de gestion de producto
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public interface IProducto
 {
     public void actualizarEst(JTable tblRegistros, JCheckBox chActivar);

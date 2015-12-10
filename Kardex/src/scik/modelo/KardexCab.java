@@ -9,12 +9,11 @@ import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 /**
- * Representación de la entidad Cabecera de Kardex  de la base de datos
+ * Representacion de la entidad Cabecera de Kardex  de la base de datos
  * 
  * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
- * manipulación de datos para la tabla 'kardex' en MySQL. 
+ * manipulacion de datos para la tabla 'kardex' en MySQL. 
  * Incluye las funciones de insertar y eliminar.
- * 
  * 
  * @author Yuliana Apaza
  * @version 2.0
@@ -175,7 +174,11 @@ public class KardexCab
                 String anio = rs.getString("KarDetAnio");
                 String mes = rs.getString("KarDetMes");
                 String dia = rs.getString("KarDetDia");
-                String usrCod = rs.getString("UsrNom") + " " + rs.getString("UsrApe");
+                StringBuffer usrCod = new StringBuffer( rs.getString("UsrNom").length() + 
+                                                        rs.getString("UsrApe").length() + 1
+                                                        ).append(rs.getString("UsrNom"))
+                                                        .append(' ')
+                                                        .append(rs.getString("UsrApe"));
                 String docCod = rs.getString("DocNom");
                 String docNum = rs.getString("KarDetDocNum");
                 String ope = rs.getString("KarDetOpe");
@@ -188,7 +191,7 @@ public class KardexCab
                 String obs = rs.getString("KarDetObs");
                 String estado = rs.getString("KarDetEstReg");
                 
-                KardexDet kardex = new KardexDet(codigo, producto, almacen, anio, mes, dia, usrCod, docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
+                KardexDet kardex = new KardexDet(codigo, producto, almacen, anio, mes, dia, usrCod.toString(), docCod, docNum, ope, can, valUni, valTot, salCan, salValUni, salValTot, obs, estado);
                 detalles.add(kardex);
             }
         }

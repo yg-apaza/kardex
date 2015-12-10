@@ -6,9 +6,9 @@ import javax.swing.JTextField;
 
 
 /**
- * Interfaz de la gestión de almacen
+ * Interfaz de la gestion de almacen
  * 
- * Métodos disponibles para el controlador de gestión de almacén
+ * Metodos disponibles para el controlador de gestion de almacen
  *  
  * @author Yuliana Apaza
  * @version 2.0

@@ -26,7 +26,7 @@ import com.itextpdf.text.BaseColor;
 /**
  * Generador de reportes
  * 
- * Genera reportes para los resultados de las consultas específicas y no específicas
+ * Genera reportes para los resultados de las consultas especificas y no especificas
  * 
  * @author Yuliana Apaza
  * @version 2.0
@@ -143,18 +143,13 @@ public class Reporte
                     }
                 }
                 doc.add(tabla);
-                
-                // FIN REPORTE
                 doc.close();
-                Runtime.getRuntime().exec("cmd /c start " + path);
             }
             catch (DocumentException ex)
             {
-                ex.printStackTrace();
             }
             catch (IOException ex)
             {
-                ex.printStackTrace();
             }
         }
     }
@@ -484,18 +479,13 @@ public class Reporte
                     }
                 }
                 doc.add(tabla);
-                
-                // FIN REPORTE
-                doc.close();
-                Runtime.getRuntime().exec("cmd /c start " + path);
+                doc.close();                
             }
             catch (DocumentException ex)
             {
-                ex.printStackTrace();
             }
             catch (IOException ex)
             {
-                ex.printStackTrace();
             }
         }
     }
@@ -640,9 +630,7 @@ public class Reporte
                     tbaReporte.addCell(cellReporte);
                 }
                 doc.add(tbaReporte);
-
                 doc.close();
-                Runtime.getRuntime().exec("cmd /c start " + path);
             } catch (DocumentException ex) {
                 ok = false;
             } catch (IOException ex) {
@@ -811,11 +799,8 @@ public class Reporte
                     cellReporte.setVerticalAlignment(Element.ALIGN_MIDDLE);
                     tbaReporte.addCell(cellReporte);
                 }
-
                 doc.add(tbaReporte);
-
                 doc.close();
-                Runtime.getRuntime().exec("cmd /c start " + path);
             } catch (DocumentException ex) {
                 ok = false;
             } catch (IOException ex) {

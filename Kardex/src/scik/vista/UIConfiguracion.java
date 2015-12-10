@@ -3,7 +3,7 @@ package scik.vista;
 import scik.controlador.IConfiguracion;
 
 /**
- * Vista principal de Configuración
+ * Vista principal de Configuracion
  * <p/>
  * <img src="screenshot/UIConfiguracion.png"/>
  * @author yuli

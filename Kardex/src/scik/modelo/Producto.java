@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 /**
- * Representación de la entidad producto de la base de datos
+ * Representacion de la entidad producto de la base de datos
  * 
  * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
- * manipulación de datos para la tabla 'producto' en MySQL. 
+ * manipulacion de datos para la tabla 'producto' en MySQL. 
  * Incluye las funciones de insertar, modificar, eliminar, activar y desactivar.
  * 
  * 

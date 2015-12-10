@@ -8,12 +8,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.Connection;
+import static java.lang.System.err;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * Clase de conexión con la base de datos
+ * Clase de conexion con la base de datos
  * 
  * Las clases del paquete modelo utilizan esta clase para realizar sus operaciones
- * Incluye la conexión, validación y acceso a la base de datos en el host respectivo.
+ * Incluye la conexion, validacion y acceso a la base de datos en el host respectivo.
  * 
  * @author Yuliana Apaza
  * @version 2.0
@@ -130,7 +133,7 @@ public class Conexion
         }
         catch (SQLException | NullPointerException ex)
         {
-            System.out.println("Access denied for User: " + user + ", Password: " + password + ". Configure DB connection.");
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Access denied for User: " + user + ", Password: " + password + ". Configure DB connection.");
         }
     }
 }

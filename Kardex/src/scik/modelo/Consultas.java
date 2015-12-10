@@ -9,7 +9,7 @@ import static scik.KardexIni.con;
 /**
  * Clase de consultas
  * 
- * Incluye las consultas específicas del sistema. 
+ * Incluye las consultas especificas del sistema. 
  * 
  * @author Yuliana Apaza
  * @version 2.0

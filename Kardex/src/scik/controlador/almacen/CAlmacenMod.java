@@ -7,9 +7,9 @@ import scik.modelo.Almacen;
 import scik.vista.almacen.UIAlmacenMod;
 
 /**
- * Controlador de la modificación de almacen
+ * Controlador de la modificacion de almacen
  * 
- * Carga datos del almacén seleccionado, recibe nuevos valores y los valida
+ * Carga datos del almacen seleccionado, recibe nuevos valores y los valida
  *  
  * @author Yuliana Apaza
  * @version 2.0

@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import scik.controlador.IKardexMenu;
 
 /**
- * Vista principal del Menú
+ * Vista principal del Menu
  * <p/>
  * <img src="screenshot/UIKardexMenu.png"/>
  * @author Yuliana Apaza

@@ -22,8 +22,8 @@ import scik.modelo.Usuario;
 public class KardexIni
 {
     /**
-     * Objeto global utilizado para la conexión con la base de datos, sus atributos
-     * van cambiando durante la ejecución del software y dependiendo de la configuración.
+     * Objeto global utilizado para la conexion con la base de datos, sus atributos
+     * van cambiando durante la ejecucion del software y dependiendo de la configuracion.
      */
     public static Conexion con;
     
@@ -35,7 +35,7 @@ public class KardexIni
     
     /**
      * Constructor principal, inicializa el LaF JTattoo y lee archivo 'conexion.dat'
-     * donde se encuentran datos de configuración de la conexión con la base de datos
+     * donde se encuentran datos de configuracion de la conexion con la base de datos
      * en MySQL.
      */
     public KardexIni()
@@ -66,11 +66,9 @@ public class KardexIni
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException | FileNotFoundException ex)
         {
-            ex.printStackTrace();
         }
         catch (IOException ex)
         {
-            ex.printStackTrace();
         }
     }
     

@@ -3,9 +3,9 @@ package scik.controlador.almacen;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la inserción de almacen
+ * Interfaz de la insercion de almacen
  * 
- * Métodos disponibles para el controlador de inserción de almacén
+ * Metodos disponibles para el controlador de insercion de almacen
  *  
  * @author Yuliana Apaza
  * @version 2.0

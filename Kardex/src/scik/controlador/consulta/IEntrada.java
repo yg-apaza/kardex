@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 /**
  * Interfaz de la consulta de entrada de productos
  * 
- * Métodos disponibles para el controlador de consulta de entradas.
+ * Metodos disponibles para el controlador de consulta de entradas.
  *  
  * @author Yuliana Apaza
  * @version 2.0

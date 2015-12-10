@@ -10,7 +10,7 @@ import scik.modelo.Usuario;
 import scik.vista.usuario.UIUsuarioMod;
 
 /**
- * Controlador de la modificación de usuario
+ * Controlador de la modificacion de usuario
  * 
  * Carga datos del usuario seleccionado, recibe nuevos valores y los valida
  *  

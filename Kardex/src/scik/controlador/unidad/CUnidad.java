@@ -16,11 +16,11 @@ import scik.vista.unidad.UIUnidad;
 import com.mxrck.autocompleter.TextAutoCompleter;
 
 /**
- * Controlador de la gestión de unidad
+ * Controlador de la gestion de unidad
  * 
- * Carga las unidades existentes con sus datos, además de controlar el
- * redireccionamiento hacia las ventanas de inserción o modificación. Las funciones
- * activar, desactivar y eliminar son realizadas aquí.
+ * Carga las unidades existentes con sus datos, ademas de controlar el
+ * redireccionamiento hacia las ventanas de insercion o modificacion. Las funciones
+ * activar, desactivar y eliminar son realizadas aqui.
  *  
  * @author Yuliana Apaza
  * @version 2.0

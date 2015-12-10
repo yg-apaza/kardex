@@ -18,8 +18,8 @@ import static scik.KardexIni.con;
 /**
  * Controlador de la vista de Configuracion
  * 
- * Modifica valores de la configuración con la base de datos, además de comprobar
- * si la conexión proporcionada por el usuario es correcta.
+ * Modifica valores de la configuracion con la base de datos, además de comprobar
+ * si la conexion proporcionada por el usuario es correcta.
  *  
  * @author Yuliana Apaza
  * @version 2.0
@@ -74,11 +74,9 @@ public class CConfiguracion implements IConfiguracion
         }
         catch (FileNotFoundException ex)
         {
-            ex.printStackTrace();
         }
         catch (IOException ex)
         {
-            ex.printStackTrace();
         }
         finally
         {
@@ -88,7 +86,6 @@ public class CConfiguracion implements IConfiguracion
             }
             catch (IOException ex)
             {
-                ex.printStackTrace();
             }
         }
     }
@@ -139,7 +136,6 @@ public class CConfiguracion implements IConfiguracion
         }
         catch (FileNotFoundException ex)
         {
-            ex.printStackTrace();
         }
         finally
         {

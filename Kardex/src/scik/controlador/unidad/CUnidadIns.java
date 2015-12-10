@@ -7,7 +7,7 @@ import scik.modelo.Unidad;
 import scik.vista.unidad.UIUnidadIns;
 
 /**
- * Controlador de la inserción de unidad
+ * Controlador de la insercion de unidad
  * 
  * Recibe y valida datos sobre un nuevo registro de unidad
  *  

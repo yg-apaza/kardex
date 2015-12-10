@@ -11,7 +11,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.producto.IProducto;
 
 /**
- * Vista principal de Gestión de Producto
+ * Vista principal de Gestion de Producto
  * <p/>
  * <img src="screenshot/UIProducto.png"/>
  * @author Yuliana Apaza

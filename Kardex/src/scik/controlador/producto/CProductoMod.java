@@ -11,7 +11,7 @@ import scik.modelo.Unidad;
 import scik.vista.producto.UIProductoMod;
 
 /**
- * Controlador de la modificación de producto
+ * Controlador de la modificacion de producto
  * 
  * Carga datos del producto seleccionado, recibe nuevos valores y los valida
  *  

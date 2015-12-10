@@ -7,7 +7,7 @@ import scik.modelo.Documento;
 import scik.vista.documento.UIDocumentoIns;
 
 /**
- * Controlador de la inserción de documento
+ * Controlador de la insercion de documento
  * 
  * Recibe y valida datos sobre un nuevo registro de documento
  *  

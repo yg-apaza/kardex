@@ -9,12 +9,11 @@ import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 /**
- * Representación de la entidad documento de la base de datos
+ * Representacion de la entidad documento de la base de datos
  * 
  * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
- * manipulación de datos para la tabla 'documento' en MySQL. 
+ * manipulacion de datos para la tabla 'documento' en MySQL. 
  * Incluye las funciones de insertar, modificar, eliminar, activar y desactivar.
- * 
  * 
  * @author Yuliana Apaza
  * @version 2.0

@@ -7,7 +7,7 @@ import scik.modelo.Unidad;
 import scik.vista.unidad.UIUnidadMod;
 
 /**
- * Controlador de la modificación de unidad
+ * Controlador de la modificacion de unidad
  * 
  * Carga datos de la unidad seleccionada, recibe nuevos valores y los valida
  *  

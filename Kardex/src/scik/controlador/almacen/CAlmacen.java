@@ -18,12 +18,12 @@ import com.mxrck.autocompleter.TextAutoCompleter;
 
 
 /**
- * Controlador de la gestión de almacen
+ * Controlador de la gestion de almacen
  * 
- * Carga los almacenes existentes con sus datos, además de controlar el
- * redireccionamiento hacia las ventanas de inserción o modificación. Provee
+ * Carga los almacenes existentes con sus datos, ademas de controlar el
+ * redireccionamiento hacia las ventanas de insercion o modificacion. Provee
  * opciones de generar reporte y buscar registros. Las funciones activar,
- * desactivar y eliminar son realizadas aquí.
+ * desactivar y eliminar son realizadas aqui.
  *  
  * @author Yuliana Apaza
  * @version 2.0

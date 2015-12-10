@@ -17,11 +17,11 @@ import scik.modelo.Reporte;
 import scik.vista.kardex.UIKardex;
 
 /**
- * Controlador principal de la gestión de kardex
+ * Controlador principal de la gestion de kardex
  * 
- * Carga los productos - almacenes existentes con sus datos, además de controlar el
- * redireccionamiento hacia las ventanas de inserción o modificación. La eliminación
- * de kardex se realiza aquí.
+ * Carga los productos - almacenes existentes con sus datos, ademas de controlar el
+ * redireccionamiento hacia las ventanas de inserción o modificación. La eliminacion
+ * de kardex se realiza aqui.
  *  
  * @author Yuliana Apaza
  * @version 2.0
@@ -113,10 +113,16 @@ public class CKardex implements IKardex
                 estado = "A";
             else
                 estado = "*";
+
             model.addRow(new Object[]{  det.get(i).getKarDetCod(),
-                                        det.get(i).getKarDetDia() + "/" + 
-                                        det.get(i).getKarDetMes() + "/" +
-                                        det.get(i).getKarDetAnio(),
+                                        new StringBuffer(   det.get(i).getKarDetDia().length() + 
+                                                            det.get(i).getKarDetMes().length() +
+                                                            det.get(i).getKarDetAnio() + 2
+                                                            ).append(det.get(i).getKarDetDia())
+                                                            .append('/')
+                                                            .append(det.get(i).getKarDetMes())
+                                                            .append('/')
+                                                            .append(det.get(i).getKarDetAnio()),
                                         tipo,
                                         det.get(i).getKarDetCan(),
                                         det.get(i).getKarDetValUni(),

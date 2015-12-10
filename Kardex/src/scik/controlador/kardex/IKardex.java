@@ -5,9 +5,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la gestión de kardex
+ * Interfaz de la gestion de kardex
  * 
- * Métodos disponibles para el controlador de gestión de kardex
+ * Métodos disponibles para el controlador de gestion de kardex
  *  
  * @author Yuliana Apaza
  * @version 2.0

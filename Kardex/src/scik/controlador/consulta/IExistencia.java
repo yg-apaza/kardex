@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 /**
  * Interfaz de la consulta de existencia de productos
  * 
- * Métodos disponibles para el controlador de consulta de existencias.
+ * Metodos disponibles para el controlador de consulta de existencias.
  *  
  * @author Yuliana Apaza
  * @version 2.0

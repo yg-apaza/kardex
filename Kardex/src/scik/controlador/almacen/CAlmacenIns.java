@@ -7,9 +7,9 @@ import scik.modelo.Almacen;
 import scik.vista.almacen.UIAlmacenIns;
 
 /**
- * Controlador de la inserción de almacen
+ * Controlador de la insercion de almacen
  * 
- * Recibe y valida datos sobre un nuevo registro de almacén
+ * Recibe y valida datos sobre un nuevo registro de almacen
  *  
  * @author Yuliana Apaza
  * @version 2.0

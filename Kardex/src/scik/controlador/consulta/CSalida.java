@@ -17,7 +17,7 @@ import scik.vista.consulta.UISalida;
 /**
  * Controlador de la consulta de salida de productos
  * 
- * Recibe parámetros de consulta sobre la salida de productos y muestra los
+ * Recibe parametros de consulta sobre la salida de productos y muestra los
  * resultados, adicionalmente permite generar reportes.
  *  
  * @author Yuliana Apaza

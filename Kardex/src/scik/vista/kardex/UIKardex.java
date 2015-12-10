@@ -11,7 +11,7 @@ import javax.swing.table.TableCellRenderer;
 import scik.controlador.kardex.IKardex;
 
 /**
- * Vista principal de Gestión de Kardex
+ * Vista principal de Gestion de Kardex
  * <p/>
  * <img src="screenshot/UIKardex.png"/>
  * @author Yuliana Apaza

@@ -3,9 +3,9 @@ package scik.controlador.almacen;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la modificación de almacen
+ * Interfaz de la modificacion de almacen
  * 
- * Métodos disponibles para el controlador de moficación de almacén
+ * Metodos disponibles para el controlador de moficacion de almacen
  *  
  * @author Yuliana Apaza
  * @version 2.0

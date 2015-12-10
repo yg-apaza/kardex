@@ -10,7 +10,7 @@ import scik.modelo.Usuario;
 import scik.vista.usuario.UIUsuarioIns;
 
 /**
- * Controlador de la inserción de usuario
+ * Controlador de la insercion de usuario
  * 
  * Recibe y valida datos sobre un nuevo registro de usuario
  *  

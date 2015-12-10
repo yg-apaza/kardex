@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
 /**
- * Representación de la entidad Detalle de Kardex de la base de datos
+ * Representacion de la entidad Detalle de Kardex de la base de datos
  * 
  * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
- * manipulación de datos para la tabla 'kardex_det' en MySQL. 
+ * manipulacion de datos para la tabla 'kardex_det' en MySQL. 
  * Incluye las funciones de insertar, modificar y eliminar.
  * 
  * 
@@ -416,7 +416,14 @@ public class KardexDet
                     operacion = "Salida";
                 ArrayList<String> data = new ArrayList<>();
                 String codigo = resultado.getString("KarDetCod");
-                String fecha = resultado.getString("KarDetAnio") + "/" + resultado.getString("KarDetMes") + "/" + resultado.getString("KarDetDia");
+                StringBuffer fecha = new StringBuffer(  resultado.getString("KarDetAnio").length() +
+                                                        resultado.getString("KarDetMes").length() +
+                                                        resultado.getString("KarDetDia").length() + 2
+                                                    ).append(resultado.getString("KarDetAnio"))
+                                                    .append('/')
+                                                    .append(resultado.getString("KarDetMes"))
+                                                    .append('/')
+                                                    .append(resultado.getString("KarDetDia"));
                 String documento = resultado.getString("DocNom");
                 String numDoc = resultado.getString("KarDetDocNum");
                 String cantidad = resultado.getString("KarDetCan");
@@ -428,7 +435,7 @@ public class KardexDet
                 String observ = resultado.getString("KarDetObs");
                 
                 data.add(codigo);
-                data.add(fecha);
+                data.add(fecha.toString());
                 data.add(documento);
                 data.add(numDoc);
                 data.add(operacion);

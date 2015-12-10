@@ -5,9 +5,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la gestión de documento
+ * Interfaz de la gestion de documento
  * 
- * Métodos disponibles para el controlador de gestión de documento
+ * Metodos disponibles para el controlador de gestion de documento
  *  
  * @author Yuliana Apaza
  * @version 2.0

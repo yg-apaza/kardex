@@ -3,9 +3,9 @@ package scik.controlador.unidad;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la modificación de unidad
+ * Interfaz de la modificacion de unidad
  * 
- * Métodos disponibles para el controlador de moficación de unidad
+ * Metodos disponibles para el controlador de moficacion de unidad
  *  
  * @author Yuliana Apaza
  * @version 2.0

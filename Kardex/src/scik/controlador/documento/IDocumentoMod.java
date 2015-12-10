@@ -3,9 +3,9 @@ package scik.controlador.documento;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la modificación de documento
+ * Interfaz de la modificacion de documento
  * 
- * Métodos disponibles para el controlador de moficación de documento
+ * Metodos disponibles para el controlador de moficacion de documento
  *  
  * @author Yuliana Apaza
  * @version 2.0

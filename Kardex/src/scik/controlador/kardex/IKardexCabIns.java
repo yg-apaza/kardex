@@ -4,9 +4,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
- * Interfaz de la inserción de kardex
+ * Interfaz de la insercion de kardex
  * 
- * Métodos disponibles para el controlador de inserción de kardex
+ * Metodos disponibles para el controlador de insercion de kardex
  *  
  * @author Yuliana Apaza
  * @version 2.0

@@ -17,7 +17,7 @@ import scik.vista.consulta.UIExistencia;
 /**
  * Controlador de la consulta de existencia de productos
  * 
- * Recibe parámetros de consulta sobre la existencia de productos y muestra los
+ * Recibe parametros de consulta sobre la existencia de productos y muestra los
  * resultados, adicionalmente permite generar reportes.
  *  
  * @author Yuliana Apaza

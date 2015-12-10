@@ -3,9 +3,9 @@ package scik.controlador.usuario;
 import javax.swing.JTable;
 
 /**
- * Interfaz de la gestión de usuario
+ * Interfaz de la gestion de usuario
  * 
- * Métodos disponibles para el controlador de gestión de usuario
+ * Metodos disponibles para el controlador de gestion de usuario
  *  
  * @author Yuliana Apaza
  * @version 2.0
