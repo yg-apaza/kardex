@@ -10,6 +10,14 @@ import javax.swing.table.TableCellRenderer;
 
 import scik.controlador.unidad.IUnidad;
 
+/**
+ * Vista principal de Gestión de Unidad
+ * <p/>
+ * <img src="screenshot/UIUnidad.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUnidad extends javax.swing.JFrame
 {
     private IUnidad interfaz;

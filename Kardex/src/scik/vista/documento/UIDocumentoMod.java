@@ -2,6 +2,14 @@ package scik.vista.documento;
 
 import scik.controlador.documento.IDocumentoMod;
 
+/**
+ * Vista principal de Modificar Documento
+ * <p/>
+ * <img src="screenshot/UIDocumentoMod.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIDocumentoMod extends javax.swing.JFrame
 {
     private IDocumentoMod interfaz;

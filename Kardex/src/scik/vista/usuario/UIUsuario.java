@@ -7,6 +7,14 @@ import javax.swing.table.TableCellRenderer;
 
 import scik.controlador.usuario.IUsuario;
 
+/**
+ * Vista principal de Gestión de Usuario
+ * <p/>
+ * <img src="screenshot/UIUsuario.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUsuario extends javax.swing.JFrame
 {
     private IUsuario interfaz;

@@ -8,6 +8,19 @@ import javax.swing.JOptionPane;
 
 import static scik.KardexIni.con;
 
+/**
+ * Representación de la entidad usuario de la base de datos
+ * 
+ * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
+ * manipulación de datos para la tabla 'usuario' en MySQL. 
+ * Incluye las funciones de insertar, modificar, eliminar y validar.
+ * 
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class Usuario
 {
     private String usrCod;

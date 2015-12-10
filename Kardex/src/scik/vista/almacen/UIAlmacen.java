@@ -14,7 +14,7 @@ import scik.controlador.almacen.IAlmacen;
  * Vista principal de Gestión de Almacén
  * <p/>
  * <img src="screenshot/UIAlmacen.png"/>
- * @author yuli
+ * @author Yuliana Apaza
  * @version 2.0
  * @since 2015-10-05
  */

@@ -23,6 +23,16 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.BaseColor;
 
+/**
+ * Generador de reportes
+ * 
+ * Genera reportes para los resultados de las consultas específicas y no específicas
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class Reporte
 {
     public static void generarReporte(String titulo, String titulo2, ArrayList<ArrayList<String>> datos, ArrayList<String> cab)

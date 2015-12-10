@@ -5,6 +5,14 @@ import javax.swing.JOptionPane;
 
 import scik.controlador.ILogin;
 
+/**
+ * Vista principal del Login de usuario
+ * <p/>
+ * <img src="screenshot/UILogin.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UILogin extends javax.swing.JFrame
 {
     private ILogin interfaz;

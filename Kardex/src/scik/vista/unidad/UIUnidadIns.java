@@ -2,6 +2,14 @@ package scik.vista.unidad;
 
 import scik.controlador.unidad.IUnidadIns;
 
+/**
+ * Vista principal de Insertar Unidad
+ * <p/>
+ * <img src="screenshot/UIUnidadIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUnidadIns extends javax.swing.JFrame
 {
     private IUnidadIns interfaz;

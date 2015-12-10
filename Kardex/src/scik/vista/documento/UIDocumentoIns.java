@@ -2,6 +2,14 @@ package scik.vista.documento;
 
 import scik.controlador.documento.IDocumentoIns;
 
+/**
+ * Vista principal de Insertar Documento
+ * <p/>
+ * <img src="screenshot/UIDocumentoIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIDocumentoIns extends javax.swing.JFrame
 {
     private IDocumentoIns interfaz;

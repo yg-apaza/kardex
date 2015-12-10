@@ -6,6 +6,16 @@ import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
 
+/**
+ * Interfaz de la inserción de registro de detalle de kardex
+ * 
+ * Métodos disponibles para el controlador de inserción de registro de detalle de kardex
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public interface IKardexDetIns
 {
     public void calcular(JTextField txtCan, JTextField txtValUni, JTextField txtValTot, int i);

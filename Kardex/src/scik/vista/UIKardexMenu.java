@@ -5,6 +5,14 @@ import javax.swing.JOptionPane;
 
 import scik.controlador.IKardexMenu;
 
+/**
+ * Vista principal del Menú
+ * <p/>
+ * <img src="screenshot/UIKardexMenu.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIKardexMenu extends javax.swing.JFrame
 {
     private IKardexMenu interfaz;

@@ -2,6 +2,14 @@ package scik.vista.consulta;
 
 import scik.controlador.consulta.ISalida;
 
+/**
+ * Vista principal de Consulta de Salida de Productos
+ * <p/>
+ * <img src="screenshot/UISalida.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UISalida extends javax.swing.JFrame
 {
     private ISalida interfaz;
@@ -59,7 +67,7 @@ public class UISalida extends javax.swing.JFrame
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("ENTRADA DE PRODUCTOS");
+        lblTitulo.setText("SALIDA DE PRODUCTOS");
 
         cbxAnio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cbxAnio.addActionListener(new java.awt.event.ActionListener() {

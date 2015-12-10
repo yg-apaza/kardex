@@ -4,6 +4,14 @@ import java.util.Calendar;
 
 import scik.controlador.kardex.IKardexDetMod;
 
+/**
+ * Vista principal de Modificar Kardex Detalle
+ * <p/>
+ * <img src="screenshot/UIKardexDetMod.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIKardexDetMod extends javax.swing.JFrame
 {
     private IKardexDetMod interfaz;

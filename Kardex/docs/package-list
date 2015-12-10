@@ -9,3 +9,10 @@ scik.controlador.unidad
 scik.controlador.usuario
 scik.modelo
 scik.vista
+scik.vista.almacen
+scik.vista.consulta
+scik.vista.documento
+scik.vista.kardex
+scik.vista.producto
+scik.vista.unidad
+scik.vista.usuario

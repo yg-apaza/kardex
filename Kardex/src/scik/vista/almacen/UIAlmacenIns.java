@@ -6,7 +6,7 @@ import scik.controlador.almacen.IAlmacenIns;
  * Vista principal de Insertar Almacen
  * <p/>
  * <img src="screenshot/UIAlmacenIns.png"/>
- * @author yuli
+ * @author Yuliana Apaza
  * @version 2.0
  * @since 2015-10-05
  */

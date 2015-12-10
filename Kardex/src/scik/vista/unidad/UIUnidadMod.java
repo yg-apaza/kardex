@@ -2,6 +2,14 @@ package scik.vista.unidad;
 
 import scik.controlador.unidad.IUnidadMod;
 
+/**
+ * Vista principal de Modificar Unidad
+ * <p/>
+ * <img src="screenshot/UIUnidadMod.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUnidadMod extends javax.swing.JFrame
 {
     private IUnidadMod interfaz;

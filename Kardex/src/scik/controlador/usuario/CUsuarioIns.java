@@ -9,6 +9,16 @@ import javax.swing.JTextField;
 import scik.modelo.Usuario;
 import scik.vista.usuario.UIUsuarioIns;
 
+/**
+ * Controlador de la inserción de usuario
+ * 
+ * Recibe y valida datos sobre un nuevo registro de usuario
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CUsuarioIns implements IUsuarioIns
 {
     private UIUsuarioIns ventana;

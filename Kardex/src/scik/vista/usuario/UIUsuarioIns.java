@@ -2,6 +2,14 @@ package scik.vista.usuario;
 
 import scik.controlador.usuario.IUsuarioIns;
 
+/**
+ * Vista principal de Insertar Usuario
+ * <p/>
+ * <img src="screenshot/UIUsuarioIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUsuarioIns extends javax.swing.JFrame
 {
     private IUsuarioIns interfaz;

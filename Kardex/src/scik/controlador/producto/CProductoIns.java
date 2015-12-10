@@ -10,6 +10,16 @@ import scik.modelo.Producto;
 import scik.modelo.Unidad;
 import scik.vista.producto.UIProductoIns;
 
+/**
+ * Controlador de la inserción de producto
+ * 
+ * Recibe y valida datos sobre un nuevo registro de producto
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CProductoIns implements IProductoIns
 {
     private UIProductoIns ventana;

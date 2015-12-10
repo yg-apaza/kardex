@@ -5,6 +5,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+/**
+ * Interfaz de la modificación de usuario
+ * 
+ * Métodos disponibles para el controlador de moficación de usuario
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public interface IUsuarioMod
 {
     public void cancelar();

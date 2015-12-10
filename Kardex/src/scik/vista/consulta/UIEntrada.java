@@ -2,6 +2,14 @@ package scik.vista.consulta;
 
 import scik.controlador.consulta.IEntrada;
 
+/**
+ * Vista principal de Consulta de Entrada de Productos
+ * <p/>
+ * <img src="screenshot/UIEntrada.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIEntrada extends javax.swing.JFrame
 {
     private IEntrada interfaz;

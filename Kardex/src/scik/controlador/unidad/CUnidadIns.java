@@ -6,6 +6,16 @@ import javax.swing.JTextField;
 import scik.modelo.Unidad;
 import scik.vista.unidad.UIUnidadIns;
 
+/**
+ * Controlador de la inserción de unidad
+ * 
+ * Recibe y valida datos sobre un nuevo registro de unidad
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CUnidadIns implements IUnidadIns
 {
     private UIUnidadIns ventana;

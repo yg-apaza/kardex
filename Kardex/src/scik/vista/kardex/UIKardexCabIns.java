@@ -2,6 +2,14 @@ package scik.vista.kardex;
 
 import scik.controlador.kardex.IKardexCabIns;
 
+/**
+ * Vista principal de Insertar Kardex Cabecera
+ * <p/>
+ * <img src="screenshot/UIKardexCabIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIKardexCabIns extends javax.swing.JFrame
 {
     private IKardexCabIns interfaz;

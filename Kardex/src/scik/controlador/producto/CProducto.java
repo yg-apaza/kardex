@@ -16,6 +16,19 @@ import scik.vista.producto.UIProducto;
 
 import com.mxrck.autocompleter.TextAutoCompleter;
 
+/**
+ * Controlador de la gestión de producto
+ * 
+ * Carga los productos existentes con sus datos, además de controlar el
+ * redireccionamiento hacia las ventanas de inserción o modificación. Provee
+ * opciones de generar reporte y buscar registros. Las funciones activar,
+ * desactivar y eliminar son realizadas aquí.
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CProducto implements IProducto
 {
     private UIProducto ventana;

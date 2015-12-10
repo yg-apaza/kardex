@@ -4,6 +4,14 @@ import java.util.Calendar;
 
 import scik.controlador.kardex.IKardexDetIns;
 
+/**
+ * Vista principal de Insertar Kardex Detalle
+ * <p/>
+ * <img src="screenshot/UIKardexDetIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIKardexDetIns extends javax.swing.JFrame
 {
     private IKardexDetIns interfaz;

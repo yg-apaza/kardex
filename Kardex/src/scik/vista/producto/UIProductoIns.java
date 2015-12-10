@@ -2,6 +2,14 @@ package scik.vista.producto;
 
 import scik.controlador.producto.IProductoIns;
 
+/**
+ * Vista principal de Insertar Producto
+ * <p/>
+ * <img src="screenshot/UIProductoIns.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIProductoIns extends javax.swing.JFrame
 {
     private IProductoIns interfaz;

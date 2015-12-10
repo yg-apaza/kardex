@@ -142,7 +142,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ENTRADA DE PRODUCTOS"/>
+        <Property name="text" type="java.lang.String" value="SALIDA DE PRODUCTOS"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbxAnio">

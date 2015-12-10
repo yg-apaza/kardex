@@ -2,6 +2,14 @@ package scik.vista.producto;
 
 import scik.controlador.producto.IProductoMod;
 
+/**
+ * Vista principal de Modificar Producto
+ * <p/>
+ * <img src="screenshot/UIProductoMod.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIProductoMod extends javax.swing.JFrame
 {
     private IProductoMod interfaz;

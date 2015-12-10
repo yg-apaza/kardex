@@ -10,6 +10,14 @@ import javax.swing.table.TableCellRenderer;
 
 import scik.controlador.producto.IProducto;
 
+/**
+ * Vista principal de Gestión de Producto
+ * <p/>
+ * <img src="screenshot/UIProducto.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIProducto extends javax.swing.JFrame
 {
     private IProducto interfaz;

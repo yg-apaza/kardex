@@ -9,6 +9,17 @@ import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.Connection;
 
+/**
+ * Clase de conexión con la base de datos
+ * 
+ * Las clases del paquete modelo utilizan esta clase para realizar sus operaciones
+ * Incluye la conexión, validación y acceso a la base de datos en el host respectivo.
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class Conexion
 {
     private Connection con;

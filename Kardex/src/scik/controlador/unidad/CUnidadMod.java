@@ -6,6 +6,16 @@ import javax.swing.JTextField;
 import scik.modelo.Unidad;
 import scik.vista.unidad.UIUnidadMod;
 
+/**
+ * Controlador de la modificación de unidad
+ * 
+ * Carga datos de la unidad seleccionada, recibe nuevos valores y los valida
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CUnidadMod implements IUnidadMod
 {
     private UIUnidadMod ventana;

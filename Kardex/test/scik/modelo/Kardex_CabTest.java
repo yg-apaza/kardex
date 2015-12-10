@@ -42,7 +42,7 @@ public class Kardex_CabTest
     public void testInsertar()
     {
         System.out.println("insertar");
-        Kardex_Cab instance = new Kardex_Cab();
+        KardexCab instance = new KardexCab();
         String expResult = "";
         String result = instance.insertar();
         assertEquals(expResult, result);
@@ -57,7 +57,7 @@ public class Kardex_CabTest
     public void testEliminar()
     {
         System.out.println("eliminar");
-        Kardex_Cab instance = new Kardex_Cab();
+        KardexCab instance = new KardexCab();
         String expResult = "";
         String result = instance.eliminar();
         assertEquals(expResult, result);
@@ -72,8 +72,8 @@ public class Kardex_CabTest
     public void testGetLista()
     {
         System.out.println("getLista");
-        ArrayList<Kardex_Cab> expResult = null;
-        ArrayList<Kardex_Cab> result = Kardex_Cab.getLista();
+        ArrayList<KardexCab> expResult = null;
+        ArrayList<KardexCab> result = KardexCab.getLista();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -88,8 +88,8 @@ public class Kardex_CabTest
         System.out.println("getDetalles");
         String p = "";
         String a = "";
-        ArrayList<Kardex_Det> expResult = null;
-        ArrayList<Kardex_Det> result = Kardex_Cab.getDetalles(p, a);
+        ArrayList<KardexDet> expResult = null;
+        ArrayList<KardexDet> result = KardexCab.getDetalles(p, a);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -104,8 +104,8 @@ public class Kardex_CabTest
         System.out.println("getDetallesActivos");
         String p = "";
         String a = "";
-        ArrayList<Kardex_Det> expResult = null;
-        ArrayList<Kardex_Det> result = Kardex_Cab.getDetallesActivos(p, a);
+        ArrayList<KardexDet> expResult = null;
+        ArrayList<KardexDet> result = KardexCab.getDetallesActivos(p, a);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -121,7 +121,7 @@ public class Kardex_CabTest
         String producto = "";
         String almacen = "";
         ArrayList<String> expResult = null;
-        ArrayList<String> result = Kardex_Cab.getVista(producto, almacen);
+        ArrayList<String> result = KardexCab.getVista(producto, almacen);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

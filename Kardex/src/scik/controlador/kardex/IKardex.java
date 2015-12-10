@@ -4,6 +4,16 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/**
+ * Interfaz de la gestión de kardex
+ * 
+ * Métodos disponibles para el controlador de gestión de kardex
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public interface IKardex
 {
     public void cargar(JTable tblRegistrosKC);

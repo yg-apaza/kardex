@@ -10,6 +10,16 @@ import scik.modelo.Producto;
 import scik.modelo.Unidad;
 import scik.vista.producto.UIProductoMod;
 
+/**
+ * Controlador de la modificación de producto
+ * 
+ * Carga datos del producto seleccionado, recibe nuevos valores y los valida
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CProductoMod implements IProductoMod
 {
     private UIProductoMod ventana;

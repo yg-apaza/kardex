@@ -2,6 +2,14 @@ package scik.vista.usuario;
 
 import scik.controlador.usuario.IUsuarioMod;
 
+/**
+ * Vista principal de Modificar Usuario
+ * <p/>
+ * <img src="screenshot/UIUsuarioMod.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIUsuarioMod extends javax.swing.JFrame
 {
     private IUsuarioMod interfaz;

@@ -6,7 +6,7 @@ import scik.controlador.almacen.IAlmacenMod;
  * Vista principal de Modificar Almacen
  * <p/>
  * <img src="screenshot/UIAlmacenMod.png"/>
- * @author yuli
+ * @author Yuliana Apaza
  * @version 2.0
  * @since 2015-10-05
  */

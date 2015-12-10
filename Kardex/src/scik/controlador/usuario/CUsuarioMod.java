@@ -9,6 +9,16 @@ import javax.swing.JTextField;
 import scik.modelo.Usuario;
 import scik.vista.usuario.UIUsuarioMod;
 
+/**
+ * Controlador de la modificación de usuario
+ * 
+ * Carga datos del usuario seleccionado, recibe nuevos valores y los valida
+ *  
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class CUsuarioMod implements IUsuarioMod
 {
     private UIUsuarioMod ventana;

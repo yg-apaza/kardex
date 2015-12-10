@@ -8,6 +8,19 @@ import javax.swing.JOptionPane;
 
 import static scik.KardexIni.con;
 
+/**
+ * Representación de la entidad Detalle de Kardex de la base de datos
+ * 
+ * Controla y gestiona acceso a la base de datos, consultas y peticiones de 
+ * manipulación de datos para la tabla 'kardex_det' en MySQL. 
+ * Incluye las funciones de insertar, modificar y eliminar.
+ * 
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class KardexDet
 {
     private String karDetCod;

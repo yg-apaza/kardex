@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static scik.KardexIni.con;
 
+/**
+ * Clase de consultas
+ * 
+ * Incluye las consultas específicas del sistema. 
+ * 
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
+
 public class Consultas
 {
     public static ArrayList<ArrayList<String>> existenciaProducto(String codigoProducto)

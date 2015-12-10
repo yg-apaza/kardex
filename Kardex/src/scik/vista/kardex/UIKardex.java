@@ -10,6 +10,14 @@ import javax.swing.table.TableCellRenderer;
 
 import scik.controlador.kardex.IKardex;
 
+/**
+ * Vista principal de Gestión de Kardex
+ * <p/>
+ * <img src="screenshot/UIKardex.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIKardex extends javax.swing.JFrame
 {
     private IKardex interfaz;

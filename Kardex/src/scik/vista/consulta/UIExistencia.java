@@ -2,6 +2,14 @@ package scik.vista.consulta;
 
 import scik.controlador.consulta.IExistencia;
 
+/**
+ * Vista principal de Consulta de Existencia de Productos
+ * <p/>
+ * <img src="screenshot/UIExistencia.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIExistencia extends javax.swing.JFrame
 {
     private IExistencia interfaz;

@@ -10,6 +10,14 @@ import javax.swing.table.TableCellRenderer;
 
 import scik.controlador.documento.IDocumento;
 
+/**
+ * Vista principal de Gestión de Documento
+ * <p/>
+ * <img src="screenshot/UIDocumento.png"/>
+ * @author Yuliana Apaza
+ * @version 2.0
+ * @since 2015-10-05
+ */
 public class UIDocumento extends javax.swing.JFrame
 {
     private IDocumento interfaz;
